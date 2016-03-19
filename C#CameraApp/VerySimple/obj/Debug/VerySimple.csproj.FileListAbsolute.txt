@@ -1,0 +1,13 @@
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\bin\Debug\VerySimple.exe.config
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\bin\Debug\VerySimple.exe
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\bin\Debug\VerySimple.pdb
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\bin\Debug\Camera_NET.dll
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\bin\Debug\DirectShowLib-2010.dll
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\bin\Debug\Camera_NET.pdb
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\bin\Debug\DirectShowLib-2010.pdb
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\obj\Debug\VerySimple.csprojResolveAssemblyReference.cache
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\obj\Debug\VerySimple.FormVerySimple.resources
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\obj\Debug\VerySimple.Properties.Resources.resources
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\obj\Debug\VerySimple.csproj.GenerateResource.Cache
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\obj\Debug\VerySimple.exe
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Samples\VerySimple\obj\Debug\VerySimple.pdb
