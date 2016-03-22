@@ -28,7 +28,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly
 //
 
-[assembly: AssemblyTitle("CameraControlTool")]
+[assembly: AssemblyTitle("Camera Viewer")]
 [assembly: AssemblyDescription("A complicated sample of CameraControl usage")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]

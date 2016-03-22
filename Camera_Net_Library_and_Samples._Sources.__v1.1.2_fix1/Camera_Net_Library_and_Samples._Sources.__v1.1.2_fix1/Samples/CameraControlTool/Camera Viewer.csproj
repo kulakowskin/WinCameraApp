@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6F81AD5D-34E5-4800-BF4D-A14281B0B822}</ProjectGuid>
+    <ProjectGuid>{5E315D76-0A31-4AFA-9084-95809AE8C56E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CameraControlSample</RootNamespace>
-    <AssemblyName>CameraControlSample</AssemblyName>
+    <RootNamespace>CameraControlTool</RootNamespace>
+    <AssemblyName>CameraControlTool</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -51,8 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Camera_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -61,16 +60,19 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormCameraControlSample.cs">
+    <Compile Include="Inspection.cs" />
+    <Compile Include="FormCameraControlTool.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCameraControlSample.Designer.cs">
-      <DependentUpon>FormCameraControlSample.cs</DependentUpon>
+    <Compile Include="FormCameraControlTool.Designer.cs">
+      <DependentUpon>FormCameraControlTool.cs</DependentUpon>
     </Compile>
+    <Compile Include="InspectionList.cs" />
+    <Compile Include="Part.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormCameraControlSample.resx">
-      <DependentUpon>FormCameraControlSample.cs</DependentUpon>
+    <EmbeddedResource Include="FormCameraControlTool.resx">
+      <DependentUpon>FormCameraControlTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,6 +106,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\unzoom.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -121,7 +126,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Content Include="Camera_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

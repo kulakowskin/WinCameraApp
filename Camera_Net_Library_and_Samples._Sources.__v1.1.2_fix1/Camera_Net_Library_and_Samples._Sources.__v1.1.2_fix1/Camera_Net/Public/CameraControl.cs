@@ -96,6 +96,8 @@ namespace Camera_NET
 
 
             _Camera.OutputVideoSizeChanged += Camera_OutputVideoSizeChanged;
+            //Console.WriteLine("Camera finished setup");
+            System.Threading.Thread.Sleep(1200);
         }
 
         /// <summary>
@@ -573,6 +575,7 @@ namespace Camera_NET
         /// Camera object (user control is a wrapper for it).
         /// </summary>
         private Camera _Camera = null;
+        private Camera _Camera2 = null;
 
         /// <summary>
         /// Log file path for DirectShow (should be saved longer than _Camera lives).

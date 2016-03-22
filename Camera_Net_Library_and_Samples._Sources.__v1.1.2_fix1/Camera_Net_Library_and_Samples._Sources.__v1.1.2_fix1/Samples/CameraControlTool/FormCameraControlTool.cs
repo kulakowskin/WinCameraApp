@@ -28,11 +28,11 @@ namespace CameraControlTool
     using System.Drawing.Drawing2D;
     using System.Drawing.Text;
     using System.Runtime.InteropServices.ComTypes;
+    using System.Threading.Tasks;
 
     using Camera_NET;
 
     using DirectShowLib;
-
     #endregion
 
     public partial class FormCameraControlTool : Form
@@ -52,6 +52,12 @@ namespace CameraControlTool
 
         // Camera choice
         private CameraChoice _CameraChoice = new CameraChoice();
+
+        // Picture Resolution Choice
+        private Resolution pictureResolutionChoice;
+
+        // Video Resolution Choice
+        private Resolution currentResolution;
 
         #endregion
 
@@ -135,26 +141,77 @@ namespace CameraControlTool
         #endregion
 
         #region Functions Buttons
+        //public static Task Delay(double milliseconds)
+        // {
+        // var tcs = new TaskCompletionSource<bool>();
+        // System.Timers.Timer timer = new System.Timers.Timer();
+        // timer.Elapsed += (obj, args) =>
+        // {
+        //     tcs.TrySetResult(true);
+        // };
+        // timer.Interval = milliseconds;
+        //  timer.AutoReset = false;
+        //   timer.Start();
+        //  return tcs.Task;
+        //}
+
+        private void buttonRefreshCameras_Click(object sender, EventArgs e)
+        {
+            FillCameraList();
+
+            // Select the first one
+            if (comboBoxCameraList.Items.Count > 0)
+            {
+                comboBoxCameraList.SelectedIndex = 0;
+            }
+        }   
 
         private void buttonSavePicture_Click(object sender, EventArgs e)
         {
-            Bitmap bitmap = cameraControl.SnapshotOutputImage();
+            // Set camera to the default picture resolution
+            //setToPictureResolution();
+
+            //Console.WriteLine("Capturing picture with resolution of: " + pictureResolutionChoice);
+            //Bitmap bitmap = cameraControl.SnapshotOutputImage();
+            Bitmap bitmap = cameraControl.SnapshotSourceImage();
 
             if (bitmap == null)
             {
                 return;
             }
 
+            //bitmap.Save("test", ImageFormat.Png);
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
                 sfd.Filter = "*.png|*.png";
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
+                    //bitmap.Save("test",ImageFormat.Png);
                     bitmap.Save(sfd.FileName);
                 }
             }
+            //Set camera back to default video resolution
+            //revertToCurrentResolution();
+            Console.WriteLine("Setting resolution back to: " + currentResolution);
 
             bitmap.Dispose();
+        }
+
+        private void buttonSaveSnapShot_Click(object sender, EventArgs e)
+        {
+            if (pictureBoxScreenshot.Image != null)
+            {
+                Bitmap bitmap = (Bitmap)pictureBoxScreenshot.Image;
+                using (SaveFileDialog sfd = new SaveFileDialog())
+                {
+                    sfd.Filter = "*.png|*.png";
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        //bitmap.Save("test",ImageFormat.Png);
+                        bitmap.Save(sfd.FileName);
+                    }
+                }
+            }
         }
 
         private void buttonMixerOnOff_Click(object sender, EventArgs e)
@@ -168,6 +225,7 @@ namespace CameraControlTool
                 return;
 
             Bitmap bitmap = cameraControl.SnapshotOutputImage();
+            //Bitmap bitmap = cameraControl.SnapshotSourceImage();
 
             if (bitmap == null)
                 return;
@@ -626,6 +684,8 @@ namespace CameraControlTool
 
         #region Camera and resolution selection
 
+        
+
         private void comboBoxCameraList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxCameraList.SelectedIndex < 0)
@@ -636,9 +696,38 @@ namespace CameraControlTool
             {
                 // Set camera
                 SetCamera(_CameraChoice.Devices[ comboBoxCameraList.SelectedIndex ].Mon, null);
+
+                // Set 2nd camera if the resolutions are different
+
             }
 
             FillResolutionList();
+        }
+
+        private void comboBoxDefaultPictureResolution_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int comboBoxDefaultPictureResolutionIndex = comboBoxDefaultPictureResolution.SelectedIndex;
+            if(comboBoxDefaultPictureResolutionIndex < 0)
+            {
+                return;
+            }
+            ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
+
+            if (resolutions == null)
+                return;
+
+            if (comboBoxDefaultPictureResolutionIndex >= resolutions.Count)
+                return;
+
+            if (0 == resolutions[comboBoxDefaultPictureResolutionIndex].CompareTo(cameraControl.Resolution))
+            {
+                pictureResolutionChoice = cameraControl.Resolution;
+                return;
+            }
+            // Set the default picture resolution choice
+            pictureResolutionChoice = resolutions[comboBoxDefaultPictureResolutionIndex];
+            Console.WriteLine("Picture resolution set to: " + pictureResolutionChoice);
+
         }
 
         private void comboBoxResolutionList_SelectedIndexChanged(object sender, EventArgs e)
@@ -665,14 +754,40 @@ namespace CameraControlTool
                 return;
             }
 
+            // Set the default video resolution choice
+            //currentResolution = resolutions[comboBoxResolutionIndex];
+            //Console.WriteLine("Current resolution is: " + currentResolution);
+
             // Recreate camera
             SetCamera(cameraControl.Moniker, resolutions[comboBoxResolutionIndex]);
 
         }
 
+        private void setToPictureResolution()
+        {
+            if (pictureResolutionChoice.ToString() != currentResolution.ToString())
+            {
+                // Change resolution if it's not the current resolution
+                SetCamera(cameraControl.Moniker, pictureResolutionChoice);
+            }
+            Console.WriteLine("Capturing picture with resolution of: " + pictureResolutionChoice);
+        }
+
+        private void revertToCurrentResolution()
+        {
+            if (pictureResolutionChoice.ToString() != currentResolution.ToString())
+            {
+                // Change resolution if it's not the current resolution
+                SetCamera(cameraControl.Moniker, currentResolution);
+                Console.WriteLine("Setting resolution back to: " + currentResolution);
+            }
+        }
+
+
         private void FillResolutionList()
         {
             comboBoxResolutionList.Items.Clear();
+            comboBoxDefaultPictureResolution.Items.Clear();
 
             if (!cameraControl.CameraCreated)
                 return;
@@ -688,6 +803,8 @@ namespace CameraControlTool
             for (int index = 0; index < resolutions.Count; index++)
             {
                 comboBoxResolutionList.Items.Add(resolutions[index].ToString());
+                // Add in the resolutions that can be selected for capturing images
+                comboBoxDefaultPictureResolution.Items.Add(resolutions[index].ToString());
 
                 if (resolutions[index].CompareTo(cameraControl.Resolution) == 0)
                 {
@@ -699,6 +816,11 @@ namespace CameraControlTool
             if (index_to_select >= 0)
             {
                 comboBoxResolutionList.SelectedIndex = index_to_select;
+                //comboBoxDefaultPictureResolution.SelectedIndex = index_to_select;
+
+                // Set the default resolutions
+                //currentResolution = resolutions[index_to_select];
+                //pictureResolutionChoice = resolutions[index_to_select];
             }
         }
 
@@ -724,8 +846,9 @@ namespace CameraControlTool
             }
         }
 
+        private void tableLayoutPanelForm_Paint(object sender, PaintEventArgs e)
+        {
 
-
-
+        }
     }
 }
