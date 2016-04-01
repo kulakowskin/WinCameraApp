@@ -1,5 +1,9 @@
 # WinCameraApp
+UPDATES
+Removed all the unnecessary projects and renamed the project to 'CameraViewer'.
+The full path for the project file is: WinCameraApp/CameraViewer/CameraViewer/Samples/CameraSamples.sln.
 
+DESCRIPTION
 This C# application allows the use of external webcams.
 Through the use of the CNET_Library, settings such as brightness, hue, contrast can be manipulated.
 
