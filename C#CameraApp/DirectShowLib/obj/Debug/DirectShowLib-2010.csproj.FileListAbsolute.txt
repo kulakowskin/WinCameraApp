@@ -1,0 +1,12 @@
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\DirectShowLib\bin\Debug\DirectShowLib-2010.dll.config
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\DirectShowLib\bin\Debug\DirectShowLib-2010.dll
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\DirectShowLib\bin\Debug\DirectShowLib-2010.pdb
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\DirectShowLib\obj\Debug\DirectShowLib-2010.csprojResolveAssemblyReference.cache
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\DirectShowLib\obj\Debug\DirectShowLib-2010.dll
+C:\Users\Mac-PC\Desktop\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\DirectShowLib\obj\Debug\DirectShowLib-2010.pdb
+C:\Users\Mac-PC\Desktop\Git\WinCameraApp\C#CameraApp\DirectShowLib\bin\Debug\DirectShowLib-2010.dll.config
+C:\Users\Mac-PC\Desktop\Git\WinCameraApp\C#CameraApp\DirectShowLib\bin\Debug\DirectShowLib-2010.dll
+C:\Users\Mac-PC\Desktop\Git\WinCameraApp\C#CameraApp\DirectShowLib\bin\Debug\DirectShowLib-2010.pdb
+C:\Users\Mac-PC\Desktop\Git\WinCameraApp\C#CameraApp\DirectShowLib\obj\Debug\DirectShowLib-2010.csprojResolveAssemblyReference.cache
+C:\Users\Mac-PC\Desktop\Git\WinCameraApp\C#CameraApp\DirectShowLib\obj\Debug\DirectShowLib-2010.dll
+C:\Users\Mac-PC\Desktop\Git\WinCameraApp\C#CameraApp\DirectShowLib\obj\Debug\DirectShowLib-2010.pdb
