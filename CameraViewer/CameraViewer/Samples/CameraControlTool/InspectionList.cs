@@ -6,35 +6,43 @@ using System.Text;
 
 namespace CameraControlTool
 {
+    // This class holds all of the inspections created. An operator will be able to view all of the inspections
     class InspectionList
     {
         // List of all inspections
         private List<Inspection> mInspections;
-        private int lastIndex = -1;
-
+        //private Inspection currentInspection;
+        
         public InspectionList()
         {
             mInspections = new List<Inspection>();
         }
         
-        private void addInspection(Inspection inspection)
+        // Adds a new inspection to the list
+        public void addNewInspection(String description)
         {
+            // Creates a new inspection and adds it to the list
+            Inspection inspection = new Inspection(description);
             mInspections.Add(inspection);
-            lastIndex++;
+
+            // Sets the current inspection
+            //currentInspection = inspection;
         }
 
-        private Inspection getCurrentInspection()
+        // Edits the description of the selected inspection
+        public void editInspection(int index, String description)
         {
-            return mInspections[lastIndex];
+            mInspections.ElementAt(index).editDescription(description);
         }
-        
-        private void deleteInspection(int index)
+
+        // Deletes the selected inspection
+        public void deleteInspection(int index)
         {
             mInspections.RemoveAt(index);
-            lastIndex--;
         }
 
-        private List<Inspection> getInspections()
+        // Returns the list of inspections
+        public List<Inspection> getInspections()
         {
             return mInspections;
         }
