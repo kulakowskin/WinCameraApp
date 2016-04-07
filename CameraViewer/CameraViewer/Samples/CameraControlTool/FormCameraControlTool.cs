@@ -288,6 +288,11 @@ namespace CameraControlTool
             }
         }
 
+        private void buttonNewInspection_Click(object sender, EventArgs e)
+        {
+            // open new window for inspection input
+        }
+
         #endregion
 
         #region Camera event handlers

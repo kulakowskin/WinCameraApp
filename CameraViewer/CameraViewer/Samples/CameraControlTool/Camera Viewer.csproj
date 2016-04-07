@@ -60,6 +60,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnginePart.cs" />
     <Compile Include="Inspection.cs" />
     <Compile Include="FormCameraControlTool.cs">
       <SubType>Form</SubType>
@@ -68,7 +69,6 @@
       <DependentUpon>FormCameraControlTool.cs</DependentUpon>
     </Compile>
     <Compile Include="InspectionList.cs" />
-    <Compile Include="Part.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCameraControlTool.resx">

@@ -1,0 +1,9 @@
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net\bin\Debug\Camera_NET.dll
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net\bin\Debug\Camera_NET.pdb
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net\bin\Debug\DirectShowLib-2010.dll
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net\bin\Debug\DirectShowLib-2010.pdb
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net\obj\Debug\Camera_NET.csprojResolveAssemblyReference.cache
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net\obj\Debug\Camera_NET.CameraControl.resources
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net\obj\Debug\Camera_NET.csproj.GenerateResource.Cache
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net\obj\Debug\Camera_NET.dll
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net_Library_and_Samples._Sources.__v1.1.2_fix1\Camera_Net\obj\Debug\Camera_NET.pdb
