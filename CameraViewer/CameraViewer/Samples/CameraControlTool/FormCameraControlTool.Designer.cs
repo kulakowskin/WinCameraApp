@@ -38,7 +38,7 @@
             this.tableLayoutPanelForm = new System.Windows.Forms.TableLayoutPanel();
             this.panelCamera = new System.Windows.Forms.Panel();
             this.cameraControl = new Camera_NET.CameraControl();
-            this.buttonNewInspection = new System.Windows.Forms.Button();
+            this.buttonMetadata = new System.Windows.Forms.Button();
             this.buttonClearSnapshotFrame = new System.Windows.Forms.Button();
             this.buttonSaveSnapshot = new System.Windows.Forms.Button();
             this.labelSnapshotTitle = new System.Windows.Forms.Label();
@@ -130,7 +130,7 @@
             this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelForm.Controls.Add(this.buttonRefreshCameras, 0, 0);
             this.tableLayoutPanelForm.Controls.Add(this.panelCamera, 1, 0);
-            this.tableLayoutPanelForm.Controls.Add(this.buttonNewInspection, 0, 5);
+            this.tableLayoutPanelForm.Controls.Add(this.buttonMetadata, 0, 5);
             this.tableLayoutPanelForm.Controls.Add(this.buttonClearSnapshotFrame, 0, 15);
             this.tableLayoutPanelForm.Controls.Add(this.pictureBoxScreenshot, 0, 13);
             this.tableLayoutPanelForm.Controls.Add(this.buttonSaveSnapshot, 0, 12);
@@ -195,15 +195,15 @@
             this.cameraControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseMove);
             this.cameraControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseUp);
             // 
-            // buttonNewInspection
+            // buttonMetadata
             // 
-            this.buttonNewInspection.Location = new System.Drawing.Point(11, 141);
-            this.buttonNewInspection.Name = "buttonNewInspection";
-            this.buttonNewInspection.Size = new System.Drawing.Size(194, 24);
-            this.buttonNewInspection.TabIndex = 1;
-            this.buttonNewInspection.Text = "New Inspection";
-            this.buttonNewInspection.UseVisualStyleBackColor = true;
-            this.buttonNewInspection.Click += new System.EventHandler(this.buttonNewInspection_Click);
+            this.buttonMetadata.Location = new System.Drawing.Point(11, 141);
+            this.buttonMetadata.Name = "buttonMetadata";
+            this.buttonMetadata.Size = new System.Drawing.Size(194, 24);
+            this.buttonMetadata.TabIndex = 1;
+            this.buttonMetadata.Text = "View Metadata";
+            this.buttonMetadata.UseVisualStyleBackColor = true;
+            this.buttonMetadata.Click += new System.EventHandler(this.buttonMetadata_Click);
             // 
             // buttonClearSnapshotFrame
             // 
@@ -342,7 +342,7 @@
 
         //private System.Windows.Forms.Button buttonMixerOnOff;
         private System.Windows.Forms.Button buttonRefreshCameras;
-        private System.Windows.Forms.Button buttonNewInspection;
+        private System.Windows.Forms.Button buttonMetadata;
         private System.Windows.Forms.Button buttonSavePicture;
         private System.Windows.Forms.Button buttonSnapshotOutputFrame;
         private System.Windows.Forms.PictureBox pictureBoxScreenshot;

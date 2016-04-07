@@ -288,9 +288,11 @@ namespace CameraControlTool
             }
         }
 
-        private void buttonNewInspection_Click(object sender, EventArgs e)
+        private void buttonMetadata_Click(object sender, EventArgs e)
         {
             // open new window for inspection input
+            FormDirectory formDirectory = new FormDirectory();
+            formDirectory.show();
         }
 
         #endregion
