@@ -32,11 +32,10 @@ namespace CameraControlTool
         {
             this.tableLayoutPanelForm = new System.Windows.Forms.TableLayoutPanel();
             this.buttonNewInspection = new System.Windows.Forms.Button();
-            this.listBoxDirectory = new System.Windows.Forms.ListBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.textTitle = new System.Windows.Forms.TextBox();
             this.textDate = new System.Windows.Forms.TextBox();
             this.textDescription = new System.Windows.Forms.TextBox();
-            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.buttonAddPart = new System.Windows.Forms.Button();
             this.buttonSaveInspection = new System.Windows.Forms.Button();
             this.comboBoxParts = new System.Windows.Forms.ComboBox();
@@ -48,16 +47,16 @@ namespace CameraControlTool
             this.tableLayoutPanelForm.ColumnCount = 2;
             this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelForm.Controls.Add(this.buttonNewInspection, 0, 25);
-            this.tableLayoutPanelForm.Controls.Add(this.listBoxDirectory, 0, 0);
+            this.tableLayoutPanelForm.Controls.Add(this.buttonNewInspection, 0, 23);
+            this.tableLayoutPanelForm.Controls.Add(this.treeView1, 0, 2);
             this.tableLayoutPanelForm.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelForm.Name = "tableLayoutPanelForm";
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -84,23 +83,23 @@ namespace CameraControlTool
             // 
             // buttonNewInspection
             // 
-            this.buttonNewInspection.Location = new System.Drawing.Point(3, 503);
+            this.buttonNewInspection.Location = new System.Drawing.Point(3, 463);
             this.buttonNewInspection.Name = "buttonNewInspection";
             this.buttonNewInspection.Size = new System.Drawing.Size(194, 26);
             this.buttonNewInspection.TabIndex = 1;
             this.buttonNewInspection.Text = "New Inspection";
             this.buttonNewInspection.UseVisualStyleBackColor = true;
             this.buttonNewInspection.Click += new System.EventHandler(this.buttonNewInspection_Click);
-            // directoryEntries
-            System.DirectoryServices.DirectoryEntry myDir = new System.DirectoryServices.DirectoryEntry("WinNT://C:");
             // 
-            // listBoxDirectory
+            // treeView1
             // 
-            this.listBoxDirectory.FormattingEnabled = true;
-            this.listBoxDirectory.Location = new System.Drawing.Point(3, 3);
-            this.listBoxDirectory.Name = "listBoxDirectory";
-            this.listBoxDirectory.Size = new System.Drawing.Size(120, 4);
-            this.listBoxDirectory.TabIndex = 2;
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Location = new System.Drawing.Point(3, 43);
+            this.treeView1.MaximumSize = new System.Drawing.Size(193, 1000);
+            this.treeView1.Name = "treeView1";
+            this.tableLayoutPanelForm.SetRowSpan(this.treeView1, 20);
+            this.treeView1.Size = new System.Drawing.Size(193, 394);
+            this.treeView1.TabIndex = 3;
             // 
             // textTitle
             // 
@@ -134,10 +133,6 @@ namespace CameraControlTool
             this.textDescription.Size = new System.Drawing.Size(467, 105);
             this.textDescription.TabIndex = 4;
             this.textDescription.Text = "Description";
-            // 
-            // directoryEntry1
-            // 
-            this.directoryEntry1.Path = "WinNT://C:";
             // 
             // buttonAddPart
             // 
@@ -202,10 +197,9 @@ namespace CameraControlTool
         private TextBox textTitle;
         private TextBox textDate;
         private TextBox textDescription;
-        private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private Button buttonAddPart;
         private Button buttonSaveInspection;
         private ComboBox comboBoxParts;
-        private ListBox listBoxDirectory;
+        private TreeView treeView1;
     }
 }

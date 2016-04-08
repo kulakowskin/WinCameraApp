@@ -41,15 +41,7 @@ namespace CameraControlTool
                     di.Create();
                     Console.WriteLine("The directory was created successfully.");
                 }
-
-                // collects all the txt files in the directory
-                FileInfo[] Files = di.GetFiles("*.txt");
-
-                // puts local files in listBox format for app UI
-                foreach (FileInfo file in Files)
-                {
-                    listBoxDirectory.Items.Add(file.Name);
-                }
+                
             }
             catch (Exception e)
             {
@@ -61,19 +53,10 @@ namespace CameraControlTool
         {
 
         }
-        // makes buttons in side pain for each inspection
-        private void updateDirectory()
-        {
-            // gets last txt file added to the directory
-            //FileInfo[] Files = di.GetFiles("*.txt");
-           // FileInfo lastAdded = Files[Files.Length - 1];
 
-            // updates listBoxDirectory with newly added inspection
-           // listBoxDirectory.Items.Add(lastAdded.Name);
-        }
         private void buttonNewInspection_Click(object sender, EventArgs e)
         {
-            displayEmptyTextFields();
+            //displayEmptyTextFields();
         }
 
         private void buttonSaveInspection_Click(object sender, EventArgs e)
@@ -97,21 +80,31 @@ namespace CameraControlTool
                 outputFile.WriteLine(textDescription.Text);
             }
 
-            // if this inspection doesn't exist yet, it's added to the listBox in UI
-            if (!File.Exists(inspectionPath))  
-            {
-                // update directory UI
-                updateDirectory();
-            }
-
-            this.Close();
+            ListDirectory(treeView1, filePath);
         }
 
-        private void displayEmptyTextFields()
+        private void ListDirectory(TreeView treeView, string path)
         {
-
+            treeView.Nodes.Clear();
+            var rootDirectoryInfo = new DirectoryInfo(path);
+            treeView.Nodes.Add(CreateDirectoryNode(rootDirectoryInfo));
         }
 
-       
+        private static TreeNode CreateDirectoryNode(DirectoryInfo directoryInfo)
+        {
+            var directoryNode = new TreeNode(directoryInfo.Name);
+            foreach (var directory in directoryInfo.GetDirectories())
+                directoryNode.Nodes.Add(CreateDirectoryNode(directory));
+            foreach (var file in directoryInfo.GetFiles())
+                directoryNode.Nodes.Add(new TreeNode(file.Name));
+            return directoryNode;
+        }
+
+        private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            TreeNode node = treeView1.SelectedNode;
+            // call some function to update textBoxes being displayed
+        }
+
     }
 }
