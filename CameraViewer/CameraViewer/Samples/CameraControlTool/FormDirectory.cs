@@ -11,6 +11,7 @@ namespace CameraControlTool
 {
     public partial class FormDirectory : Form
     {
+
         public FormDirectory()
         {
             InitializeComponent();
@@ -23,7 +24,14 @@ namespace CameraControlTool
 
         private void buttonNewInspection_Click(object sender, EventArgs e)
         {
+            displayEmptyTextFields();
+        }
+
+        private void displayEmptyTextFields()
+        {
 
         }
+
+       
     }
 }

@@ -17,12 +17,12 @@ namespace CameraControlTool
         {
             mInspections = new List<Inspection>();
         }
-        
+
         // Adds a new inspection to the list
-        public void addNewInspection(String description)
+        public void addNewInspection(String title, String description)
         {
             // Creates a new inspection and adds it to the list
-            Inspection inspection = new Inspection(description);
+            Inspection inspection = new Inspection(title, description);
             mInspections.Add(inspection);
 
             // Sets the current inspection
