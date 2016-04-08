@@ -32,6 +32,7 @@ namespace CameraControlTool
         {
             this.tableLayoutPanelForm = new System.Windows.Forms.TableLayoutPanel();
             this.buttonNewInspection = new System.Windows.Forms.Button();
+            this.listBoxDirectory = new System.Windows.Forms.ListBox();
             this.textTitle = new System.Windows.Forms.TextBox();
             this.textDate = new System.Windows.Forms.TextBox();
             this.textDescription = new System.Windows.Forms.TextBox();
@@ -48,6 +49,7 @@ namespace CameraControlTool
             this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelForm.Controls.Add(this.buttonNewInspection, 0, 25);
+            this.tableLayoutPanelForm.Controls.Add(this.listBoxDirectory, 0, 0);
             this.tableLayoutPanelForm.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelForm.Name = "tableLayoutPanelForm";
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -89,6 +91,16 @@ namespace CameraControlTool
             this.buttonNewInspection.Text = "New Inspection";
             this.buttonNewInspection.UseVisualStyleBackColor = true;
             this.buttonNewInspection.Click += new System.EventHandler(this.buttonNewInspection_Click);
+            // directoryEntries
+            System.DirectoryServices.DirectoryEntry myDir = new System.DirectoryServices.DirectoryEntry("WinNT://C:");
+            // 
+            // listBoxDirectory
+            // 
+            this.listBoxDirectory.FormattingEnabled = true;
+            this.listBoxDirectory.Location = new System.Drawing.Point(3, 3);
+            this.listBoxDirectory.Name = "listBoxDirectory";
+            this.listBoxDirectory.Size = new System.Drawing.Size(120, 4);
+            this.listBoxDirectory.TabIndex = 2;
             // 
             // textTitle
             // 
@@ -123,6 +135,10 @@ namespace CameraControlTool
             this.textDescription.TabIndex = 4;
             this.textDescription.Text = "Description";
             // 
+            // directoryEntry1
+            // 
+            this.directoryEntry1.Path = "WinNT://C:";
+            // 
             // buttonAddPart
             // 
             this.buttonAddPart.Location = new System.Drawing.Point(606, 341);
@@ -140,6 +156,7 @@ namespace CameraControlTool
             this.buttonSaveInspection.TabIndex = 6;
             this.buttonSaveInspection.Text = "Save Inspection";
             this.buttonSaveInspection.UseVisualStyleBackColor = true;
+            this.buttonSaveInspection.Click += new System.EventHandler(this.buttonSaveInspection_Click);
             // 
             // comboBoxParts
             // 
@@ -189,5 +206,6 @@ namespace CameraControlTool
         private Button buttonAddPart;
         private Button buttonSaveInspection;
         private ComboBox comboBoxParts;
+        private ListBox listBoxDirectory;
     }
 }

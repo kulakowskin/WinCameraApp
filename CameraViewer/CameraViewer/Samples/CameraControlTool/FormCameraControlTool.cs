@@ -179,7 +179,7 @@ namespace CameraControlTool
             {
                 return;
             }
-
+            // TODO : change to be the same directory as Inspections *********************/
             //bitmap.Save("test", ImageFormat.Png);
             using (SaveFileDialog sfd = new SaveFileDialog())
             {

@@ -65,5 +65,19 @@ namespace CameraControlTool
             EnginePart part = mParts.ElementAt(index);
             part.editPartName(partName);
         }
+
+        /******** getters **************/
+        public String getTitle()
+        {
+            return title;
+        }
+        public String getDescription()
+        {
+            return description;
+        }
+        public DateTime getDate()
+        {
+            return mDate;
+        }
     }
 }
