@@ -847,15 +847,23 @@ namespace CameraControlTool
 
         private void buttonPinOutputSettings_Click(object sender, EventArgs e)
         {
-            if (cameraControl.CameraCreated)
-            {
-                cameraControl.DisplayPropertyPage_SourcePinOutput(this.Handle);
-            }
+            //if (cameraControl.CameraCreated)
+            //{
+            //    cameraControl.DisplayPropertyPage_SourcePinOutput(this.Handle);
+            //}
         }
 
         private void tableLayoutPanelForm_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cameraSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (cameraControl.CameraCreated)
+            {
+                cameraControl.DisplayPropertyPage_SourcePinOutput(this.Handle);
+            }
         }
     }
 }
