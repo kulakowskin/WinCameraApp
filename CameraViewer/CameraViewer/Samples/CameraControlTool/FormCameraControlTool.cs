@@ -59,6 +59,7 @@ namespace CameraControlTool
         // Video Resolution Choice
         private Resolution currentResolution;
 
+        
         #endregion
 
         #region Winforms stuff
@@ -114,6 +115,7 @@ namespace CameraControlTool
 
                 // Makes all magic with camera and DirectShow graph
                 cameraControl.SetCamera(camera_moniker, resolution);
+                Console.WriteLine("Resolution changed to: " + resolution);
             }
             catch (Exception e)
             {
@@ -847,23 +849,103 @@ namespace CameraControlTool
 
         private void buttonPinOutputSettings_Click(object sender, EventArgs e)
         {
-            //if (cameraControl.CameraCreated)
-            //{
-            //    cameraControl.DisplayPropertyPage_SourcePinOutput(this.Handle);
-            //}
+            if (cameraControl.CameraCreated)
+            {
+                cameraControl.DisplayPropertyPage_SourcePinOutput(this.Handle);
+            }
         }
 
         private void tableLayoutPanelForm_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void cameraSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (cameraControl.CameraCreated)
             {
-                cameraControl.DisplayPropertyPage_SourcePinOutput(this.Handle);
+                Camera.DisplayPropertyPage_Device(cameraControl.Moniker, this.Handle);
             }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+
+        void res_item_Click(object sender, EventArgs e)
+        {
+            // Get the sender
+            ToolStripItem item = (ToolStripItem)sender;
+            ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
+            
+            for (int i = 0; i < resolutions.Count; i++)
+            {
+                if (resolutions[i].ToString().Equals(item.ToString()))
+                {
+                    SetCamera(cameraControl.Moniker, resolutions[i]);
+                }
+            }
+        }
+
+        void cam_item_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Need to check for camera switch
+            if (!resolutionToolStripMenuItem.HasDropDownItems)
+            {
+
+                ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
+
+                for (int i = 0; i < resolutions.Count; i++)
+                {
+                    ToolStripItem resItem = new ToolStripMenuItem();
+                    resItem.Text = resolutions[i].ToString();
+                    resItem.Name = resolutions[i].ToString();
+                    resItem.Click += new EventHandler(res_item_Click);
+                    resolutionToolStripMenuItem.DropDownItems.Add(resItem);
+                }
+                foreach (var camera_device in _CameraChoice.Devices)
+                {
+                    ToolStripItem cameraItem = new ToolStripMenuItem();
+                    cameraItem.Text = camera_device.Name;
+                    cameraItem.Click += new EventHandler(cam_item_Click);
+                    cameraToolStripMenuItem.DropDownItems.Add(cameraItem);
+                }
+            }
+        }
+
+        private void resolutionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newInspectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewMetaDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // open new window for inspection input
+            FormDirectory formDirectory = new FormDirectory();
+            formDirectory.show();
+        }
+
+        private void cameraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
