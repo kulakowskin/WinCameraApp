@@ -20,38 +20,7 @@ namespace CameraControlTool
         {
             InitializeComponent();
             inspecList = new InspectionList();
-            di = new DirectoryInfo(@"C:\Users\" + Environment.UserName + @"\Documents\FERITScope Inspections\");
-            filePath = @"C:\Users\" + Environment.UserName + @"\Documents\FERITScope Inspections\";
-            // makes the master directory if it doesn't yet exist
-            if (!Directory.Exists(filePath))
-            {
-                System.IO.Directory.CreateDirectory(filePath);
-            }
-            try
-            {
-                // Determine whether the directory exists.
-                if (di.Exists)
-                {
-                    // Indicate that the directory already exists.
-                    Console.WriteLine("That path exists already.");
-                }
-                // Try to create the directory.
-                else
-                {
-                    di.Create();
-                    Console.WriteLine("The directory was created successfully.");
-                }
-                
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("The process failed: {0}", e.ToString());
-            }
-        }
-
-        private void tableLayoutPanelForm_Paint(object sender, PaintEventArgs e)
-        {
-
+            loadData();
         }
 
         private void buttonNewInspection_Click(object sender, EventArgs e)
@@ -71,12 +40,12 @@ namespace CameraControlTool
                 System.IO.Directory.CreateDirectory(inspectionPath);
             }
 
-            StreamWriter outputFile = new StreamWriter(inspectionPath +@"\"+textTitle.Text + ".txt");
+            StreamWriter outputFile = new StreamWriter(inspectionPath + @"\" + textTitle.Text + ".txt");
 
             using (outputFile)
             {
-                outputFile.WriteLine(textTitle.Text);
-                outputFile.WriteLine();
+                outputFile.WriteLine(textDate.Text+"\n");
+                outputFile.WriteLine(textTitle.Text+"\n\n");
                 outputFile.WriteLine(textDescription.Text);
             }
 
@@ -100,11 +69,70 @@ namespace CameraControlTool
             return directoryNode;
         }
 
-        private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void treeNode_Select(object sender, TreeViewEventArgs e)
         {
             TreeNode node = treeView1.SelectedNode;
-            // call some function to update textBoxes being displayed
+            String title = node.Text;
+            if (title.Contains(".txt"))
+            {
+                title.Replace(".txt", "");
+            }
+            loadText(title);
         }
 
+        public void loadText(String title)
+        {
+            foreach (Inspection inspec in inspecList.getInspections())
+            {
+                if (inspec.getTitle() == title)
+                {
+                    textTitle.Text = title;
+                    textDescription.Text = inspec.getDescription();
+                    textDate.Text = (inspec.getDate()).ToString();
+                }
+                // condition if the file is in the local directory but hasn't been put in 
+                // InspectionList since app was last opened
+                else
+                {
+                    StreamReader inputFile = new StreamReader(filePath + title + @"\" + title + ".txt");
+                }
+            }
+        }
+
+        public void loadData()
+        {
+            di = new DirectoryInfo(@"C:\Users\" + Environment.UserName + @"\Documents\FERITScope Inspections\");
+            filePath = @"C:\Users\" + Environment.UserName + @"\Documents\FERITScope Inspections\";
+            // makes the master directory if it doesn't yet exist
+            if (!Directory.Exists(filePath))
+            {
+                System.IO.Directory.CreateDirectory(filePath);
+            }
+            try
+            {
+                // Determine whether the directory exists.
+                if (!di.Exists)
+                {
+                    di.Create();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The process failed: {0}", e.ToString());
+            }
+
+            foreach (var directory in di.GetDirectories())
+            {
+                foreach (var file in di.GetFiles())
+                {
+                    loadInspection(directory.Name);
+                }
+            }   
+        }
+    
+        public void loadInspection(String title)
+        {
+           // inspecList.addNewInspection(title);
+        }
     }
 }

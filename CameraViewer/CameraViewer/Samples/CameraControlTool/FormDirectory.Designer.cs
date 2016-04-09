@@ -79,7 +79,6 @@ namespace CameraControlTool
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelForm.Size = new System.Drawing.Size(196, 534);
             this.tableLayoutPanelForm.TabIndex = 0;
-            this.tableLayoutPanelForm.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelForm_Paint);
             // 
             // buttonNewInspection
             // 
@@ -100,6 +99,7 @@ namespace CameraControlTool
             this.tableLayoutPanelForm.SetRowSpan(this.treeView1, 20);
             this.treeView1.Size = new System.Drawing.Size(193, 394);
             this.treeView1.TabIndex = 3;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeNode_Select);
             // 
             // textTitle
             // 
