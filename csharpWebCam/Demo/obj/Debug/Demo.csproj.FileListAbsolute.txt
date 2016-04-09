@@ -1,0 +1,5 @@
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\csharpWebCam\Demo\bin\Debug\Demo.exe.config
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\csharpWebCam\Demo\obj\Debug\Demo.csprojResolveAssemblyReference.cache
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\csharpWebCam\Demo\obj\Debug\Demo.MainForm.resources
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\csharpWebCam\Demo\obj\Debug\Demo.Properties.Resources.resources
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\csharpWebCam\Demo\obj\Debug\Demo.csproj.GenerateResource.Cache

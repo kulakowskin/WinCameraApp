@@ -56,10 +56,19 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnginePart.cs" />
+    <Compile Include="FormDirectory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDirectory.Designer.cs">
+      <DependentUpon>FormDirectory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inspection.cs" />
     <Compile Include="FormCameraControlTool.cs">
       <SubType>Form</SubType>
@@ -68,11 +77,13 @@
       <DependentUpon>FormCameraControlTool.cs</DependentUpon>
     </Compile>
     <Compile Include="InspectionList.cs" />
-    <Compile Include="Part.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCameraControlTool.resx">
       <DependentUpon>FormCameraControlTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDirectory.resx">
+      <DependentUpon>FormDirectory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

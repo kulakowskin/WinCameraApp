@@ -1,0 +1,5 @@
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\csharpWebCam\WebCamWrapper\obj\Debug\WebCamWrapper.csprojResolveAssemblyReference.cache
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\csharpWebCam\WebCamWrapper\obj\Debug\Camera\Configuration\CameraFrameSourceConfigurationElement.baml
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\csharpWebCam\WebCamWrapper\obj\Debug\Camera\Configuration\CameraFrameSourceConfigurationElement.g.cs
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\csharpWebCam\WebCamWrapper\obj\Debug\Touchless.Vision_MarkupCompile.cache
+C:\Users\Nicole\Desktop\git\CameraApp\WinCameraApp\csharpWebCam\WebCamWrapper\obj\Debug\Touchless.Vision.g.resources

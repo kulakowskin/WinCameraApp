@@ -179,7 +179,7 @@ namespace CameraControlTool
             {
                 return;
             }
-
+            // TODO : change to be the same directory as Inspections *********************/
             //bitmap.Save("test", ImageFormat.Png);
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
@@ -286,6 +286,13 @@ namespace CameraControlTool
             {
                 Camera.DisplayPropertyPage_Device(cameraControl.Moniker, this.Handle);
             }
+        }
+
+        private void buttonMetadata_Click(object sender, EventArgs e)
+        {
+            // open new window for inspection input
+            FormDirectory formDirectory = new FormDirectory();
+            formDirectory.show();
         }
 
         #endregion

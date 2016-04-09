@@ -6,18 +6,18 @@ using System.Text;
 
 namespace CameraControlTool
 {
-    // This class describes the current Engine Part an operator is inspecting. An operator will be able to add/edit the description and part number.
+    // This class describes the current Engine Part an operator is inspecting. An operator will be able to add/edit the description and part name.
     class EnginePart
     {
         private List<Bitmap> pictures;
         private String description;
-        private String partNumber;
+        private String partName;
 
-        public EnginePart(String description, String partNumber)
+        public EnginePart(String description, String partName)
         {
             this.pictures = new List<Bitmap>();
             this.description = description;
-            this.partNumber = partNumber;
+            this.partName = partName;
         }
 
 
@@ -56,16 +56,16 @@ namespace CameraControlTool
         }
 
 
-        // Methods for part number
+        // Methods for part name
 
-        public String getPartNumber()
+        public String getPartName()
         {
-            return partNumber;
+            return partName;
         }
 
-        public void editPartNumber(String partNumber)
+        public void editPartName(String partName)
         {
-            this.partNumber = partNumber;
+            this.partName = partName;
         }
 
     }

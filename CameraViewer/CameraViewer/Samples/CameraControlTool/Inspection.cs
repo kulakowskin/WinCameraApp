@@ -11,22 +11,24 @@ namespace CameraControlTool
     class Inspection
     {
         private List<EnginePart> mParts;
+        private String title;
         private String description;
         private DateTime mDate;
         private EnginePart currentPart;
 
-        public Inspection(String description)
+        public Inspection(String title, String description)
         {
+            this.title = title;
             this.mParts = new List<EnginePart>();
             this.description = description;
             // mDate = current date
         }
 
         // Called when inspector wants to associate a newly captured picture with a new Engine Part
-        public void createNewPart(String description, String partNumber)
+        public void createNewPart(String description, String partName)
         {
             // Creates a new engine part and adds it to the list
-            EnginePart part = new EnginePart(description, partNumber);
+            EnginePart part = new EnginePart(description, partName);
             mParts.Add(part);
 
             // Sets the current part to the newly added part
@@ -58,10 +60,24 @@ namespace CameraControlTool
         }
 
         // Edits the part number of the selected Engine Part
-        public void editPartNumber(int index, String partNumber)
+        public void editPartNumber(int index, String partName)
         {
             EnginePart part = mParts.ElementAt(index);
-            part.editPartNumber(partNumber);
+            part.editPartName(partName);
+        }
+
+        /******** getters **************/
+        public String getTitle()
+        {
+            return title;
+        }
+        public String getDescription()
+        {
+            return description;
+        }
+        public DateTime getDate()
+        {
+            return mDate;
         }
     }
 }
