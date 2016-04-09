@@ -39,7 +39,6 @@
             this.buttonClearSnapshotFrame = new System.Windows.Forms.Button();
             this.buttonSaveSnapshot = new System.Windows.Forms.Button();
             this.labelSnapshotTitle = new System.Windows.Forms.Label();
-            this.buttonPinOutputSettings = new System.Windows.Forms.Button();
             this.comboBoxDefaultPictureResolution = new System.Windows.Forms.ComboBox();
             this.labelDefaultPictureResolutionTitle = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -66,7 +65,7 @@
             // 
             // buttonSavePicture
             // 
-            this.buttonSavePicture.Location = new System.Drawing.Point(15, 286);
+            this.buttonSavePicture.Location = new System.Drawing.Point(15, 284);
             this.buttonSavePicture.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSavePicture.Name = "buttonSavePicture";
             this.buttonSavePicture.Size = new System.Drawing.Size(259, 32);
@@ -77,7 +76,7 @@
             // 
             // buttonSnapshotOutputFrame
             // 
-            this.buttonSnapshotOutputFrame.Location = new System.Drawing.Point(15, 353);
+            this.buttonSnapshotOutputFrame.Location = new System.Drawing.Point(15, 351);
             this.buttonSnapshotOutputFrame.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSnapshotOutputFrame.Name = "buttonSnapshotOutputFrame";
             this.buttonSnapshotOutputFrame.Size = new System.Drawing.Size(259, 32);
@@ -90,7 +89,7 @@
             // 
             this.pictureBoxScreenshot.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxScreenshot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxScreenshot.Location = new System.Drawing.Point(25, 433);
+            this.pictureBoxScreenshot.Location = new System.Drawing.Point(25, 431);
             this.pictureBoxScreenshot.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxScreenshot.Name = "pictureBoxScreenshot";
             this.pictureBoxScreenshot.Size = new System.Drawing.Size(239, 147);
@@ -110,7 +109,6 @@
             this.tableLayoutPanelForm.Controls.Add(this.buttonSnapshotOutputFrame, 0, 11);
             this.tableLayoutPanelForm.Controls.Add(this.labelSnapshotTitle, 0, 10);
             this.tableLayoutPanelForm.Controls.Add(this.buttonSavePicture, 0, 9);
-            this.tableLayoutPanelForm.Controls.Add(this.buttonPinOutputSettings, 0, 8);
             this.tableLayoutPanelForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelForm.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanelForm.Margin = new System.Windows.Forms.Padding(4);
@@ -194,7 +192,7 @@
             // 
             // buttonSaveSnapshot
             // 
-            this.buttonSaveSnapshot.Location = new System.Drawing.Point(15, 393);
+            this.buttonSaveSnapshot.Location = new System.Drawing.Point(15, 391);
             this.buttonSaveSnapshot.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSaveSnapshot.Name = "buttonSaveSnapshot";
             this.buttonSaveSnapshot.Size = new System.Drawing.Size(259, 32);
@@ -207,23 +205,12 @@
             // 
             this.labelSnapshotTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelSnapshotTitle.AutoSize = true;
-            this.labelSnapshotTitle.Location = new System.Drawing.Point(15, 332);
+            this.labelSnapshotTitle.Location = new System.Drawing.Point(15, 330);
             this.labelSnapshotTitle.Margin = new System.Windows.Forms.Padding(4, 10, 4, 0);
             this.labelSnapshotTitle.Name = "labelSnapshotTitle";
             this.labelSnapshotTitle.Size = new System.Drawing.Size(79, 17);
             this.labelSnapshotTitle.TabIndex = 5;
             this.labelSnapshotTitle.Text = "Snapshots:";
-            // 
-            // buttonPinOutputSettings
-            // 
-            this.buttonPinOutputSettings.Location = new System.Drawing.Point(15, 246);
-            this.buttonPinOutputSettings.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonPinOutputSettings.Name = "buttonPinOutputSettings";
-            this.buttonPinOutputSettings.Size = new System.Drawing.Size(259, 32);
-            this.buttonPinOutputSettings.TabIndex = 9;
-            this.buttonPinOutputSettings.Text = "Camera Output settings";
-            this.buttonPinOutputSettings.UseVisualStyleBackColor = true;
-            this.buttonPinOutputSettings.Click += new System.EventHandler(this.buttonPinOutputSettings_Click);
             // 
             // comboBoxDefaultPictureResolution
             // 
@@ -275,7 +262,8 @@
             // newInspectionToolStripMenuItem
             // 
             this.newInspectionToolStripMenuItem.Name = "newInspectionToolStripMenuItem";
-            this.newInspectionToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
+            this.newInspectionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newInspectionToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
             this.newInspectionToolStripMenuItem.Text = "New Inspection";
             this.newInspectionToolStripMenuItem.Click += new System.EventHandler(this.newInspectionToolStripMenuItem_Click);
             // 
@@ -305,7 +293,8 @@
             // viewMetaDataToolStripMenuItem
             // 
             this.viewMetaDataToolStripMenuItem.Name = "viewMetaDataToolStripMenuItem";
-            this.viewMetaDataToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
+            this.viewMetaDataToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
+            this.viewMetaDataToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
             this.viewMetaDataToolStripMenuItem.Text = "View MetaData";
             this.viewMetaDataToolStripMenuItem.Click += new System.EventHandler(this.viewMetaDataToolStripMenuItem_Click);
             // 
@@ -325,21 +314,22 @@
             // cameraToolStripMenuItem
             // 
             this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
-            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(295, 26);
             this.cameraToolStripMenuItem.Text = "Camera";
             this.cameraToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // resolutionToolStripMenuItem
             // 
             this.resolutionToolStripMenuItem.Name = "resolutionToolStripMenuItem";
-            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(295, 26);
             this.resolutionToolStripMenuItem.Text = "Resolution";
             this.resolutionToolStripMenuItem.Click += new System.EventHandler(this.resolutionToolStripMenuItem_Click);
             // 
             // cameraSettingsToolStripMenuItem
             // 
             this.cameraSettingsToolStripMenuItem.Name = "cameraSettingsToolStripMenuItem";
-            this.cameraSettingsToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.cameraSettingsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.cameraSettingsToolStripMenuItem.Size = new System.Drawing.Size(295, 26);
             this.cameraSettingsToolStripMenuItem.Text = "Camera Settings";
             this.cameraSettingsToolStripMenuItem.Click += new System.EventHandler(this.cameraSettingsToolStripMenuItem_Click);
             // 
@@ -358,7 +348,8 @@
             // cameraOutputSettingsToolStripMenuItem
             // 
             this.cameraOutputSettingsToolStripMenuItem.Name = "cameraOutputSettingsToolStripMenuItem";
-            this.cameraOutputSettingsToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.cameraOutputSettingsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.cameraOutputSettingsToolStripMenuItem.Size = new System.Drawing.Size(295, 26);
             this.cameraOutputSettingsToolStripMenuItem.Text = "Camera Output Settings";
             this.cameraOutputSettingsToolStripMenuItem.Click += new System.EventHandler(this.cameraOutputSettingsToolStripMenuItem_Click);
             // 
@@ -406,7 +397,6 @@
         private System.Windows.Forms.Label labelDefaultPictureResolutionTitle;
         private System.Windows.Forms.Button buttonClearSnapshotFrame;
         private Camera_NET.CameraControl cameraControl;
-        private System.Windows.Forms.Button buttonPinOutputSettings;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
