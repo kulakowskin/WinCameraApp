@@ -120,7 +120,7 @@
             // panelCamera
             // 
             this.panelCamera.Controls.Add(this.buttonUnZoom);
-            this.panelCamera.Controls.Add(this.cameraControl);
+           // this.panelCamera.Controls.Add(this.cameraControl);
             this.panelCamera.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCamera.Location = new System.Drawing.Point(217, 14);
             this.panelCamera.Margin = new System.Windows.Forms.Padding(4);
