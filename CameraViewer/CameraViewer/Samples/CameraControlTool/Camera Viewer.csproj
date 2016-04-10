@@ -62,28 +62,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnginePart.cs" />
+    <Compile Include="Engine Parts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Engine Parts.Designer.cs">
+      <DependentUpon>Engine Parts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inspection Classes\EnginePartList.cs" />
+    <Compile Include="Inspection Classes\EnginePart.cs" />
     <Compile Include="FormDirectory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDirectory.Designer.cs">
       <DependentUpon>FormDirectory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inspection.cs" />
+    <Compile Include="Inspection Classes\Inspection.cs" />
     <Compile Include="FormCameraControlTool.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCameraControlTool.Designer.cs">
       <DependentUpon>FormCameraControlTool.cs</DependentUpon>
     </Compile>
-    <Compile Include="InspectionList.cs" />
+    <Compile Include="Inspection Classes\InspectionList.cs" />
+    <Compile Include="Inspection Forms\EnginePartListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Engine Parts.resx">
+      <DependentUpon>Engine Parts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCameraControlTool.resx">
       <DependentUpon>FormCameraControlTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDirectory.resx">
       <DependentUpon>FormDirectory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inspection Forms\EnginePartListForm.resx">
+      <DependentUpon>EnginePartListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -96,6 +112,8 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,6 +125,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\SourceGrid_4_40_src\DevAge.TestApp\DevAge.TestApp.csproj">
+      <Project>{37864e0c-d32e-40a1-b6a8-5b84741681ef}</Project>
+      <Name>DevAge.TestApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\SourceGrid_4_40_src\SourceGrid\SourceGrid.csproj">
+      <Project>{2a5a1657-dba8-4117-8e2a-9f1236ace9e2}</Project>
+      <Name>SourceGrid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Camera_NET\Camera_NET.csproj">
       <Project>{E6052609-A070-41D5-85B9-ACABA91170C5}</Project>
       <Name>Camera_NET</Name>
@@ -138,7 +164,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Camera_icon.ico" />
+    <Content Include="Inspection Forms\SampleData.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(TargetPath)" "$(ProjectDir)..\..\Releases\"</PostBuildEvent>

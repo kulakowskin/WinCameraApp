@@ -19,7 +19,7 @@ namespace CameraControlTool
         public FormDirectory()
         {
             InitializeComponent();
-            inspecList = new InspectionList();
+            inspecList = InspectionList.getInstance();
             loadData();
         }
 

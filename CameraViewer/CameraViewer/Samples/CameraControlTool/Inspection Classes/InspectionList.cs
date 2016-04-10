@@ -9,13 +9,20 @@ namespace CameraControlTool
     // This class holds all of the inspections created. An operator will be able to view all of the inspections
     class InspectionList
     {
-        // List of all inspections
+        private static InspectionList instance;
         private List<Inspection> mInspections;
-        //private Inspection currentInspection;
-        
-        public InspectionList()
+        private InspectionList()
         {
-            mInspections = new List<Inspection>();
+            this.mInspections = new List<Inspection>();
+        }
+
+        public static InspectionList getInstance()
+        {
+            if (instance == null)
+            {
+                instance = new InspectionList() { };
+            }
+            return instance;
         }
 
         // Adds a new inspection to the list
