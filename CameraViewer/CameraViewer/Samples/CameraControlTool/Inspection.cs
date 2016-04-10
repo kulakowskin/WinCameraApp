@@ -60,11 +60,35 @@ namespace CameraControlTool
         }
 
         // Edits the part number of the selected Engine Part
-        public void editPartNumber(int index, String partName)
+        public void editPartName(int index, String partName)
         {
             EnginePart part = mParts.ElementAt(index);
             part.editPartName(partName);
         }
+        public bool exists(String part)
+        {
+            foreach(EnginePart p in mParts)
+            {
+                if (part == p.getPartName())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public int getPartIndex(String partName)
+        {
+            for(int i = 0; i < mParts.Count; i++)
+            {
+                if(partName == mParts.ElementAt(i).getPartName())
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
+
 
         /******** getters **************/
         public String getTitle()
@@ -78,6 +102,10 @@ namespace CameraControlTool
         public DateTime getDate()
         {
             return mDate;
+        }
+        public List<EnginePart> getEngineParts()
+        {
+            return mParts;
         }
     }
 }

@@ -21,6 +21,7 @@ namespace CameraControlTool
             InitializeComponent();
             inspecList = new InspectionList();
             loadData();
+            ListDirectory(treeView1, filePath);
         }
 
         private void buttonNewInspection_Click(object sender, EventArgs e)
@@ -52,6 +53,41 @@ namespace CameraControlTool
             ListDirectory(treeView1, filePath);
         }
 
+        private void buttonSavePart_Click(object sender, EventArgs e)
+        {
+            String textPart = comboBoxParts.Text;
+            comboBoxParts.Items.Add(textPart);
+            Inspection inspec = inspecList.searchInspections(textTitle.Text);
+            // checks if the part already exists and either edit or add
+            if (inspec.exists(textPart))
+            {
+                inspec.editPartDescription(inspec.getPartIndex(textPart), textPartDescription.Text);
+            }
+            else
+            {
+                inspec.createNewPart(textPartDescription.Text, textPart);
+            }
+
+            // save part to local directory
+            String inspectionPath = filePath + textTitle.Text;
+            // if there's no folder for this inspection yet, create one
+            if (!Directory.Exists(inspectionPath))
+            {
+                System.IO.Directory.CreateDirectory(inspectionPath);
+            }
+
+            // all part file names start with 'PART-' for sorting and organization reasons
+            StreamWriter outputFile = new StreamWriter(inspectionPath + @"\PART-" + textPart + ".txt");
+
+            using (outputFile)
+            {
+                outputFile.WriteLine(textPart + "\n");
+                outputFile.WriteLine(textPartDescription.Text + "\n\n");
+            }
+
+            ListDirectory(treeView1, filePath);
+        }
+
         private void ListDirectory(TreeView treeView, string path)
         {
             treeView.Nodes.Clear();
@@ -78,6 +114,7 @@ namespace CameraControlTool
                 title.Replace(".txt", "");
             }
             loadText(title);
+            loadComboBox(title);
         }
 
         public void loadText(String title)
@@ -94,7 +131,7 @@ namespace CameraControlTool
                 // InspectionList since app was last opened
                 else
                 {
-                    StreamReader inputFile = new StreamReader(filePath + title + @"\" + title + ".txt");
+                    //StreamReader inputFile = new StreamReader(filePath + title + @"\" + title + ".txt");
                 }
             }
         }
@@ -130,6 +167,15 @@ namespace CameraControlTool
             }   
         }
     
+        // each time a new inspection is selected, the parts drop down is updated
+        public void loadComboBox(String title)
+        {
+            Inspection inspec = inspecList.searchInspections(title);
+            foreach (EnginePart ep in inspec.getEngineParts())
+                {
+                    comboBoxParts.Items.Add(ep.getPartName());
+                }
+        }
         public void loadInspection(String title)
         {
            // inspecList.addNewInspection(title);

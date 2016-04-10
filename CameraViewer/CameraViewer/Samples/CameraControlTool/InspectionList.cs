@@ -46,5 +46,20 @@ namespace CameraControlTool
         {
             return mInspections;
         }
+
+        // Search for inspection by title
+        public Inspection searchInspections(String title)
+        {
+                foreach (Inspection inspec in mInspections)
+                {
+                    if (inspec.getTitle() == title)
+                    {
+                        return inspec;
+                    }
+                }
+                // this is a really horrible fix for not finding the inspection
+                Inspection i = new Inspection("title","description");
+                return i;  
+        }
     }
 }
