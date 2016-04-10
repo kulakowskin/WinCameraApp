@@ -125,21 +125,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\SourceGrid_4_40_src\DevAge.TestApp\DevAge.TestApp.csproj">
-      <Project>{37864e0c-d32e-40a1-b6a8-5b84741681ef}</Project>
-      <Name>DevAge.TestApp</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\..\SourceGrid_4_40_src\SourceGrid\SourceGrid.csproj">
-      <Project>{2a5a1657-dba8-4117-8e2a-9f1236ace9e2}</Project>
-      <Name>SourceGrid</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Camera_NET\Camera_NET.csproj">
       <Project>{E6052609-A070-41D5-85B9-ACABA91170C5}</Project>
       <Name>Camera_NET</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\DevAge.TestApp\DevAge.TestApp.csproj">
+      <Project>{37864e0c-d32e-40a1-b6a8-5b84741681ef}</Project>
+      <Name>DevAge.TestApp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\DirectShowLib\DirectShowLib-2010.csproj">
       <Project>{CE009BFA-5EF6-4153-B2A1-2FA79698A9AE}</Project>
       <Name>DirectShowLib-2010</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SourceGrid\SourceGrid.csproj">
+      <Project>{2a5a1657-dba8-4117-8e2a-9f1236ace9e2}</Project>
+      <Name>SourceGrid</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
