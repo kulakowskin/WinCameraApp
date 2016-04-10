@@ -45,18 +45,22 @@ namespace CameraControlTool
 
             using (outputFile)
             {
-                outputFile.WriteLine(textDate.Text+"\n");
-                outputFile.WriteLine(textTitle.Text+"\n\n");
+                outputFile.WriteLine(textDate.Text);
+                outputFile.WriteLine();
+                outputFile.WriteLine(textTitle.Text);
+                outputFile.WriteLine();
+                outputFile.WriteLine();
                 outputFile.WriteLine(textDescription.Text);
             }
+
+            savePart();
 
             ListDirectory(treeView1, filePath);
         }
 
-        private void buttonSavePart_Click(object sender, EventArgs e)
+        private void savePart()
         {
             String textPart = comboBoxParts.Text;
-            comboBoxParts.Items.Add(textPart);
             Inspection inspec = inspecList.searchInspections(textTitle.Text);
             // checks if the part already exists and either edit or add
             if (inspec.exists(textPart))
@@ -65,6 +69,7 @@ namespace CameraControlTool
             }
             else
             {
+                comboBoxParts.Items.Add(textPart);
                 inspec.createNewPart(textPartDescription.Text, textPart);
             }
 
@@ -81,8 +86,10 @@ namespace CameraControlTool
 
             using (outputFile)
             {
-                outputFile.WriteLine(textPart + "\n");
-                outputFile.WriteLine(textPartDescription.Text + "\n\n");
+                outputFile.WriteLine(textPart);
+                outputFile.WriteLine();
+                outputFile.WriteLine();
+                outputFile.WriteLine(textPartDescription.Text);
             }
 
             ListDirectory(treeView1, filePath);
@@ -160,10 +167,7 @@ namespace CameraControlTool
 
             foreach (var directory in di.GetDirectories())
             {
-                foreach (var file in di.GetFiles())
-                {
                     loadInspection(directory.Name);
-                }
             }   
         }
     
@@ -176,9 +180,26 @@ namespace CameraControlTool
                     comboBoxParts.Items.Add(ep.getPartName());
                 }
         }
+
         public void loadInspection(String title)
         {
-           // inspecList.addNewInspection(title);
+            foreach (var file in di.GetFiles())
+            {
+                if(file.Name == title)
+                {
+                   // inspecList.addNewInspection(title);
+                }
+            }
+        }
+
+        public void buttonShowNotes_Click(Object sender, EventArgs e)
+        {
+            String part = comboBoxParts.Text;
+            Inspection inspec = inspecList.searchInspections(textTitle.Text);
+            if (inspec.exists(part)){
+                EnginePart p = inspec.getEngineParts().ElementAt(inspec.getPartIndex(part));
+                textPartDescription.Text = p.getDescription();
+            }
         }
     }
 }
