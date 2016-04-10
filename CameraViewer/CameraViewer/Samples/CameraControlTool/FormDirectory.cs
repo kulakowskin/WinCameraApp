@@ -31,7 +31,7 @@ namespace CameraControlTool
 
         private void buttonSaveInspection_Click(object sender, EventArgs e)
         {
-            inspecList.addNewInspection(textTitle.Text, textDescription.Text);
+            inspecList.addNewInspection(textDate.Text, textTitle.Text, textDescription.Text);
 
             // save to local directory
             String inspectionPath = filePath + textTitle.Text;
@@ -112,10 +112,12 @@ namespace CameraControlTool
             return directoryNode;
         }
 
-        private void treeNode_Select(object sender, TreeViewEventArgs e)
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             TreeNode node = treeView1.SelectedNode;
-            String title = node.Text;
+            String title = e.Node.Text;
+            Console.WriteLine(e.Node.Text);
+            Console.WriteLine("node selected");  // this line isn't printing...
             if (title.Contains(".txt"))
             {
                 title.Replace(".txt", "");
@@ -124,21 +126,30 @@ namespace CameraControlTool
             loadComboBox(title);
         }
 
-        public void loadText(String title)
+        public void loadText(String node)
         {
-            foreach (Inspection inspec in inspecList.getInspections())
+            foreach (var inspec in inspecList.getInspections())
             {
-                if (inspec.getTitle() == title)
+                if (inspec.getTitle() == node)
                 {
-                    textTitle.Text = title;
+                    textTitle.Text = node;
                     textDescription.Text = inspec.getDescription();
-                    textDate.Text = (inspec.getDate()).ToString();
+                    textDate.Text = inspec.getDate();
                 }
-                // condition if the file is in the local directory but hasn't been put in 
-                // InspectionList since app was last opened
                 else
                 {
-                    //StreamReader inputFile = new StreamReader(filePath + title + @"\" + title + ".txt");
+                    if (node.Contains("PART-"))
+                    {
+                        foreach(var part in inspec.getEngineParts())
+                        {
+                            if(part.getPartName() == node)
+                            {
+                                textPartDescription.Text = node;
+                                comboBoxParts.SelectedText = node;
+                            }
+                        }
+                    }
+                    // add another condition for is a picture is selected
                 }
             }
         }
@@ -165,9 +176,10 @@ namespace CameraControlTool
                 Console.WriteLine("The process failed: {0}", e.ToString());
             }
 
+            // for loading data of each Inspection folder
             foreach (var directory in di.GetDirectories())
             {
-                    loadInspection(directory.Name);
+                    loadInspection(directory);
             }   
         }
     
@@ -181,14 +193,40 @@ namespace CameraControlTool
                 }
         }
 
-        public void loadInspection(String title)
+        public void loadInspection(DirectoryInfo dir)
         {
-            foreach (var file in di.GetFiles())
+            String title = dir.Name+".txt";
+            List<EnginePart> partNames = new List<EnginePart>();
+
+            foreach (var file in dir.GetFiles())
             {
-                if(file.Name == title)
+                if (file.Name == title)  // looking for primary inspection .txt
                 {
-                   // inspecList.addNewInspection(title);
+                    StreamReader sr = file.OpenText();
+                    String date = sr.ReadLine();
+                    String ignore = sr.ReadLine();      // ignore is just white space
+                    String name = sr.ReadLine();
+                    ignore = sr.ReadLine();
+                    ignore = sr.ReadLine();
+                    string description = sr.ReadToEnd();
+                    inspecList.addNewInspection(date, name, description);
                 }
+                else if (file.Name.Contains("PART"))   // for loading PART files
+                {
+                    StreamReader sr = file.OpenText();
+                    String partName = sr.ReadLine();
+                    String ignore = sr.ReadLine();
+                    ignore = sr.ReadLine();
+                    String partDesc = sr.ReadToEnd();
+
+                    partNames.Add(new EnginePart(partDesc, partName));
+                }
+                // add another condition for loading jpgs or pngs
+            }
+            Inspection inspec = inspecList.searchInspections(dir.Name);
+            foreach(EnginePart part in partNames)
+            {
+                inspec.addExistingPart(part);
             }
         }
 

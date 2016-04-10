@@ -19,10 +19,10 @@ namespace CameraControlTool
         }
 
         // Adds a new inspection to the list
-        public void addNewInspection(String title, String description)
+        public void addNewInspection(String date, String title, String description)
         {
             // Creates a new inspection and adds it to the list
-            Inspection inspection = new Inspection(title, description);
+            Inspection inspection = new Inspection(date, title, description);
             mInspections.Add(inspection);
 
             // Sets the current inspection
@@ -58,7 +58,7 @@ namespace CameraControlTool
                     }
                 }
                 // this is a really horrible fix for not finding the inspection
-                Inspection i = new Inspection("title","description");
+                Inspection i = new Inspection("date","title","description");
                 return i;  
         }
     }

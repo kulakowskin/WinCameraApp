@@ -102,6 +102,7 @@ namespace CameraControlTool
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.HotTracking = true;
             this.treeView1.Location = new System.Drawing.Point(20, 23);
             this.treeView1.Margin = new System.Windows.Forms.Padding(20, 3, 6, 20);
             this.treeView1.MaximumSize = new System.Drawing.Size(193, 900);
@@ -109,7 +110,7 @@ namespace CameraControlTool
             this.tableLayoutPanelForm.SetRowSpan(this.treeView1, 20);
             this.treeView1.Size = new System.Drawing.Size(174, 377);
             this.treeView1.TabIndex = 3;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeNode_Select);
+            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             // 
             // textTitle
             // 
