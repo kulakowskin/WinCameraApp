@@ -59,6 +59,7 @@ namespace CameraControlTool
         // Video Resolution Choice
         private Resolution currentResolution;
 
+        
         #endregion
 
         #region Winforms stuff
@@ -74,13 +75,16 @@ namespace CameraControlTool
         // On load of Form
         private void FormCameraControlTool_Load(object sender, EventArgs e)
         {
+            //ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
+            //SetCamera(cameraControl.Moniker, resolutions[0]);
+            //SetCamera(CameraCon)
             // Fill camera list combobox with available cameras
             FillCameraList();
 
             // Select the first one
-            if (comboBoxCameraList.Items.Count > 0)
+            //if (comboBoxCameraList.Items.Count > 0)
             {
-                comboBoxCameraList.SelectedIndex = 0;
+            //    comboBoxCameraList.SelectedIndex = 0;
             }
 
             // Fill camera list combobox with available resolutions
@@ -114,6 +118,7 @@ namespace CameraControlTool
 
                 // Makes all magic with camera and DirectShow graph
                 cameraControl.SetCamera(camera_moniker, resolution);
+                Console.WriteLine("Resolution changed to: " + resolution);
             }
             catch (Exception e)
             {
@@ -160,9 +165,9 @@ namespace CameraControlTool
             FillCameraList();
 
             // Select the first one
-            if (comboBoxCameraList.Items.Count > 0)
+            //if (comboBoxCameraList.Items.Count > 0)
             {
-                comboBoxCameraList.SelectedIndex = 0;
+              //  comboBoxCameraList.SelectedIndex = 0;
             }
         }   
 
@@ -695,14 +700,14 @@ namespace CameraControlTool
 
         private void comboBoxCameraList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxCameraList.SelectedIndex < 0)
+            //if (comboBoxCameraList.SelectedIndex < 0)
             {
-                cameraControl.CloseCamera();
+              //  cameraControl.CloseCamera();
             }
-            else
+            //else
             {
                 // Set camera
-                SetCamera(_CameraChoice.Devices[ comboBoxCameraList.SelectedIndex ].Mon, null);
+              //  SetCamera(_CameraChoice.Devices[ comboBoxCameraList.SelectedIndex ].Mon, null);
 
                 // Set 2nd camera if the resolutions are different
 
@@ -742,20 +747,20 @@ namespace CameraControlTool
             if (!cameraControl.CameraCreated)
                 return;
 
-            int comboBoxResolutionIndex = comboBoxResolutionList.SelectedIndex;
-            if (comboBoxResolutionIndex < 0)
-            {
+            //int comboBoxResolutionIndex = comboBoxResolutionList.SelectedIndex;
+            //if (comboBoxResolutionIndex < 0)
+            //{
                 return;
-            }
+           // }
             ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
 
-            if ( resolutions == null )
+            //if ( resolutions == null )
                 return; 
 
-            if ( comboBoxResolutionIndex >= resolutions.Count )
+            //if ( comboBoxResolutionIndex >= resolutions.Count )
                 return; // throw
 
-            if (0 == resolutions[comboBoxResolutionIndex].CompareTo(cameraControl.Resolution))
+            //if (0 == resolutions[comboBoxResolutionIndex].CompareTo(cameraControl.Resolution))
             {
                 // this resolution is already selected
                 return;
@@ -766,7 +771,7 @@ namespace CameraControlTool
             //Console.WriteLine("Current resolution is: " + currentResolution);
 
             // Recreate camera
-            SetCamera(cameraControl.Moniker, resolutions[comboBoxResolutionIndex]);
+            //SetCamera(cameraControl.Moniker, resolutions[comboBoxResolutionIndex]);
 
         }
 
@@ -793,7 +798,7 @@ namespace CameraControlTool
 
         private void FillResolutionList()
         {
-            comboBoxResolutionList.Items.Clear();
+            //comboBoxResolutionList.Items.Clear();
             comboBoxDefaultPictureResolution.Items.Clear();
 
             if (!cameraControl.CameraCreated)
@@ -809,7 +814,7 @@ namespace CameraControlTool
 
             for (int index = 0; index < resolutions.Count; index++)
             {
-                comboBoxResolutionList.Items.Add(resolutions[index].ToString());
+                //comboBoxResolutionList.Items.Add(resolutions[index].ToString());
                 // Add in the resolutions that can be selected for capturing images
                 comboBoxDefaultPictureResolution.Items.Add(resolutions[index].ToString());
 
@@ -822,7 +827,7 @@ namespace CameraControlTool
             // select current resolution
             if (index_to_select >= 0)
             {
-                comboBoxResolutionList.SelectedIndex = index_to_select;
+                //comboBoxResolutionList.SelectedIndex = index_to_select;
                 //comboBoxDefaultPictureResolution.SelectedIndex = index_to_select;
 
                 // Set the default resolutions
@@ -833,13 +838,13 @@ namespace CameraControlTool
 
         private void FillCameraList()
         {
-            comboBoxCameraList.Items.Clear();
+            //comboBoxCameraList.Items.Clear();
 
             _CameraChoice.UpdateDeviceList();
 
-            foreach (var camera_device in _CameraChoice.Devices)
+            //foreach (var camera_device in _CameraChoice.Devices)
             {
-                comboBoxCameraList.Items.Add(camera_device.Name);
+            //    comboBoxCameraList.Items.Add(camera_device.Name);
             }
         }
 
@@ -855,7 +860,130 @@ namespace CameraControlTool
 
         private void tableLayoutPanelForm_Paint(object sender, PaintEventArgs e)
         {
+            
+        }
+
+        private void cameraSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (cameraControl.CameraCreated)
+            {
+                Camera.DisplayPropertyPage_Device(cameraControl.Moniker, this.Handle);
+            }
+        }
+
+        private void cameraOutputSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (cameraControl.CameraCreated)
+            {
+                cameraControl.DisplayPropertyPage_SourcePinOutput(this.Handle);
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
         }
+
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+
+        void res_item_Click(object sender, EventArgs e)
+        {
+            // Get the sender
+            ToolStripItem item = (ToolStripItem)sender;
+            ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
+            
+            for (int i = 0; i < resolutions.Count; i++)
+            {
+                if (resolutions[i].ToString().Equals(item.ToString()))
+                {
+                    SetCamera(cameraControl.Moniker, resolutions[i]);
+                }
+            }
+        }
+
+        void cam_item_Click(object sender, EventArgs e)
+        {
+            // Get the sender
+            ToolStripItem item = (ToolStripItem)sender;
+            foreach (var camera_device in _CameraChoice.Devices)
+            {
+                if (camera_device.Name.Equals(item.ToString()))
+                {
+                    SetCamera(camera_device.Mon, null);
+                }
+            }
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!cameraControl.CameraCreated)
+            {
+                resolutionToolStripMenuItem.Enabled = false;
+                cameraSettingsToolStripMenuItem.Enabled = false;
+                cameraOutputSettingsToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                resolutionToolStripMenuItem.Enabled = true;
+                cameraSettingsToolStripMenuItem.Enabled = true;
+                cameraOutputSettingsToolStripMenuItem.Enabled = true;
+            }
+
+            
+            if (!cameraToolStripMenuItem.HasDropDownItems)
+            {
+                foreach (var camera_device in _CameraChoice.Devices)
+                {
+                    ToolStripItem cameraItem = new ToolStripMenuItem();
+                    cameraItem.Text = camera_device.Name;
+                    cameraItem.Click += new EventHandler(cam_item_Click);
+                    cameraToolStripMenuItem.DropDownItems.Add(cameraItem);
+                }
+            }
+
+            // Need to check for camera switch
+            if (cameraControl.CameraCreated)
+            {
+                if (!resolutionToolStripMenuItem.HasDropDownItems)
+                {
+                    ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
+
+                    for (int i = 0; i < resolutions.Count; i++)
+                    {
+                        ToolStripItem resItem = new ToolStripMenuItem();
+                        resItem.Text = resolutions[i].ToString();
+                        resItem.Name = resolutions[i].ToString();
+                        resItem.Click += new EventHandler(res_item_Click);
+                        resolutionToolStripMenuItem.DropDownItems.Add(resItem);
+                    }
+                }
+            }
+        }
+
+        private void resolutionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void newInspectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // open new window for inspection input
+            FormNewInspection formNewInspec = new FormNewInspection();
+            formNewInspec.show();
+        }
+
+        private void viewMetaDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // open new window for inspection input
+            FormDirectory formDirectory = new FormDirectory();
+            formDirectory.show();
+        }
+
+       
     }
 }

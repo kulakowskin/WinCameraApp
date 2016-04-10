@@ -13,11 +13,13 @@ namespace CameraControlTool
         private List<EnginePart> mParts;
         private String title;
         private String description;
-        private DateTime mDate;
+        private String date;
+        //private DateTime mDate;
         private EnginePart currentPart;
 
-        public Inspection(String title, String description)
+        public Inspection(String date, String title, String description)
         {
+            this.date = date;
             this.title = title;
             this.mParts = new List<EnginePart>();
             this.description = description;
@@ -33,6 +35,11 @@ namespace CameraControlTool
 
             // Sets the current part to the newly added part
             currentPart = part;
+        }
+        // used in loading data because List of parts already exists
+        public void addExistingPart(EnginePart part)
+        {
+            mParts.Add(part);
         }
 
         // Adds a picture to the current part
@@ -60,11 +67,35 @@ namespace CameraControlTool
         }
 
         // Edits the part number of the selected Engine Part
-        public void editPartNumber(int index, String partName)
+        public void editPartName(int index, String partName)
         {
             EnginePart part = mParts.ElementAt(index);
             part.editPartName(partName);
         }
+        public bool exists(String part)
+        {
+            foreach(EnginePart p in mParts)
+            {
+                if (part == p.getPartName())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public int getPartIndex(String partName)
+        {
+            for(int i = 0; i < mParts.Count; i++)
+            {
+                if(partName == mParts.ElementAt(i).getPartName())
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
+
 
         /******** getters **************/
         public String getTitle()
@@ -75,9 +106,13 @@ namespace CameraControlTool
         {
             return description;
         }
-        public DateTime getDate()
+        public String getDate()
         {
-            return mDate;
+            return date;
+        }
+        public List<EnginePart> getEngineParts()
+        {
+            return mParts;
         }
     }
 }
