@@ -977,7 +977,7 @@ namespace CameraControlTool
             formNewInspec.show();
         }
 
-        private void viewMetaDataToolStripMenuItem_Click(object sender, EventArgs e)
+        private void editInspectionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // open new window for inspection input
             FormDirectory formDirectory = new FormDirectory();

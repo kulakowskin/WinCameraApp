@@ -19,7 +19,7 @@ namespace CameraControlTool
         public FormDirectory()
         {
             InitializeComponent();
-            inspecList = new InspectionList();
+            inspecList = InspectionList.getInstance();
             loadData();
             ListDirectory(treeView1, filePath);
         }
@@ -69,7 +69,7 @@ namespace CameraControlTool
             }
             else
             {
-                inspec.createNewPart(textPartDescription.Text, textPart.Text);
+               // inspec.createNewPart(textPartDescription.Text, textPart.Text);
             }
 
             // save part to local directory
@@ -115,47 +115,33 @@ namespace CameraControlTool
         {
             TreeNode node = treeView1.SelectedNode;
             String title = e.Node.Text;
-            if (title.Contains(".txt"))
-            {
-                title.Replace(".txt", "");
-            }
+            String parent = e.Node.Parent.Text;
+
+            title.Replace(".txt", "");
+            loadText(title);
             if (title.Contains("PART"))
             {
                 title.Replace("PART-", "");
+                loadPartText(title, parent);
             }
-            loadText(title);
         }
 
-        public void loadPartComboBox(String partName)
+        public void loadPartText(String partName, String inspecName)
         {
-
+            // find part with matching name and load text boxes   
+            Inspection i = inspecList.searchInspections(inspecName);
+            EnginePart part = i.searchEngineParts(partName);
+            textPart.Text = part.getPartName();
+            textEngine.Text = part.getEngine();
+            textSection.Text = part.getSection();
         }
 
         public void loadText(String node)
         {
-            foreach (var inspec in inspecList.getInspections())
-            {
-                if (inspec.getTitle() == node)
-                {
-                    textTitle.Text = node;
-                    textDescription.Text = inspec.getDescription();
-                    textDate.Text = inspec.getDate();
-                }
-                else
-                {
-                    if (node.Contains("PART-"))
-                    {
-                        foreach(var part in inspec.getEngineParts())
-                        {
-                            if(part.getPartName() == node)
-                            {
-                                
-                            }
-                        }
-                    }
-                    // add another condition for is a picture is selected
-                }
-            }
+            Inspection i = inspecList.searchInspections(node);
+            textTitle.Text = node;
+            textDescription.Text = i.getDescription();
+            textDate.Text = i.getDate();
         }
 
         public void loadData()
@@ -213,7 +199,7 @@ namespace CameraControlTool
                     ignore = sr.ReadLine();
                     String partDesc = sr.ReadToEnd();
 
-                    partNames.Add(new EnginePart(partDesc, partName));
+                   // partNames.Add(new EnginePart(partDesc, partName));
                 }
                 // add another condition for loading jpgs or pngs
             }
@@ -223,11 +209,9 @@ namespace CameraControlTool
                 inspec.addExistingPart(part);
             }
         }
-
-        private void FormDirectory_Load(object sender, EventArgs e)
+        public void FormDirectory_Load(Object sender, EventArgs e)
         {
 
         }
-
     }
 }
