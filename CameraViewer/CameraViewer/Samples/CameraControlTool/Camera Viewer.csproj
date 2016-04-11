@@ -70,6 +70,13 @@
     </Compile>
     <Compile Include="Inspection Classes\EnginePartList.cs" />
     <Compile Include="Inspection Classes\EnginePart.cs" />
+    <Compile Include="EnginePart.cs" />
+    <Compile Include="FormNewInspection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewInspection.Designer.cs">
+      <DependentUpon>FormNewInspection.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDirectory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +107,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inspection Forms\EnginePartListForm.resx">
       <DependentUpon>EnginePartListForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormNewInspection.resx">
+      <DependentUpon>FormNewInspection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -167,7 +176,7 @@
   <PropertyGroup>
     <PostBuildEvent>copy "$(TargetPath)" "$(ProjectDir)..\..\Releases\"</PostBuildEvent>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

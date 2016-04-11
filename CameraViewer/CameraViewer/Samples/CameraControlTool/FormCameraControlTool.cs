@@ -972,7 +972,9 @@ namespace CameraControlTool
 
         private void newInspectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // open new window for inspection input
+            FormNewInspection formNewInspec = new FormNewInspection();
+            formNewInspec.show();
         }
 
         private void viewMetaDataToolStripMenuItem_Click(object sender, EventArgs e)
