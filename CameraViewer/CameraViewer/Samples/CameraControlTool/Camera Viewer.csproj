@@ -107,6 +107,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inspection Forms\EnginePartListForm.resx">
       <DependentUpon>EnginePartListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewInspection.resx">
       <DependentUpon>FormNewInspection.cs</DependentUpon>
     </EmbeddedResource>
