@@ -37,33 +37,34 @@ namespace CameraControlTool
             this.textTitle = new System.Windows.Forms.TextBox();
             this.textDate = new System.Windows.Forms.TextBox();
             this.textDescription = new System.Windows.Forms.TextBox();
-            this.buttonShowNotes = new System.Windows.Forms.Button();
             this.buttonSaveInspection = new System.Windows.Forms.Button();
-            this.comboBoxParts = new System.Windows.Forms.ComboBox();
             this.textPartDescription = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.titleDate = new System.Windows.Forms.TextBox();
             this.titleTitle = new System.Windows.Forms.TextBox();
             this.titleNotes = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.titlePart = new System.Windows.Forms.TextBox();
+            this.textEngine = new System.Windows.Forms.TextBox();
+            this.titleEngine = new System.Windows.Forms.TextBox();
+            this.titleSection = new System.Windows.Forms.TextBox();
+            this.textSection = new System.Windows.Forms.TextBox();
+            this.textPart = new System.Windows.Forms.TextBox();
             this.tableLayoutPanelForm.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // tableLayoutPanelForm
-            //
+            // 
             this.tableLayoutPanelForm.ColumnCount = 2;
-            this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 267F));
+            this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelForm.Controls.Add(this.buttonNewInspection, 0, 21);
             this.tableLayoutPanelForm.Controls.Add(this.treeView1, 0, 1);
             this.tableLayoutPanelForm.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelForm.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanelForm.Name = "tableLayoutPanelForm";
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
@@ -89,9 +90,9 @@ namespace CameraControlTool
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelForm.Size = new System.Drawing.Size(196, 492);
             this.tableLayoutPanelForm.TabIndex = 0;
-            //
+            // 
             // buttonNewInspection
-            //
+            // 
             this.buttonNewInspection.Location = new System.Drawing.Point(25, 423);
             this.buttonNewInspection.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
             this.buttonNewInspection.Name = "buttonNewInspection";
@@ -100,9 +101,9 @@ namespace CameraControlTool
             this.buttonNewInspection.Text = "New Inspection";
             this.buttonNewInspection.UseVisualStyleBackColor = true;
             this.buttonNewInspection.Click += new System.EventHandler(this.buttonNewInspection_Click);
-            //
+            // 
             // treeView1
-            //
+            // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.HotTracking = true;
             this.treeView1.Location = new System.Drawing.Point(20, 23);
@@ -113,30 +114,38 @@ namespace CameraControlTool
             this.treeView1.Size = new System.Drawing.Size(174, 377);
             this.treeView1.TabIndex = 3;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
-            //
+            // 
             // textTitle
-            //
+            // 
             this.textTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textTitle.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textTitle.Enabled = false;
+            this.textTitle.ForeColor = System.Drawing.SystemColors.InfoText;
             this.textTitle.Location = new System.Drawing.Point(354, 41);
             this.textTitle.Name = "textTitle";
+            this.textTitle.ReadOnly = true;
             this.textTitle.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textTitle.Size = new System.Drawing.Size(450, 22);
+            this.textTitle.Size = new System.Drawing.Size(298, 20);
             this.textTitle.TabIndex = 2;
             this.textTitle.Text = "Title";
-            //
+            // 
             // textDate
-            //
+            // 
             this.textDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textDate.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textDate.Enabled = false;
+            this.textDate.ForeColor = System.Drawing.SystemColors.InfoText;
             this.textDate.Location = new System.Drawing.Point(231, 41);
             this.textDate.MaxLength = 10;
             this.textDate.Name = "textDate";
-            this.textDate.Size = new System.Drawing.Size(118, 22);
+            this.textDate.ReadOnly = true;
+            this.textDate.Size = new System.Drawing.Size(89, 20);
             this.textDate.TabIndex = 3;
             this.textDate.Text = "MM/DD/YYYY";
             this.textDate.WordWrap = false;
-            //
+            // 
             // textDescription
-            //
+            // 
             this.textDescription.AcceptsReturn = true;
             this.textDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -144,64 +153,38 @@ namespace CameraControlTool
             this.textDescription.Multiline = true;
             this.textDescription.Name = "textDescription";
             this.textDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textDescription.Size = new System.Drawing.Size(467, 139);
+            this.textDescription.Size = new System.Drawing.Size(467, 97);
             this.textDescription.TabIndex = 4;
-            this.textDescription.Text = "Description";
-            //
-            // buttonShowNotes
-            //
-            this.buttonShowNotes.Location = new System.Drawing.Point(587, 275);
-            this.buttonShowNotes.Name = "buttonShowNotes";
-            this.buttonShowNotes.Size = new System.Drawing.Size(95, 23);
-            this.buttonShowNotes.TabIndex = 5;
-            this.buttonShowNotes.Text = "Show Part Notes";
-            this.buttonShowNotes.UseVisualStyleBackColor = true;
-            this.buttonShowNotes.Click += new System.EventHandler(this.buttonShowNotes_Click);
-            //
+            // 
             // buttonSaveInspection
-            //
+            // 
             this.buttonSaveInspection.Location = new System.Drawing.Point(417, 426);
             this.buttonSaveInspection.Name = "buttonSaveInspection";
-            this.buttonSaveInspection.Size = new System.Drawing.Size(127, 28);
+            this.buttonSaveInspection.Size = new System.Drawing.Size(95, 23);
             this.buttonSaveInspection.TabIndex = 6;
             this.buttonSaveInspection.Text = "Save Inspection";
             this.buttonSaveInspection.UseVisualStyleBackColor = true;
             this.buttonSaveInspection.Click += new System.EventHandler(this.buttonSaveInspection_Click);
-            //
-            // comboBoxParts
-            //
-            this.comboBoxParts.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.comboBoxParts.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBoxParts.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.comboBoxParts.FormattingEnabled = true;
-            this.comboBoxParts.Location = new System.Drawing.Point(231, 277);
-            this.comboBoxParts.MaxDropDownItems = 50;
-            this.comboBoxParts.Name = "comboBoxParts";
-            this.comboBoxParts.Size = new System.Drawing.Size(281, 21);
-            this.comboBoxParts.Sorted = true;
-            this.comboBoxParts.TabIndex = 7;
-            this.comboBoxParts.Text = "Parts List";
-            //
+            // 
             // textPartDescription
-            //
+            // 
             this.textPartDescription.AcceptsReturn = true;
             this.textPartDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textPartDescription.Location = new System.Drawing.Point(231, 320);
+            this.textPartDescription.Location = new System.Drawing.Point(231, 330);
             this.textPartDescription.Multiline = true;
             this.textPartDescription.Name = "textPartDescription";
             this.textPartDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textPartDescription.Size = new System.Drawing.Size(467, 70);
             this.textPartDescription.TabIndex = 8;
-            this.textPartDescription.Text = "Part Description";
-            //
+            // 
             // imageList1
-            //
+            // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            //
+            // 
             // titleDate
-            //
+            // 
             this.titleDate.BackColor = System.Drawing.SystemColors.Window;
             this.titleDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.titleDate.Cursor = System.Windows.Forms.Cursors.Default;
@@ -213,9 +196,9 @@ namespace CameraControlTool
             this.titleDate.Size = new System.Drawing.Size(41, 13);
             this.titleDate.TabIndex = 10;
             this.titleDate.Text = "Date";
-            //
+            // 
             // titleTitle
-            //
+            // 
             this.titleTitle.BackColor = System.Drawing.SystemColors.Window;
             this.titleTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.titleTitle.Cursor = System.Windows.Forms.Cursors.Default;
@@ -227,9 +210,9 @@ namespace CameraControlTool
             this.titleTitle.Size = new System.Drawing.Size(41, 13);
             this.titleTitle.TabIndex = 11;
             this.titleTitle.Text = "Title";
-            //
+            // 
             // titleNotes
-            //
+            // 
             this.titleNotes.BackColor = System.Drawing.SystemColors.Window;
             this.titleNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.titleNotes.Cursor = System.Windows.Forms.Cursors.Default;
@@ -241,34 +224,98 @@ namespace CameraControlTool
             this.titleNotes.Size = new System.Drawing.Size(41, 13);
             this.titleNotes.TabIndex = 12;
             this.titleNotes.Text = "Notes";
-            //
-            // textBox1
-            //
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox1.Enabled = false;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.textBox1.Location = new System.Drawing.Point(231, 258);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(137, 13);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.Text = "(e.g. Engine, Section, Part)";
-            //
+            // 
+            // titlePart
+            // 
+            this.titlePart.BackColor = System.Drawing.SystemColors.Window;
+            this.titlePart.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.titlePart.Cursor = System.Windows.Forms.Cursors.Default;
+            this.titlePart.Enabled = false;
+            this.titlePart.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.titlePart.Location = new System.Drawing.Point(254, 290);
+            this.titlePart.Name = "titlePart";
+            this.titlePart.ReadOnly = true;
+            this.titlePart.Size = new System.Drawing.Size(55, 13);
+            this.titlePart.TabIndex = 13;
+            this.titlePart.Text = "Part:";
+            // 
+            // textEngine
+            // 
+            this.textEngine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textEngine.Enabled = false;
+            this.textEngine.Location = new System.Drawing.Point(354, 211);
+            this.textEngine.Name = "textEngine";
+            this.textEngine.ReadOnly = true;
+            this.textEngine.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textEngine.Size = new System.Drawing.Size(298, 20);
+            this.textEngine.TabIndex = 14;
+            // 
+            // titleEngine
+            // 
+            this.titleEngine.BackColor = System.Drawing.SystemColors.Window;
+            this.titleEngine.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.titleEngine.Cursor = System.Windows.Forms.Cursors.Default;
+            this.titleEngine.Enabled = false;
+            this.titleEngine.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.titleEngine.Location = new System.Drawing.Point(254, 213);
+            this.titleEngine.Name = "titleEngine";
+            this.titleEngine.ReadOnly = true;
+            this.titleEngine.Size = new System.Drawing.Size(55, 13);
+            this.titleEngine.TabIndex = 15;
+            this.titleEngine.Text = "Engine:";
+            // 
+            // titleSection
+            // 
+            this.titleSection.BackColor = System.Drawing.SystemColors.Window;
+            this.titleSection.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.titleSection.Cursor = System.Windows.Forms.Cursors.Default;
+            this.titleSection.Enabled = false;
+            this.titleSection.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.titleSection.Location = new System.Drawing.Point(254, 253);
+            this.titleSection.Name = "titleSection";
+            this.titleSection.ReadOnly = true;
+            this.titleSection.Size = new System.Drawing.Size(55, 13);
+            this.titleSection.TabIndex = 16;
+            this.titleSection.Text = "Section:";
+            // 
+            // textSection
+            // 
+            this.textSection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textSection.Enabled = false;
+            this.textSection.Location = new System.Drawing.Point(354, 251);
+            this.textSection.Name = "textSection";
+            this.textSection.ReadOnly = true;
+            this.textSection.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textSection.Size = new System.Drawing.Size(298, 20);
+            this.textSection.TabIndex = 17;
+            // 
+            // textPart
+            // 
+            this.textPart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textPart.Enabled = false;
+            this.textPart.Location = new System.Drawing.Point(354, 288);
+            this.textPart.Name = "textPart";
+            this.textPart.ReadOnly = true;
+            this.textPart.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textPart.Size = new System.Drawing.Size(298, 20);
+            this.textPart.TabIndex = 18;
+            // 
             // FormDirectory
-            //
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 461);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textPart);
+            this.Controls.Add(this.textSection);
+            this.Controls.Add(this.titleSection);
+            this.Controls.Add(this.titleEngine);
+            this.Controls.Add(this.textEngine);
+            this.Controls.Add(this.titlePart);
             this.Controls.Add(this.titleNotes);
             this.Controls.Add(this.titleTitle);
             this.Controls.Add(this.titleDate);
             this.Controls.Add(this.textPartDescription);
-            this.Controls.Add(this.comboBoxParts);
             this.Controls.Add(this.buttonSaveInspection);
-            this.Controls.Add(this.buttonShowNotes);
             this.Controls.Add(this.textDescription);
             this.Controls.Add(this.textDate);
             this.Controls.Add(this.textTitle);
@@ -277,6 +324,7 @@ namespace CameraControlTool
             this.Name = "FormDirectory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Camera Viewer";
+            this.Load += new System.EventHandler(this.FormDirectory_Load);
             this.tableLayoutPanelForm.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -297,7 +345,6 @@ namespace CameraControlTool
         private TextBox textDescription;
         private Button buttonShowNotes;
         private Button buttonSaveInspection;
-        private ComboBox comboBoxParts;
         private TreeView treeView1;
         private TextBox textPartDescription;
         private ImageList imageList1;
@@ -305,6 +352,11 @@ namespace CameraControlTool
         private TextBox titleDate;
         private TextBox titleTitle;
         private TextBox titleNotes;
-        private TextBox textBox1;
+        private TextBox titlePart;
+        private TextBox textEngine;
+        private TextBox titleEngine;
+        private TextBox titleSection;
+        private TextBox textSection;
+        private TextBox textPart;
     }
 }
