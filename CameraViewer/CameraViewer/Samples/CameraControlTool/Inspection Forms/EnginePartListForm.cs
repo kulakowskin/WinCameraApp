@@ -15,10 +15,7 @@ namespace CameraControlTool
         private System.Windows.Forms.Button brAddRow;
         private System.Windows.Forms.Button btRemoveRow;
 		private SourceGrid.Grid grid1;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button btExportHTML;
-		private System.Windows.Forms.CheckBox chkReadOnly;
-        private System.Windows.Forms.CheckBox chkEditOnDoubleClick;
         private Button btExportCsv;
         private Button btExportImage;
         private static EnginePartList enginePartList;
@@ -61,10 +58,7 @@ namespace CameraControlTool
             this.brAddRow = new System.Windows.Forms.Button();
             this.btRemoveRow = new System.Windows.Forms.Button();
             this.grid1 = new SourceGrid.Grid();
-            this.label1 = new System.Windows.Forms.Label();
             this.btExportHTML = new System.Windows.Forms.Button();
-            this.chkReadOnly = new System.Windows.Forms.CheckBox();
-            this.chkEditOnDoubleClick = new System.Windows.Forms.CheckBox();
             this.btExportCsv = new System.Windows.Forms.Button();
             this.btExportImage = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -72,21 +66,21 @@ namespace CameraControlTool
             // brAddRow
             // 
             this.brAddRow.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.brAddRow.Location = new System.Drawing.Point(10, 9);
+            this.brAddRow.Location = new System.Drawing.Point(16, 15);
             this.brAddRow.Name = "brAddRow";
-            this.brAddRow.Size = new System.Drawing.Size(100, 27);
+            this.brAddRow.Size = new System.Drawing.Size(168, 42);
             this.brAddRow.TabIndex = 1;
-            this.brAddRow.Text = "Add Part";
+            this.brAddRow.Text = "AddRow";
             this.brAddRow.Click += new System.EventHandler(this.brAddRow_Click);
             // 
             // btRemoveRow
             // 
             this.btRemoveRow.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btRemoveRow.Location = new System.Drawing.Point(115, 9);
+            this.btRemoveRow.Location = new System.Drawing.Point(192, 15);
             this.btRemoveRow.Name = "btRemoveRow";
-            this.btRemoveRow.Size = new System.Drawing.Size(101, 27);
+            this.btRemoveRow.Size = new System.Drawing.Size(168, 42);
             this.btRemoveRow.TabIndex = 2;
-            this.btRemoveRow.Text = "Delete Part";
+            this.btRemoveRow.Text = "RemoveRow";
             this.btRemoveRow.Click += new System.EventHandler(this.btRemoveRow_Click);
             // 
             // grid1
@@ -97,62 +91,31 @@ namespace CameraControlTool
             this.grid1.BackColor = System.Drawing.Color.White;
             this.grid1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.grid1.EnableSort = true;
-            this.grid1.Location = new System.Drawing.Point(10, 43);
+            this.grid1.Location = new System.Drawing.Point(16, 68);
             this.grid1.Name = "grid1";
             this.grid1.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.grid1.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.grid1.Size = new System.Drawing.Size(748, 299);
+            this.grid1.Size = new System.Drawing.Size(1379, 527);
             this.grid1.TabIndex = 1;
             this.grid1.TabStop = true;
             this.grid1.ToolTipText = "";
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.Location = new System.Drawing.Point(10, 364);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 26);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Click column header to sort the grid";
-            // 
             // btExportHTML
             // 
             this.btExportHTML.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btExportHTML.Location = new System.Drawing.Point(445, 10);
+            this.btExportHTML.Location = new System.Drawing.Point(832, 15);
             this.btExportHTML.Name = "btExportHTML";
-            this.btExportHTML.Size = new System.Drawing.Size(101, 27);
+            this.btExportHTML.Size = new System.Drawing.Size(168, 42);
             this.btExportHTML.TabIndex = 7;
             this.btExportHTML.Text = "&Export HTML";
             this.btExportHTML.Click += new System.EventHandler(this.btExportHTML_Click);
             // 
-            // chkReadOnly
-            // 
-            this.chkReadOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkReadOnly.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkReadOnly.Location = new System.Drawing.Point(596, 349);
-            this.chkReadOnly.Name = "chkReadOnly";
-            this.chkReadOnly.Size = new System.Drawing.Size(153, 23);
-            this.chkReadOnly.TabIndex = 8;
-            this.chkReadOnly.Text = "Read Only Cells";
-            this.chkReadOnly.CheckedChanged += new System.EventHandler(this.chkReadOnly_CheckedChanged);
-            // 
-            // chkEditOnDoubleClick
-            // 
-            this.chkEditOnDoubleClick.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkEditOnDoubleClick.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkEditOnDoubleClick.Location = new System.Drawing.Point(596, 367);
-            this.chkEditOnDoubleClick.Name = "chkEditOnDoubleClick";
-            this.chkEditOnDoubleClick.Size = new System.Drawing.Size(153, 23);
-            this.chkEditOnDoubleClick.TabIndex = 9;
-            this.chkEditOnDoubleClick.Text = "Edit On Double Click";
-            this.chkEditOnDoubleClick.CheckedChanged += new System.EventHandler(this.chkEditOnDoubleClick_CheckedChanged);
-            // 
             // btExportCsv
             // 
             this.btExportCsv.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btExportCsv.Location = new System.Drawing.Point(552, 9);
+            this.btExportCsv.Location = new System.Drawing.Point(1012, 15);
             this.btExportCsv.Name = "btExportCsv";
-            this.btExportCsv.Size = new System.Drawing.Size(101, 27);
+            this.btExportCsv.Size = new System.Drawing.Size(168, 42);
             this.btExportCsv.TabIndex = 13;
             this.btExportCsv.Text = "Export CSV";
             this.btExportCsv.Click += new System.EventHandler(this.btExportCsv_Click);
@@ -160,24 +123,21 @@ namespace CameraControlTool
             // btExportImage
             // 
             this.btExportImage.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btExportImage.Location = new System.Drawing.Point(659, 9);
+            this.btExportImage.Location = new System.Drawing.Point(1192, 15);
             this.btExportImage.Name = "btExportImage";
-            this.btExportImage.Size = new System.Drawing.Size(101, 27);
+            this.btExportImage.Size = new System.Drawing.Size(168, 42);
             this.btExportImage.TabIndex = 14;
             this.btExportImage.Text = "Export Image";
             this.btExportImage.Click += new System.EventHandler(this.btExportImage_Click);
             // 
             // EnginePartForm
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
-            this.ClientSize = new System.Drawing.Size(764, 395);
+            this.AutoScaleBaseSize = new System.Drawing.Size(10, 24);
+            this.ClientSize = new System.Drawing.Size(1405, 680);
             this.Controls.Add(this.grid1);
             this.Controls.Add(this.btExportImage);
-            this.Controls.Add(this.chkEditOnDoubleClick);
-            this.Controls.Add(this.chkReadOnly);
             this.Controls.Add(this.btExportCsv);
             this.Controls.Add(this.btExportHTML);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btRemoveRow);
             this.Controls.Add(this.brAddRow);
             this.Name = "EnginePartForm";
@@ -185,7 +145,7 @@ namespace CameraControlTool
             this.Load += new System.EventHandler(this.frmSampleGrid1_Load);
             this.ResumeLayout(false);
 
-		}
+        }
 		#endregion
 
 		//Editors
@@ -339,15 +299,7 @@ namespace CameraControlTool
 			}
 		}
 
-		private void chkReadOnly_CheckedChanged(object sender, System.EventArgs e)
-		{
-			for (int r = 0; r < grid1.RowsCount; r++)
-				for (int c = 0; c < grid1.ColumnsCount; c++)
-				{
-					if (grid1[r,c].Editor != null)
-						grid1[r,c].Editor.EnableEdit = !chkReadOnly.Checked;
-				}
-		}
+		
 
 		private void mController_Link_Click(object sender, EventArgs e)
 		{
