@@ -44,7 +44,11 @@ namespace CameraControlTool
 
         private void buttonSaveInspection_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+            inspecList.addNewInspection(textDate.Text, textTitle.Text, textDescription.Text);
+=======
             inspecList.addNewInspection("test",textTitle.Text, textDescription.Text);
+>>>>>>> 5947d716f95da945342035244ba8fafb9bb3c2b6
 
             // save to local directory
             String inspectionPath = filePath + textTitle.Text;
