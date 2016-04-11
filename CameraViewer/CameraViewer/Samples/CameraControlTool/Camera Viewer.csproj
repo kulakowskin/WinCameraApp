@@ -62,7 +62,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnginePart.cs" />
+    <Compile Include="Engine Parts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Engine Parts.Designer.cs">
+      <DependentUpon>Engine Parts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inspection Classes\EnginePartList.cs" />
+    <Compile Include="Inspection Classes\EnginePart.cs" />
     <Compile Include="FormNewInspection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,21 +82,30 @@
     <Compile Include="FormDirectory.Designer.cs">
       <DependentUpon>FormDirectory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inspection.cs" />
+    <Compile Include="Inspection Classes\Inspection.cs" />
     <Compile Include="FormCameraControlTool.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCameraControlTool.Designer.cs">
       <DependentUpon>FormCameraControlTool.cs</DependentUpon>
     </Compile>
-    <Compile Include="InspectionList.cs" />
+    <Compile Include="Inspection Classes\InspectionList.cs" />
+    <Compile Include="Inspection Forms\EnginePartListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Engine Parts.resx">
+      <DependentUpon>Engine Parts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCameraControlTool.resx">
       <DependentUpon>FormCameraControlTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDirectory.resx">
       <DependentUpon>FormDirectory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inspection Forms\EnginePartListForm.resx">
+      <DependentUpon>EnginePartListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewInspection.resx">
       <DependentUpon>FormNewInspection.cs</DependentUpon>
@@ -105,6 +121,8 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,6 +141,10 @@
     <ProjectReference Include="..\..\DirectShowLib\DirectShowLib-2010.csproj">
       <Project>{CE009BFA-5EF6-4153-B2A1-2FA79698A9AE}</Project>
       <Name>DirectShowLib-2010</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SourceGrid\SourceGrid.csproj">
+      <Project>{2a5a1657-dba8-4117-8e2a-9f1236ace9e2}</Project>
+      <Name>SourceGrid</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -147,12 +169,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Camera_icon.ico" />
+    <Content Include="Inspection Forms\SampleData.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(TargetPath)" "$(ProjectDir)..\..\Releases\"</PostBuildEvent>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
