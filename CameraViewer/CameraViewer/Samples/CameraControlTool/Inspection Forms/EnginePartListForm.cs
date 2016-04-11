@@ -193,6 +193,7 @@ namespace CameraControlTool
 		private SourceGrid.Cells.Editors.EditorBase mEditor_Name;
         private SourceGrid.Cells.Editors.EditorBase mEditor_Description;
 
+        
 		//Views
         private SourceGrid.Cells.Views.Cell mView_Price;
 
@@ -204,7 +205,7 @@ namespace CameraControlTool
 			//string[] l_CountryList = new string[]{"Italy","France","Spain","UK","Argentina","Mexico", "Switzerland", "Brazil", "Germany","Portugal","Sweden","Austria"};
 
 			grid1.RowsCount = 1;
-			grid1.ColumnsCount = 10;
+			grid1.ColumnsCount = 4;
 			grid1.FixedRows = 1;
 			grid1.FixedColumns = 1;
 			grid1.SelectionMode = SourceGrid.GridSelectionMode.Row;
@@ -246,6 +247,9 @@ namespace CameraControlTool
             mEditor_Description.EditableMode = SourceGrid.EditableMode.Focus | SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.SingleClick;
             grid1[0, 3] = new SourceGrid.Cells.ColumnHeader("Description (string)");
 
+            mEditor_Id.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+            mEditor_Name.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+            mEditor_Description.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
 
             #endregion
 
@@ -359,16 +363,16 @@ namespace CameraControlTool
 
 		private void chkEditOnDoubleClick_CheckedChanged(object sender, System.EventArgs e)
 		{
-			if (chkEditOnDoubleClick.Checked)
-			{
+			//if (chkEditOnDoubleClick.Checked)
+			//{
 				mEditor_Id.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
 				mEditor_Name.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
-			}
-			else
-			{
-				mEditor_Id.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
-				mEditor_Name.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
-			}
+			//}
+			//else
+			//{
+				//mEditor_Id.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
+				//mEditor_Name.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
+			//}
 		}
 
         private void btExportCsv_Click(object sender, EventArgs e)
