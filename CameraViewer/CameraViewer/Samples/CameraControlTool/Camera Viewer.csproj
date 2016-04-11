@@ -70,7 +70,6 @@
     </Compile>
     <Compile Include="Inspection Classes\EnginePartList.cs" />
     <Compile Include="Inspection Classes\EnginePart.cs" />
-    <Compile Include="EnginePart.cs" />
     <Compile Include="FormNewInspection.cs">
       <SubType>Form</SubType>
     </Compile>
