@@ -984,6 +984,25 @@ namespace CameraControlTool
             formDirectory.show();
         }
 
-       
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void labelSnapshotTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sdf_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewEnginePartsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EnginePartForm form = new EnginePartForm();
+            form.Show();
+        }
     }
 }
