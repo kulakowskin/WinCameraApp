@@ -60,17 +60,16 @@ namespace CameraControlTool
 
         private void savePart()
         {
-            String textPart = comboBoxParts.Text;
+
             Inspection inspec = inspecList.searchInspections(textTitle.Text);
             // checks if the part already exists and either edit or add
-            if (inspec.exists(textPart))
+            if (inspec.exists(textPart.Text))
             {
-                inspec.editPartDescription(inspec.getPartIndex(textPart), textPartDescription.Text);
+                inspec.editPartDescription(inspec.getPartIndex(textPart.Text), textPartDescription.Text);
             }
             else
             {
-                comboBoxParts.Items.Add(textPart);
-                inspec.createNewPart(textPartDescription.Text, textPart);
+                inspec.createNewPart(textPartDescription.Text, textPart.Text);
             }
 
             // save part to local directory
@@ -116,14 +115,20 @@ namespace CameraControlTool
         {
             TreeNode node = treeView1.SelectedNode;
             String title = e.Node.Text;
-            Console.WriteLine(e.Node.Text);
-            Console.WriteLine("node selected");  // this line isn't printing...
             if (title.Contains(".txt"))
             {
                 title.Replace(".txt", "");
             }
+            if (title.Contains("PART"))
+            {
+                title.Replace("PART-", "");
+            }
             loadText(title);
-            loadComboBox(title);
+        }
+
+        public void loadPartComboBox(String partName)
+        {
+
         }
 
         public void loadText(String node)
@@ -144,8 +149,7 @@ namespace CameraControlTool
                         {
                             if(part.getPartName() == node)
                             {
-                                textPartDescription.Text = node;
-                                comboBoxParts.SelectedText = node;
+                                
                             }
                         }
                     }
@@ -183,16 +187,6 @@ namespace CameraControlTool
             }   
         }
     
-        // each time a new inspection is selected, the parts drop down is updated
-        public void loadComboBox(String title)
-        {
-            Inspection inspec = inspecList.searchInspections(title);
-            foreach (EnginePart ep in inspec.getEngineParts())
-                {
-                    comboBoxParts.Items.Add(ep.getPartName());
-                }
-        }
-
         public void loadInspection(DirectoryInfo dir)
         {
             String title = dir.Name+".txt";
@@ -230,14 +224,10 @@ namespace CameraControlTool
             }
         }
 
-        public void buttonShowNotes_Click(Object sender, EventArgs e)
+        private void FormDirectory_Load(object sender, EventArgs e)
         {
-            String part = comboBoxParts.Text;
-            Inspection inspec = inspecList.searchInspections(textTitle.Text);
-            if (inspec.exists(part)){
-                EnginePart p = inspec.getEngineParts().ElementAt(inspec.getPartIndex(part));
-                textPartDescription.Text = p.getDescription();
-            }
+
         }
+
     }
 }
