@@ -28,6 +28,7 @@ namespace CameraControlTool
     using System.Drawing.Drawing2D;
     using System.Drawing.Text;
     using System.Runtime.InteropServices.ComTypes;
+    using System.IO;
     using System.Threading.Tasks;
 
     using Camera_NET;
@@ -59,6 +60,8 @@ namespace CameraControlTool
         // Video Resolution Choice
         private Resolution currentResolution;
 
+        private DirectoryInfo di;
+
         
         #endregion
 
@@ -87,6 +90,7 @@ namespace CameraControlTool
             SetCamera(_CameraChoice.Devices[0].Mon, null);
             populateCameras();
             populateResolutions();
+            di = new DirectoryInfo(@"C:\Users\" + Environment.UserName + @"\Desktop\Demo\");
 
             // Select the first one
             //if (comboBoxCameraList.Items.Count > 0)
@@ -193,15 +197,20 @@ namespace CameraControlTool
             }
             // TODO : change to be the same directory as Inspections *********************/
             //bitmap.Save("test", ImageFormat.Png);
-            using (SaveFileDialog sfd = new SaveFileDialog())
-            {
-                sfd.Filter = "*.png|*.png";
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
+
+            bitmap.Save(@"C: \Users\" + Environment.UserName + @"\Desktop\Demo\", ImageFormat.Png);
+            //using (SaveFileDialog sfd = new SaveFileDialog())
+            //{
+              //  sfd.Filter = "*.png|*.png";
+                //if (sfd.ShowDialog() == DialogResult.OK)
+                //{
                     //bitmap.Save("test",ImageFormat.Png);
-                    bitmap.Save(sfd.FileName);
-                }
-            }
+                  //  bitmap.Save(sfd.FileName);
+                    //bitmap.Save(@"C: \Users\" + Environment.UserName + @"\Desktop\Demo\", ImageFormat.Png);
+               // }
+            //}
+
+            
             //Set camera back to default video resolution
             //revertToCurrentResolution();
             Console.WriteLine("Setting resolution back to: " + currentResolution);
