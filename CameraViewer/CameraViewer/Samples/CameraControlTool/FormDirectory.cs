@@ -81,7 +81,7 @@ namespace CameraControlTool
             }
 
             // all part file names start with 'PART-' for sorting and organization reasons
-            StreamWriter outputFile = new StreamWriter(inspectionPath + @"\PART-" + textPart + ".txt");
+            StreamWriter outputFile = new StreamWriter(inspectionPath + @"\PART-" + textPart + ".txt", true);
 
             using (outputFile)
             {
@@ -112,17 +112,30 @@ namespace CameraControlTool
         }
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
+        {   
             TreeNode node = treeView1.SelectedNode;
-            String title = e.Node.Text;
-            String parent = e.Node.Parent.Text;
 
-            title.Replace(".txt", "");
-            loadText(title);
-            if (title.Contains("PART"))
+            try {
+                // checks that it isn't the parent node
+                if (e.Node.Parent.Text != null)
+                {
+                    String title = e.Node.Text;
+                    String parent = e.Node.Parent.Text;
+
+                    title.Replace(".txt", "");
+                    if (e.Node.GetNodeCount(true) == 1)
+                    {
+                        loadText(title);
+                    }
+                    if (title.Contains("PART"))
+                    {
+                        title.Replace("PART-", "");
+                        loadPartText(title, parent);
+                    }
+                }
+            } catch(Exception ex)
             {
-                title.Replace("PART-", "");
-                loadPartText(title, parent);
+                Console.WriteLine(ex);
             }
         }
 
