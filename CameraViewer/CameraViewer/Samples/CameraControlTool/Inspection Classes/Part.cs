@@ -16,7 +16,7 @@ namespace CameraControlTool
 
         public Part() { }
 
-        public String getPart()
+        public String getDescription()
         {
             return description;
         }

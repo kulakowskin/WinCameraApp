@@ -23,9 +23,13 @@ namespace CameraControlTool
             return instance;
         }
 
-        public void addNewPart(String description)
+        public List<Part> getParts()
         {
-            Part part = new Part(description);
+            return parts;
+        }
+
+        public void addNewPart(Part part)
+        {
             parts.Add(part);
         }
 
@@ -38,6 +42,20 @@ namespace CameraControlTool
         {
             Part part = parts.ElementAt(index);
             part.setDescription(description);
+        }
+
+        public Part getPart(int index)
+        {
+            return parts.ElementAt(index);
+        }
+
+        public int getSize()
+        {
+            if (parts != null)
+            {
+                return parts.Count;
+            }
+            return 0;
         }
     }
 }

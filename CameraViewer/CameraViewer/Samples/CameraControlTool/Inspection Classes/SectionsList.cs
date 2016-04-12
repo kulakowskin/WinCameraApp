@@ -29,6 +29,7 @@ namespace CameraControlTool
             sections.Add(section);
         }
 
+        
         public void removeSection(int index)
         {
             sections.RemoveAt(index);

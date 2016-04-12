@@ -92,7 +92,7 @@ namespace CameraControlTool
             this.grid1.Name = "grid1";
             this.grid1.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.grid1.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.grid1.Size = new System.Drawing.Size(750, 439);
+            this.grid1.Size = new System.Drawing.Size(435, 439);
             this.grid1.TabIndex = 1;
             this.grid1.TabStop = true;
             this.grid1.ToolTipText = "";
@@ -100,7 +100,7 @@ namespace CameraControlTool
             // EnginePartForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(10, 24);
-            this.ClientSize = new System.Drawing.Size(777, 593);
+            this.ClientSize = new System.Drawing.Size(462, 593);
             this.Controls.Add(this.grid1);
             this.Controls.Add(this.btRemoveRow);
             this.Controls.Add(this.brAddRow);
@@ -113,9 +113,9 @@ namespace CameraControlTool
 		#endregion
 
 		//Editors
-		private SourceGrid.Cells.Editors.EditorBase mEditor_Id;
-		private SourceGrid.Cells.Editors.EditorBase mEditor_Name;
-        private SourceGrid.Cells.Editors.EditorBase mEditor_Description;
+		//private SourceGrid.Cells.Editors.EditorBase mEditor_Id;
+		private SourceGrid.Cells.Editors.EditorBase mEditorPartName;
+        //private SourceGrid.Cells.Editors.EditorBase mEditor_Description;
 
         //engine section part description
         
@@ -159,36 +159,48 @@ namespace CameraControlTool
 			SourceGrid.Cells.Header l_00Header = new SourceGrid.Cells.Header(null);
 			grid1[0,0] = l_00Header;
 
-            mEditor_Id = SourceGrid.Cells.Editors.Factory.Create(typeof(int));
-			mEditor_Id.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
-			grid1[0,1] = new SourceGrid.Cells.ColumnHeader("ID (int)");
+            mEditorPartName = SourceGrid.Cells.Editors.Factory.Create(typeof(string));
+            mEditorPartName.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+			grid1[0,1] = new SourceGrid.Cells.ColumnHeader("Part Name");
 
-            mEditor_Name = SourceGrid.Cells.Editors.Factory.Create(typeof(string));
-			mEditor_Name.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
-			grid1[0,2] = new SourceGrid.Cells.ColumnHeader("Part Name (string)");
+            //mEditorPartName = SourceGrid.Cells.Editors.Factory.Create(typeof(string));
+			//mEditorPartName.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
+			//grid1[0,2] = new SourceGrid.Cells.ColumnHeader("Part Name (string)");
 
-            mEditor_Description = SourceGrid.Cells.Editors.Factory.Create(typeof(string));
-            mEditor_Description.EditableMode = SourceGrid.EditableMode.Focus | SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.SingleClick;
-            grid1[0, 3] = new SourceGrid.Cells.ColumnHeader("Description (string)");
+            //mEditor_Description = SourceGrid.Cells.Editors.Factory.Create(typeof(string));
+            //mEditor_Description.EditableMode = SourceGrid.EditableMode.Focus | SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.SingleClick;
+            //grid1[0, 3] = new SourceGrid.Cells.ColumnHeader("Description (string)");
 
-            mEditor_Id.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
-            mEditor_Name.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
-            mEditor_Description.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+            //mEditor_Id.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+            //mEditorPartName.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+            //mEditor_Description.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
 
             #endregion
 
             //Read Data From EnginePartList
-            int rows = enginePartList.getSize() + 1;
+            //int rows = enginePartList.getSize() + 1;
+            //grid1.RowsCount = rows + 1;
+            //int rowsCount = 1;
+            //foreach (EnginePart part in enginePartList.getEngineParts()){
+              //  Console.WriteLine("part: " + part.getDescription());
+                //grid1[rowsCount, 0] = new SourceGrid.Cells.RowHeader(null);
+                //grid1[rowsCount, 1] = new SourceGrid.Cells.Cell("", mEditorPartName);
+                //grid1[rowsCount, 2] = new SourceGrid.Cells.Cell(part.getPartName(), mEditorPartName);
+                //grid1[rowsCount, 3] = new SourceGrid.Cells.Cell(part.getDescription(), mEditor_Description);
+                //rowsCount++;
+            //}
+
+            int rows = partList.getSize() + 1;
             grid1.RowsCount = rows + 1;
             int rowsCount = 1;
-            foreach (EnginePart part in enginePartList.getEngineParts()){
-                Console.WriteLine("part: " + part.getDescription());
+            foreach (Part part in partList.getParts())
+            {
+                Console.WriteLine("part :" + part.getDescription());
                 grid1[rowsCount, 0] = new SourceGrid.Cells.RowHeader(null);
-                grid1[rowsCount, 1] = new SourceGrid.Cells.Cell(rowsCount, mEditor_Name);
-                grid1[rowsCount, 2] = new SourceGrid.Cells.Cell(part.getPartName(), mEditor_Name);
-                grid1[rowsCount, 3] = new SourceGrid.Cells.Cell(part.getDescription(), mEditor_Description);
+                grid1[rowsCount, 1] = new SourceGrid.Cells.Cell(part.getDescription(), mEditorPartName);
                 rowsCount++;
             }
+
            
 
             grid1.AutoSizeCells();
@@ -200,14 +212,14 @@ namespace CameraControlTool
 			grid1.Rows.Insert(row);
 
             grid1[row, 0] = new SourceGrid.Cells.RowHeader(null);
-            grid1[row, 1] = new SourceGrid.Cells.Cell(grid1.RowsCount, mEditor_Id);
-			grid1[row, 2] = new SourceGrid.Cells.Cell(mEditor_Name.DefaultValue, mEditor_Name);
-            grid1[row, 3] = new SourceGrid.Cells.Cell(mEditor_Description.DefaultValue, mEditor_Description);
+            grid1[row, 1] = new SourceGrid.Cells.Cell("", mEditorPartName);
+			//grid1[row, 2] = new SourceGrid.Cells.Cell(mEditorPartName.DefaultValue, mEditorPartName);
+            //grid1[row, 3] = new SourceGrid.Cells.Cell(mEditor_Description.DefaultValue, mEditor_Description);
 
-            String name = (String)mEditor_Name.GetEditedValue();
+            String name = (String)mEditorPartName.GetEditedValue();
             Console.WriteLine("Edited value: " + name);
-            Console.WriteLine("Description: " + mEditor_Description);
-            Console.WriteLine("Name: + " + mEditor_Name);
+            //Console.WriteLine("Description: " + mEditor_Description);
+            Console.WriteLine("Name: + " + mEditorPartName);
 
             // Add new engine part
             EnginePart part = new EnginePart();
@@ -221,11 +233,15 @@ namespace CameraControlTool
 		{
 			int[] rowsIndex = grid1.Selection.GetSelectionRegion().GetRowsIndex();
 			SourceGrid.RowInfo[] rows = new SourceGrid.RowInfo[rowsIndex.Length];
-			for (int i = 0; i < rows.Length; i++)
-				rows[i] = grid1.Rows[rowsIndex[i]];
+            for (int i = 0; i < rows.Length; i++)
+            {
+                rows[i] = grid1.Rows[rowsIndex[i]];
+                partList.removePart(rowsIndex[i] - 1);
+                Console.WriteLine("index: " + rowsIndex[i]);
+            }
 
-			foreach (SourceGrid.RowInfo r in rows)
-				grid1.Rows.Remove(r.Index);
+            foreach (SourceGrid.RowInfo r in rows)
+                grid1.Rows.Remove(r.Index);
 
 			if (grid1.RowsCount > 1)
 				grid1.Selection.FocusRow(1);
@@ -283,13 +299,13 @@ namespace CameraControlTool
 		{
 			//if (chkEditOnDoubleClick.Checked)
 			//{
-				mEditor_Id.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
-				mEditor_Name.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+				//mEditor_Id.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+				mEditorPartName.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
 			//}
 			//else
 			//{
 				//mEditor_Id.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
-				//mEditor_Name.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
+				//mEditorPartName.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
 			//}
 		}
 
@@ -342,12 +358,14 @@ namespace CameraControlTool
                 base.OnEditEnded(sender, e);
 
                 int index = sender.Position.Row;
+                SourceGrid.Cells.Cell cell = (SourceGrid.Cells.Cell)sender.Cell;
+                string val = (string)cell.Value;
 
-                EnginePart part = new EnginePart();
-
-                part.setPartName("hi");
-
-                enginePartList.addNewPart(part);
+                Part part = new Part(val);
+                partList.addNewPart(part);
+                Console.WriteLine("Index: " + index);
+                Console.WriteLine("Value: " + val);
+                
             }
 
 
