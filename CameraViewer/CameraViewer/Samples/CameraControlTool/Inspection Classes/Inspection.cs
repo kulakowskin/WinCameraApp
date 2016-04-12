@@ -27,10 +27,10 @@ namespace CameraControlTool
         }
 
         // Called when inspector wants to associate a newly captured picture with a new Engine Part
-        public void createNewPart(String description, String partName)
+        public void createNewPart(String description, String partName, String section, String engine)
         {
             // Creates a new engine part and adds it to the list
-            EnginePart part = new EnginePart(description, partName);
+            EnginePart part = new EnginePart(description, partName, section, engine);
             mParts.Add(part);
 
             // Sets the current part to the newly added part
@@ -63,14 +63,14 @@ namespace CameraControlTool
         public void editPartDescription(int index, String description)
         {
             EnginePart part = mParts.ElementAt(index);
-            part.editDescription(description);
+            part.setDescription(description);
         }
 
         // Edits the part number of the selected Engine Part
         public void editPartName(int index, String partName)
         {
             EnginePart part = mParts.ElementAt(index);
-            part.editPartName(partName);
+            part.setPartName(partName);
         }
         public bool exists(String part)
         {
@@ -94,6 +94,22 @@ namespace CameraControlTool
                 }
             }
             return 0;
+        }
+
+
+        // Search for EnginePart by name
+        public EnginePart searchEngineParts(String name)
+        {
+            foreach (EnginePart part in mParts)
+            {
+                if (part.getPartName() == name)
+                {
+                    return part;
+                }
+            }
+            // this is a really horrible fix for not finding the inspection
+            EnginePart e = new EnginePart("date", "description", "section", "engine");
+            return e;
         }
 
 

@@ -285,7 +285,7 @@ namespace CameraControlTool
             // Add new engine part
             Console.WriteLine("Description: " + mEditor_Description);
             Console.WriteLine("Name: + " + mEditor_Name);
-            EnginePart part = new EnginePart(mEditor_Name.ToString(), mEditor_Name.ToString());
+            EnginePart part = new EnginePart(mEditor_Name.ToString(), mEditor_Name.ToString(), "", "");
             enginePartList.addNewPart(part);
 
             grid1.Selection.FocusRow(row);

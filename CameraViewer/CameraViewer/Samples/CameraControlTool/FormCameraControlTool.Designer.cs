@@ -49,7 +49,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.viewMetaDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editInspectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewEnginePartsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -233,7 +233,7 @@
             this.saveToolStripMenuItem,
             this.saveToolStripMenuItem1,
             this.toolStripSeparator2,
-            this.viewMetaDataToolStripMenuItem,
+            this.editInspectionsToolStripMenuItem,
             this.viewEnginePartsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
@@ -281,13 +281,13 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(364, 6);
             // 
-            // viewMetaDataToolStripMenuItem
+            // editInspectionsToolStripMenuItem
             // 
-            this.viewMetaDataToolStripMenuItem.Name = "viewMetaDataToolStripMenuItem";
-            this.viewMetaDataToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
-            this.viewMetaDataToolStripMenuItem.Size = new System.Drawing.Size(367, 38);
-            this.viewMetaDataToolStripMenuItem.Text = "View MetaData";
-            this.viewMetaDataToolStripMenuItem.Click += new System.EventHandler(this.viewMetaDataToolStripMenuItem_Click);
+            this.editInspectionsToolStripMenuItem.Name = "editInspectionsToolStripMenuItem";
+            this.editInspectionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
+            this.editInspectionsToolStripMenuItem.Size = new System.Drawing.Size(367, 38);
+            this.editInspectionsToolStripMenuItem.Text = "Edit Inspections";
+            this.editInspectionsToolStripMenuItem.Click += new System.EventHandler(this.editInspectionsToolStripMenuItem_Click);
             // 
             // viewEnginePartsToolStripMenuItem
             // 
@@ -420,7 +420,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem resolutionToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem viewMetaDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editInspectionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem cameraOutputSettingsToolStripMenuItem;

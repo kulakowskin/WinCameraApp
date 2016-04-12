@@ -12,12 +12,18 @@ namespace CameraControlTool
         private List<Bitmap> pictures;
         private String description;
         private String partName;
+        private String section;
+        private String engine;
+        private bool flag;
 
-        public EnginePart(String description, String partName)
+        public EnginePart(String description, String partName, String section, String engine)
         {
             this.pictures = new List<Bitmap>();
             this.description = description;
             this.partName = partName;
+            this.section = section;
+            this.engine = engine;
+            this.flag = false;
         }
 
 
@@ -43,29 +49,60 @@ namespace CameraControlTool
             pictures.RemoveAt(index);
         }
 
-        // Methods for description
+        // getters
 
         public String getDescription()
         {
             return description; 
         }
 
-        public void editDescription(String description)
-        {
-            this.description = description;
-        }
-
-
-        // Methods for part name
-
         public String getPartName()
         {
             return partName;
         }
 
-        public void editPartName(String partName)
+        public String getSection()
+        {
+            return section;
+        }
+
+        public String getEngine()
+        {
+            return engine;
+        }
+
+        public bool isFlagged()
+        {
+            return flag;
+        }
+
+        // setters
+
+
+
+        public void setPartName(String partName)
         {
             this.partName = partName;
+        }
+
+        public void setDescription(String description)
+        {
+            this.description = description;
+        }
+
+        public void setSection(String section)
+        {
+            this.section = section;
+        }
+
+        public void setEngine(String engine)
+        {
+            this.engine = engine;
+        }
+
+        public void setFlag(bool flag)
+        {
+            this.flag = flag;
         }
 
     }

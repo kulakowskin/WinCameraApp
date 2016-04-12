@@ -69,7 +69,7 @@ namespace CameraControlTool
             }
             else
             {
-                inspec.createNewPart(textPartDescription.Text, textPart.Text);
+               // inspec.createNewPart(textPartDescription.Text, textPart.Text);
             }
 
             // save part to local directory
@@ -81,7 +81,7 @@ namespace CameraControlTool
             }
 
             // all part file names start with 'PART-' for sorting and organization reasons
-            StreamWriter outputFile = new StreamWriter(inspectionPath + @"\PART-" + textPart + ".txt");
+            StreamWriter outputFile = new StreamWriter(inspectionPath + @"\PART-" + textPart + ".txt", true);
 
             using (outputFile)
             {
@@ -112,50 +112,49 @@ namespace CameraControlTool
         }
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
+        {   
             TreeNode node = treeView1.SelectedNode;
-            String title = e.Node.Text;
-            if (title.Contains(".txt"))
+
+            try {
+                // checks that it isn't the parent node
+                if (e.Node.Parent.Text != null)
+                {
+                    String title = e.Node.Text;
+                    String parent = e.Node.Parent.Text;
+
+                    title.Replace(".txt", "");
+                    if (e.Node.GetNodeCount(true) == 1)
+                    {
+                        loadText(title);
+                    }
+                    if (title.Contains("PART"))
+                    {
+                        title.Replace("PART-", "");
+                        loadPartText(title, parent);
+                    }
+                }
+            } catch(Exception ex)
             {
-                title.Replace(".txt", "");
+                Console.WriteLine(ex);
             }
-            if (title.Contains("PART"))
-            {
-                title.Replace("PART-", "");
-            }
-            loadText(title);
         }
 
-        public void loadPartComboBox(String partName)
+        public void loadPartText(String partName, String inspecName)
         {
-
+            // find part with matching name and load text boxes   
+            Inspection i = inspecList.searchInspections(inspecName);
+            EnginePart part = i.searchEngineParts(partName);
+            textPart.Text = part.getPartName();
+            textEngine.Text = part.getEngine();
+            textSection.Text = part.getSection();
         }
 
         public void loadText(String node)
         {
-            foreach (var inspec in inspecList.getInspections())
-            {
-                if (inspec.getTitle() == node)
-                {
-                    textTitle.Text = node;
-                    textDescription.Text = inspec.getDescription();
-                    textDate.Text = inspec.getDate();
-                }
-                else
-                {
-                    if (node.Contains("PART-"))
-                    {
-                        foreach(var part in inspec.getEngineParts())
-                        {
-                            if(part.getPartName() == node)
-                            {
-                                
-                            }
-                        }
-                    }
-                    // add another condition for is a picture is selected
-                }
-            }
+            Inspection i = inspecList.searchInspections(node);
+            textTitle.Text = node;
+            textDescription.Text = i.getDescription();
+            textDate.Text = i.getDate();
         }
 
         public void loadData()
@@ -213,7 +212,7 @@ namespace CameraControlTool
                     ignore = sr.ReadLine();
                     String partDesc = sr.ReadToEnd();
 
-                    partNames.Add(new EnginePart(partDesc, partName));
+                   // partNames.Add(new EnginePart(partDesc, partName));
                 }
                 // add another condition for loading jpgs or pngs
             }
@@ -223,11 +222,9 @@ namespace CameraControlTool
                 inspec.addExistingPart(part);
             }
         }
-
-        private void FormDirectory_Load(object sender, EventArgs e)
+        public void FormDirectory_Load(Object sender, EventArgs e)
         {
 
         }
-
     }
 }
