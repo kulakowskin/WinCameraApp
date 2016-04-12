@@ -67,12 +67,14 @@ namespace CameraControlTool
                 else if (file.Name.Contains("PART"))   // for loading PART files
                 {
                     StreamReader sr = file.OpenText();
-                    String partName = sr.ReadLine();
-                    String ignore = sr.ReadLine();
+                    String engine = sr.ReadLine();
+                    String section = sr.ReadLine();
+                    String part = sr.ReadLine();
+                    String ignore = sr.ReadLine(); 
                     ignore = sr.ReadLine();
                     String partDesc = sr.ReadToEnd();
 
-                    // partNames.Add(new EnginePart(partDesc, partName));
+                    partNames.Add(new EnginePart(partDesc, part, section, engine));
                 }
                 // add another condition for loading jpgs or pngs
             }
@@ -108,28 +110,29 @@ namespace CameraControlTool
             }
         }
 
-        public void savePart(EnginePart part)
+        public void savePart(EnginePart part, Inspection inspec)
         {
-            //inspec.editPartDescription(inspec.getPartIndex(textPart.Text), textPartDescription.Text);
+            // save part to local directory
+            string inspectionPath = filePath + inspec.getTitle();
 
-            //// save part to local directory
-            //String inspectionPath = filePath + textTitle.Text;
-            //// if there's no folder for this inspection yet, create one
-            //if (!Directory.Exists(inspectionPath))
-            //{
-            //    System.IO.Directory.CreateDirectory(inspectionPath);
-            //}
+            // if there's no folder for this inspection yet, create one
+            if (!Directory.Exists(inspectionPath))
+             {
+                System.IO.Directory.CreateDirectory(inspectionPath);
+             }
 
-            //// all part file names start with 'PART-' for sorting and organization reasons
-            //StreamWriter outputFile = new StreamWriter(inspectionPath + @"\PART-" + textPart + ".txt", true);
+            // all part file names start with 'part-' for sorting and organization reasons
+            StreamWriter outputfile = new StreamWriter(inspectionPath + @"\PART-" + part.getPartName() + ".txt", true);
 
-            //using (outputFile)
-            //{
-            //    outputFile.WriteLine(textPart);
-            //    outputFile.WriteLine();
-            //    outputFile.WriteLine();
-            //    outputFile.WriteLine(textPartDescription.Text);
-            //}
+            using (outputfile)
+            {
+                outputfile.WriteLine(part.getEngine());
+                outputfile.WriteLine(part.getSection());
+                outputfile.WriteLine(part.getPartName());
+                outputfile.WriteLine();
+                outputfile.WriteLine();
+                outputfile.WriteLine(part.getDescription());
+            }
 
         }
     }

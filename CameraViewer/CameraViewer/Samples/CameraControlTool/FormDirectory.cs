@@ -36,7 +36,7 @@ namespace CameraControlTool
             EnginePart part = inspec.searchEngineParts(textPart.Text);
             // update any changes to part description
             part.setDescription(textPartDescription.Text);
-            SL.savePart(part);
+            SL.savePart(part, inspec);
             ListDirectory(treeView1, filePath);
         }
 
@@ -59,6 +59,8 @@ namespace CameraControlTool
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {   
+
+            /****************BUG: NODES WITH PARTS DON'T DISPLAY DATA**********************/
             TreeNode node = treeView1.SelectedNode;
 
             try {
