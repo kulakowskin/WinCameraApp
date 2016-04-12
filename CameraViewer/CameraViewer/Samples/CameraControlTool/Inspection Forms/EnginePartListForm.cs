@@ -17,6 +17,7 @@ namespace CameraControlTool
         private System.Windows.Forms.Button btRemoveRow;
 		private SourceGrid.Grid grid1;
         private static EnginePartList enginePartList;
+        private static PartList partList;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -25,6 +26,7 @@ namespace CameraControlTool
 		public EnginePartForm()
 		{
             enginePartList = EnginePartList.getInstance();
+            partList = PartList.getInstance();
 			//
 			// Required for Windows Form Designer support
 			//
@@ -115,6 +117,7 @@ namespace CameraControlTool
 		private SourceGrid.Cells.Editors.EditorBase mEditor_Name;
         private SourceGrid.Cells.Editors.EditorBase mEditor_Description;
 
+        //engine section part description
         
 		//Views
         private SourceGrid.Cells.Views.Cell mView_Price;
@@ -126,7 +129,7 @@ namespace CameraControlTool
 		{
 
 			grid1.RowsCount = 1;
-			grid1.ColumnsCount = 4;
+			grid1.ColumnsCount = 2;
 			grid1.FixedRows = 1;
 			grid1.FixedColumns = 1;
 			grid1.SelectionMode = SourceGrid.GridSelectionMode.Row;
@@ -203,11 +206,13 @@ namespace CameraControlTool
 
             String name = (String)mEditor_Name.GetEditedValue();
             Console.WriteLine("Edited value: " + name);
-            // Add new engine part
             Console.WriteLine("Description: " + mEditor_Description);
             Console.WriteLine("Name: + " + mEditor_Name);
+
+            // Add new engine part
             EnginePart part = new EnginePart();
-            enginePartList.addNewPart(part);
+            //part.setPartName()
+            //enginePartList.addNewPart(part);
 
             grid1.Selection.FocusRow(row);
 		}

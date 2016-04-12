@@ -14,7 +14,7 @@ namespace CameraControlTool
             this.sections = new List<Sections>();
         }
 
-        public SectionsList getInstance()
+        public static SectionsList getInstance()
         {
             if (instance == null)
             {

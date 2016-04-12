@@ -27,8 +27,8 @@ namespace CameraControlTool
         }
 
         // Called when inspector wants to associate a newly captured picture with a new Engine Part
-        //public void createNewPart(String description, String partName, String section, String engine)
-        public void createNewPart(String description, Part partName, Sections section, Engine engine)
+        public void createNewPart(String description, String partName, String section, String engine)
+        //public void createNewPart(String description, Part partName, Sections section, Engine engine)
         {
             // Creates a new engine part and adds it to the list
             EnginePart part = new EnginePart(description, partName, section, engine);
