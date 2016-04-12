@@ -68,6 +68,7 @@
     <Compile Include="Engine Parts.Designer.cs">
       <DependentUpon>Engine Parts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inspection Classes\Engine.cs" />
     <Compile Include="Inspection Classes\EnginePartList.cs" />
     <Compile Include="Inspection Classes\EnginePart.cs" />
     <Compile Include="FormNewInspection.cs">
@@ -82,6 +83,7 @@
     <Compile Include="FormDirectory.Designer.cs">
       <DependentUpon>FormDirectory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inspection Classes\EnginesList.cs" />
     <Compile Include="Inspection Classes\Inspection.cs" />
     <Compile Include="FormCameraControlTool.cs">
       <SubType>Form</SubType>
@@ -90,6 +92,10 @@
       <DependentUpon>FormCameraControlTool.cs</DependentUpon>
     </Compile>
     <Compile Include="Inspection Classes\InspectionList.cs" />
+    <Compile Include="Inspection Classes\Part.cs" />
+    <Compile Include="Inspection Classes\PartList.cs" />
+    <Compile Include="Inspection Classes\Sections.cs" />
+    <Compile Include="Inspection Classes\SectionsList.cs" />
     <Compile Include="Inspection Forms\EnginePartListForm.cs">
       <SubType>Form</SubType>
     </Compile>

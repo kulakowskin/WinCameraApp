@@ -144,9 +144,9 @@ namespace CameraControlTool
             // find part with matching name and load text boxes   
             Inspection i = inspecList.searchInspections(inspecName);
             EnginePart part = i.searchEngineParts(partName);
-            textPart.Text = part.getPartName();
-            textEngine.Text = part.getEngine();
-            textSection.Text = part.getSection();
+            textPart.Text = part.getPartName().ToString();
+            textEngine.Text = part.getEngine().ToString();
+            textSection.Text = part.getSection().ToString();
         }
 
         public void loadText(String node)

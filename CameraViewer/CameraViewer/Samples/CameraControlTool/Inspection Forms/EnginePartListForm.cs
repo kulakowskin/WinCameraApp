@@ -206,7 +206,7 @@ namespace CameraControlTool
             // Add new engine part
             Console.WriteLine("Description: " + mEditor_Description);
             Console.WriteLine("Name: + " + mEditor_Name);
-            EnginePart part = new EnginePart(mEditor_Name.ToString(), mEditor_Name.ToString(), "", "");
+            EnginePart part = new EnginePart();
             enginePartList.addNewPart(part);
 
             grid1.Selection.FocusRow(row);
@@ -335,6 +335,14 @@ namespace CameraControlTool
             public override void OnEditEnded(CellContext sender, EventArgs e)
             {
                 base.OnEditEnded(sender, e);
+
+                int index = sender.Position.Row;
+
+                EnginePart part = new EnginePart();
+
+                part.setPartName("hi");
+
+                enginePartList.addNewPart(part);
             }
 
 
