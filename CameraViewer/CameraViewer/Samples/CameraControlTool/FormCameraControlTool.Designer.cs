@@ -59,6 +59,9 @@
             this.cameraOutputSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageSectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageEnginesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.cameraControl = new Camera_NET.CameraControl();
             this.cameraControl1 = new Camera_NET.CameraControl();
             this.tableLayoutPanelForm.SuspendLayout();
@@ -102,7 +105,7 @@
             this.tableLayoutPanelForm.Controls.Add(this.pictureBoxScreenshot, 0, 5);
             this.tableLayoutPanelForm.Controls.Add(this.treeView1, 0, 0);
             this.tableLayoutPanelForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelForm.Location = new System.Drawing.Point(0, 42);
+            this.tableLayoutPanelForm.Location = new System.Drawing.Point(0, 44);
             this.tableLayoutPanelForm.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanelForm.Name = "tableLayoutPanelForm";
             this.tableLayoutPanelForm.Padding = new System.Windows.Forms.Padding(16);
@@ -114,7 +117,16 @@
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
-            this.tableLayoutPanelForm.Size = new System.Drawing.Size(1684, 991);
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.Size = new System.Drawing.Size(1684, 989);
             this.tableLayoutPanelForm.TabIndex = 0;
             this.tableLayoutPanelForm.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelForm_Paint);
             // 
@@ -127,7 +139,7 @@
             this.panelCamera.Margin = new System.Windows.Forms.Padding(6);
             this.panelCamera.Name = "panelCamera";
             this.tableLayoutPanelForm.SetRowSpan(this.panelCamera, 16);
-            this.panelCamera.Size = new System.Drawing.Size(1337, 962);
+            this.panelCamera.Size = new System.Drawing.Size(1337, 1142);
             this.panelCamera.TabIndex = 1;
             // 
             // buttonUnZoom
@@ -174,7 +186,7 @@
             // 
             this.pictureBoxScreenshot.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxScreenshot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxScreenshot.Location = new System.Drawing.Point(24, 865);
+            this.pictureBoxScreenshot.Location = new System.Drawing.Point(24, 857);
             this.pictureBoxScreenshot.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBoxScreenshot.Name = "pictureBoxScreenshot";
             this.pictureBoxScreenshot.Size = new System.Drawing.Size(286, 110);
@@ -221,7 +233,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1684, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1684, 44);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -230,15 +242,18 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNewEnginePartToolStripMenuItem,
             this.toolStripSeparator4,
+            this.manageEnginesToolStripMenuItem,
+            this.viewEnginePartsToolStripMenuItem,
+            this.manageSectionsToolStripMenuItem,
+            this.toolStripSeparator5,
             this.newInspectionToolStripMenuItem,
             this.toolStripSeparator1,
             this.saveToolStripMenuItem,
             this.saveToolStripMenuItem1,
             this.toolStripSeparator2,
-            this.editInspectionsToolStripMenuItem,
-            this.viewEnginePartsToolStripMenuItem});
+            this.editInspectionsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // addNewEnginePartToolStripMenuItem
@@ -295,7 +310,7 @@
             // 
             this.viewEnginePartsToolStripMenuItem.Name = "viewEnginePartsToolStripMenuItem";
             this.viewEnginePartsToolStripMenuItem.Size = new System.Drawing.Size(372, 38);
-            this.viewEnginePartsToolStripMenuItem.Text = "Manage Engine Parts";
+            this.viewEnginePartsToolStripMenuItem.Text = "Manage Parts List";
             this.viewEnginePartsToolStripMenuItem.Click += new System.EventHandler(this.viewEnginePartsToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
@@ -307,7 +322,7 @@
             this.cameraSettingsToolStripMenuItem,
             this.cameraOutputSettingsToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(67, 36);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(67, 38);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -349,14 +364,32 @@
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(82, 36);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(82, 38);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(77, 36);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(77, 38);
             this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // manageSectionsToolStripMenuItem
+            // 
+            this.manageSectionsToolStripMenuItem.Name = "manageSectionsToolStripMenuItem";
+            this.manageSectionsToolStripMenuItem.Size = new System.Drawing.Size(372, 38);
+            this.manageSectionsToolStripMenuItem.Text = "Manage Sections List";
+            // 
+            // manageEnginesToolStripMenuItem
+            // 
+            this.manageEnginesToolStripMenuItem.Name = "manageEnginesToolStripMenuItem";
+            this.manageEnginesToolStripMenuItem.Size = new System.Drawing.Size(372, 38);
+            this.manageEnginesToolStripMenuItem.Text = "Manage Engines List";
+            this.manageEnginesToolStripMenuItem.Click += new System.EventHandler(this.manageEnginesToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(369, 6);
             // 
             // cameraControl
             // 
@@ -365,8 +398,9 @@
             this.cameraControl.Location = new System.Drawing.Point(0, 0);
             this.cameraControl.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.cameraControl.Name = "cameraControl";
-            this.cameraControl.Size = new System.Drawing.Size(891, 608);
+            this.cameraControl.Size = new System.Drawing.Size(1337, 1142);
             this.cameraControl.TabIndex = 2;
+            this.cameraControl.Load += new System.EventHandler(this.cameraControl_Load);
             this.cameraControl.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseDoubleClick);
             this.cameraControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseDown);
             this.cameraControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseMove);
@@ -442,6 +476,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem viewEnginePartsToolStripMenuItem;
         private Camera_NET.CameraControl cameraControl1;
+        private System.Windows.Forms.ToolStripMenuItem manageEnginesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageSectionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     }
 }
 
