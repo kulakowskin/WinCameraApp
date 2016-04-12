@@ -91,17 +91,6 @@ namespace CameraControlTool
             this.tableLayoutPanelForm.Size = new System.Drawing.Size(196, 492);
             this.tableLayoutPanelForm.TabIndex = 0;
             // 
-            // buttonNewInspection
-            // 
-            this.buttonNewInspection.Location = new System.Drawing.Point(25, 423);
-            this.buttonNewInspection.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
-            this.buttonNewInspection.Name = "buttonNewInspection";
-            this.buttonNewInspection.Size = new System.Drawing.Size(160, 26);
-            this.buttonNewInspection.TabIndex = 1;
-            this.buttonNewInspection.Text = "New Inspection";
-            this.buttonNewInspection.UseVisualStyleBackColor = true;
-            this.buttonNewInspection.Click += new System.EventHandler(this.buttonNewInspection_Click);
-            // 
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;

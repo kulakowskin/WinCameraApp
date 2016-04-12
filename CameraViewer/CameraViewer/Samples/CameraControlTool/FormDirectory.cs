@@ -22,6 +22,7 @@ namespace CameraControlTool
             InitializeComponent();
             inspecList = InspectionList.getInstance();
             filePath = filePath = @"C:\Users\" + Environment.UserName + @"\Documents\FERITScope Inspections\";
+            SL = new SaveLoad();
             SL.loadData();
             ListDirectory(treeView1, filePath);
         }
@@ -78,7 +79,8 @@ namespace CameraControlTool
                         loadPartText(title, parent);
                     }
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
