@@ -62,8 +62,15 @@ namespace CameraControlTool
         // Edits the description of the selected Engine Part
         public void editPartDescription(int index, String description)
         {
-            EnginePart part = mParts.ElementAt(index);
-            part.setDescription(description);
+            try
+            {
+                EnginePart part = mParts.ElementAt(index);
+                part.setDescription(description);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Inspection doesn't have a part!");
+            }
         }
 
         // Edits the part number of the selected Engine Part
@@ -104,11 +111,11 @@ namespace CameraControlTool
             {
                 if (part.getPartName() == name)
                 {
-                    return part;
+                    return new EnginePart(part.getDescription(), part.getPartName(), part.getSection(), part.getEngine());
                 }
             }
             // this is a really horrible fix for not finding the inspection
-            EnginePart e = new EnginePart("date", "description", "section", "engine");
+            EnginePart e = new EnginePart("description", "part", "section", "engine");
             return e;
         }
 

@@ -46,6 +46,7 @@ namespace CameraControlTool
             }
         }
 
+        // pulls txt files from local computer and assigns to inspection and EnginePart lists
         public void loadInspection(DirectoryInfo dir)
         {
             String title = dir.Name + ".txt";
@@ -61,7 +62,7 @@ namespace CameraControlTool
                     String name = sr.ReadLine();
                     ignore = sr.ReadLine();
                     ignore = sr.ReadLine();
-                    string description = sr.ReadToEnd();
+                    String description = sr.ReadToEnd();
                     inspecList.addNewInspection(date, name, description);
                 }
                 else if (file.Name.Contains("PART"))   // for loading PART files
@@ -96,18 +97,34 @@ namespace CameraControlTool
             {
                 System.IO.Directory.CreateDirectory(inspectionPath);
             }
+            StreamWriter outputFile;
+            try {
 
-            StreamWriter outputFile = new StreamWriter(inspectionPath + @"\" + inspec.getTitle() + ".txt");
+                if (File.Exists(inspectionPath + @"\" + inspec.getTitle() + ".txt"))
+                {
+                    outputFile = new StreamWriter(inspectionPath + @"\" + inspec.getTitle() + ".txt", false);
+                }
+                else
+                {
+                    outputFile = new StreamWriter(inspectionPath + @"\" + inspec.getTitle() + ".txt", true);
+                }
 
-            using (outputFile)
-            {
-                outputFile.WriteLine(inspec.getDate());
-                outputFile.WriteLine();
-                outputFile.WriteLine(inspec.getTitle());
-                outputFile.WriteLine();
-                outputFile.WriteLine();
-                outputFile.WriteLine(inspec.getDescription());
+                using (outputFile)
+                {
+                    outputFile.WriteLine(inspec.getDate());
+                    outputFile.WriteLine();
+                    outputFile.WriteLine(inspec.getTitle());
+                    outputFile.WriteLine();
+                    outputFile.WriteLine();
+                    outputFile.WriteLine(inspec.getDescription());
+                }
+
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Issue saving file.");
+            }
+          
         }
 
         public void savePart(EnginePart part, Inspection inspec)
@@ -121,17 +138,33 @@ namespace CameraControlTool
                 System.IO.Directory.CreateDirectory(inspectionPath);
              }
 
-            // all part file names start with 'part-' for sorting and organization reasons
-            StreamWriter outputfile = new StreamWriter(inspectionPath + @"\PART-" + part.getPartName() + ".txt", true);
+            try {
 
-            using (outputfile)
+                // all part file names start with 'PART-' for sorting and organization reasons
+                StreamWriter outputFile;
+
+                if (File.Exists(inspectionPath + @"\" + part.getPartName() + ".txt"))
+                {
+                    outputFile = new StreamWriter(inspectionPath + @"\PART-" + part.getPartName() + ".txt", false);
+                }
+                else
+                {
+                    outputFile = new StreamWriter(inspectionPath + @"\PART-" + part.getPartName() + ".txt", true);
+                }
+
+                using (outputFile)
+                {
+                    outputFile.WriteLine(part.getEngine());
+                    outputFile.WriteLine(part.getSection());
+                    outputFile.WriteLine(part.getPartName());
+                    outputFile.WriteLine();
+                    outputFile.WriteLine();
+                    outputFile.WriteLine(part.getDescription());
+                }
+            }
+            catch(Exception ex)
             {
-                outputfile.WriteLine(part.getEngine());
-                outputfile.WriteLine(part.getSection());
-                outputfile.WriteLine(part.getPartName());
-                outputfile.WriteLine();
-                outputfile.WriteLine();
-                outputfile.WriteLine(part.getDescription());
+                Console.WriteLine("Issue saveing file.");
             }
 
         }

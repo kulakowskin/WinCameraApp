@@ -35,7 +35,8 @@ namespace CameraControlTool
             inspec.editDescription(textDescription.Text);
             EnginePart part = inspec.searchEngineParts(textPart.Text);
             // update any changes to part description
-            part.setDescription(textPartDescription.Text);
+            //part.setDescription(textPartDescription.Text);
+            inspec.editPartDescription(inspec.getPartIndex(textPart.Text), textPartDescription.Text);
             SL.savePart(part, inspec);
             ListDirectory(treeView1, filePath);
         }
@@ -58,7 +59,12 @@ namespace CameraControlTool
         }
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {   
+        {
+            textPart.Clear();
+            textPartDescription.Clear();
+            textSection.Clear();
+            textEngine.Clear();
+            textDescription.Clear();
 
             /****************BUG: NODES WITH PARTS DON'T DISPLAY DATA**********************/
             TreeNode node = treeView1.SelectedNode;
@@ -70,8 +76,11 @@ namespace CameraControlTool
                     String title = e.Node.Text;
                     String parent = e.Node.Parent.Text;
 
-                    title.Replace(".txt", "");
-                    if (e.Node.GetNodeCount(true) == 1)
+                    if (title.Contains(".txt"))
+                    {
+                        title.Replace(".txt", "");
+                    }
+                    if (e.Node.GetNodeCount(true) >= 1)
                     {
                         loadText(title);
                     }
@@ -96,6 +105,7 @@ namespace CameraControlTool
             textPart.Text = part.getPartName();
             textEngine.Text = part.getEngine();
             textSection.Text = part.getSection();
+            textPartDescription.Text = part.getDescription();
         }
 
         public void loadText(String node)
