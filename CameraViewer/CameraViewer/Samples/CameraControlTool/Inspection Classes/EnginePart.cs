@@ -14,16 +14,28 @@ namespace CameraControlTool
         private String partName;
         private String section;
         private String engine;
+        //private Part partName;
+        //private Sections section;
+        //private Engine engine;
         private bool flag;
 
         public EnginePart(String description, String partName, String section, String engine)
+        //public EnginePart(String description, Part partName, Sections section, Engine engine)
         {
             this.pictures = new List<Bitmap>();
             this.description = description;
             this.partName = partName;
             this.section = section;
             this.engine = engine;
+            //this.partName = partName;
+            //this.section = section;
+            //this.engine = engine;
             this.flag = false;
+        }
+        
+        public EnginePart()
+        {
+
         }
 
 
@@ -57,16 +69,19 @@ namespace CameraControlTool
         }
 
         public String getPartName()
+        //public Part getPartName()
         {
             return partName;
         }
 
         public String getSection()
+        //public Sections getSection()
         {
             return section;
         }
 
         public String getEngine()
+        //public Engine getEngine()
         {
             return engine;
         }
@@ -83,6 +98,7 @@ namespace CameraControlTool
         public void setPartName(String partName)
         {
             this.partName = partName;
+            //this.partName.setDescription(partName);
         }
 
         public void setDescription(String description)
@@ -93,11 +109,13 @@ namespace CameraControlTool
         public void setSection(String section)
         {
             this.section = section;
+            //this.section.setDescription(section);
         }
 
         public void setEngine(String engine)
         {
             this.engine = engine;
+            //sthis.engine.setDescription(engine);
         }
 
         public void setFlag(bool flag)

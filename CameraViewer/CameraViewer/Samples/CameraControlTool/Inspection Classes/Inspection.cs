@@ -28,6 +28,7 @@ namespace CameraControlTool
 
         // Called when inspector wants to associate a newly captured picture with a new Engine Part
         public void createNewPart(String description, String partName, String section, String engine)
+        //public void createNewPart(String description, Part partName, Sections section, Engine engine)
         {
             // Creates a new engine part and adds it to the list
             EnginePart part = new EnginePart(description, partName, section, engine);
@@ -62,8 +63,15 @@ namespace CameraControlTool
         // Edits the description of the selected Engine Part
         public void editPartDescription(int index, String description)
         {
-            EnginePart part = mParts.ElementAt(index);
-            part.setDescription(description);
+            try
+            {
+                EnginePart part = mParts.ElementAt(index);
+                part.setDescription(description);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Inspection doesn't have a part!");
+            }
         }
 
         // Edits the part number of the selected Engine Part
@@ -76,7 +84,7 @@ namespace CameraControlTool
         {
             foreach(EnginePart p in mParts)
             {
-                if (part == p.getPartName())
+                if (part == p.getPartName().ToString())
                 {
                     return true;
                 }
@@ -88,7 +96,7 @@ namespace CameraControlTool
         {
             for(int i = 0; i < mParts.Count; i++)
             {
-                if(partName == mParts.ElementAt(i).getPartName())
+                if(partName == mParts.ElementAt(i).getPartName().ToString())
                 {
                     return i;
                 }
@@ -102,13 +110,15 @@ namespace CameraControlTool
         {
             foreach (EnginePart part in mParts)
             {
-                if (part.getPartName() == name)
+                if (part.getPartName().ToString() == name)
                 {
-                    return part;
+                    return new EnginePart(part.getDescription(), part.getPartName(), part.getSection(), part.getEngine());
                 }
             }
             // this is a really horrible fix for not finding the inspection
-            EnginePart e = new EnginePart("date", "description", "section", "engine");
+
+            EnginePart e = new EnginePart("description", "part", "section", "engine");
+
             return e;
         }
 

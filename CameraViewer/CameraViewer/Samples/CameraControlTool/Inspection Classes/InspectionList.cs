@@ -11,6 +11,8 @@ namespace CameraControlTool
     {
         private static InspectionList instance;
         private List<Inspection> mInspections;
+        private Inspection currentInspection;
+
         private InspectionList()
         {
             this.mInspections = new List<Inspection>();
@@ -67,6 +69,16 @@ namespace CameraControlTool
                 // this is a really horrible fix for not finding the inspection
                 Inspection i = new Inspection("date","title","description");
                 return i;  
+        }
+
+        public Inspection getCurrentInspection()
+        {
+            return currentInspection;
+        }
+
+        public void setCurrentInspection(Inspection inspec)
+        {
+            currentInspection = inspec;
         }
     }
 }
