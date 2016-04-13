@@ -116,12 +116,9 @@ namespace CameraControlTool
                 }
             }
             // this is a really horrible fix for not finding the inspection
-<<<<<<< HEAD
+
             EnginePart e = new EnginePart("description", "part", "section", "engine");
-=======
-            //EnginePart e = new EnginePart("date", "description", "section", "engine");
-            EnginePart e = new EnginePart();
->>>>>>> d3131ad924ad5dfcf78a5c8483db4bd9d1094786
+
             return e;
         }
 

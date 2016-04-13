@@ -62,6 +62,11 @@ namespace CameraControlTool
 
         private DirectoryInfo di;
 
+        private SaveLoad SL;
+
+        // singleton of InspectionList used for saving 
+        private InspectionList inspectionList;
+
         
         #endregion
 
@@ -74,6 +79,9 @@ namespace CameraControlTool
             InitializeComponent();
 
             SetStyle(ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
+
+            inspectionList = InspectionList.getInstance();
+            SL = new SaveLoad();
         }
 
         // On load of Form
@@ -865,6 +873,31 @@ namespace CameraControlTool
         }
 
         #endregion
+
+        private void buttonNewInspection_Click(object sender, EventArgs e)
+        {
+            // open new window for inspection input
+            FormNewInspection formNewInspec = new FormNewInspection();
+            formNewInspec.show();
+
+            // maybe have a pop-up window asking user to name new inspection
+           // inspectionList.setCurrentInspection(currentInspec);
+        }
+
+        private void buttonSaveInspection_Click(object sender, EventArgs a)
+        {
+            /*************COPY AND PASTED FROM SAVE CLICK IN FORMDIRECTORY*************/
+
+            //Inspection inspec = inspecList.searchInspections(textTitle.Text);
+            //SL.saveInspection(inspec);
+            //// update any changes to description
+            //inspec.editDescription(textDescription.Text);
+            //EnginePart part = inspec.searchEngineParts(textPart.Text);
+            //// update any changes to part description
+            ////part.setDescription(textPartDescription.Text);
+            //inspec.editPartDescription(inspec.getPartIndex(textPart.Text), textPartDescription.Text);
+            //SL.savePart(part, inspec);
+        }
 
         private void buttonPinOutputSettings_Click(object sender, EventArgs e)
         {
