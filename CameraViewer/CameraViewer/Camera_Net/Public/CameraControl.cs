@@ -97,7 +97,7 @@ namespace Camera_NET
 
             _Camera.OutputVideoSizeChanged += Camera_OutputVideoSizeChanged;
             //Console.WriteLine("Camera finished setup");
-            System.Threading.Thread.Sleep(1200);
+            //System.Threading.Thread.Sleep(1200);
         }
 
         /// <summary>

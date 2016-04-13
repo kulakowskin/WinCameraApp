@@ -50,6 +50,13 @@
             this.cameraOutputSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+<<<<<<< HEAD
+=======
+            this.manageSectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageEnginesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.cameraControl = new Camera_NET.CameraControl();
+>>>>>>> d3131ad924ad5dfcf78a5c8483db4bd9d1094786
             this.cameraControl1 = new Camera_NET.CameraControl();
             this.button1 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -69,6 +76,141 @@
             this.tableLayoutPanelForm.SuspendLayout();
             this.SuspendLayout();
             // 
+<<<<<<< HEAD
+=======
+            // buttonSavePicture
+            // 
+            this.buttonSavePicture.Location = new System.Drawing.Point(22, 630);
+            this.buttonSavePicture.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonSavePicture.Name = "buttonSavePicture";
+            this.buttonSavePicture.Size = new System.Drawing.Size(291, 50);
+            this.buttonSavePicture.TabIndex = 1;
+            this.buttonSavePicture.Text = "Capture Picture";
+            this.buttonSavePicture.UseVisualStyleBackColor = true;
+            this.buttonSavePicture.Click += new System.EventHandler(this.buttonSavePicture_Click);
+            // 
+            // buttonSnapshotOutputFrame
+            // 
+            this.buttonSnapshotOutputFrame.Location = new System.Drawing.Point(22, 733);
+            this.buttonSnapshotOutputFrame.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonSnapshotOutputFrame.Name = "buttonSnapshotOutputFrame";
+            this.buttonSnapshotOutputFrame.Size = new System.Drawing.Size(291, 50);
+            this.buttonSnapshotOutputFrame.TabIndex = 1;
+            this.buttonSnapshotOutputFrame.Text = "Preview";
+            this.buttonSnapshotOutputFrame.UseVisualStyleBackColor = true;
+            this.buttonSnapshotOutputFrame.Click += new System.EventHandler(this.buttonSnapshotOutputFrame_Click);
+            // 
+            // tableLayoutPanelForm
+            // 
+            this.tableLayoutPanelForm.ColumnCount = 2;
+            this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 303F));
+            this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelForm.Controls.Add(this.panelCamera, 1, 0);
+            this.tableLayoutPanelForm.Controls.Add(this.buttonSaveSnapshot, 0, 4);
+            this.tableLayoutPanelForm.Controls.Add(this.buttonSnapshotOutputFrame, 0, 3);
+            this.tableLayoutPanelForm.Controls.Add(this.sdf, 0, 2);
+            this.tableLayoutPanelForm.Controls.Add(this.buttonSavePicture, 0, 1);
+            this.tableLayoutPanelForm.Controls.Add(this.pictureBoxScreenshot, 0, 5);
+            this.tableLayoutPanelForm.Controls.Add(this.treeView1, 0, 0);
+            this.tableLayoutPanelForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelForm.Location = new System.Drawing.Point(0, 44);
+            this.tableLayoutPanelForm.Margin = new System.Windows.Forms.Padding(6);
+            this.tableLayoutPanelForm.Name = "tableLayoutPanelForm";
+            this.tableLayoutPanelForm.Padding = new System.Windows.Forms.Padding(16);
+            this.tableLayoutPanelForm.RowCount = 7;
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.Size = new System.Drawing.Size(1684, 989);
+            this.tableLayoutPanelForm.TabIndex = 0;
+            this.tableLayoutPanelForm.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelForm_Paint);
+            // 
+            // panelCamera
+            // 
+            this.panelCamera.Controls.Add(this.cameraControl);
+            this.panelCamera.Controls.Add(this.buttonUnZoom);
+            this.panelCamera.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCamera.Location = new System.Drawing.Point(325, 22);
+            this.panelCamera.Margin = new System.Windows.Forms.Padding(6);
+            this.panelCamera.Name = "panelCamera";
+            this.tableLayoutPanelForm.SetRowSpan(this.panelCamera, 16);
+            this.panelCamera.Size = new System.Drawing.Size(1337, 1142);
+            this.panelCamera.TabIndex = 1;
+            // 
+            // buttonUnZoom
+            // 
+            this.buttonUnZoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUnZoom.Image = ((System.Drawing.Image)(resources.GetObject("buttonUnZoom.Image")));
+            this.buttonUnZoom.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonUnZoom.Location = new System.Drawing.Point(26, 19);
+            this.buttonUnZoom.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonUnZoom.Name = "buttonUnZoom";
+            this.buttonUnZoom.Size = new System.Drawing.Size(226, 50);
+            this.buttonUnZoom.TabIndex = 1;
+            this.buttonUnZoom.Text = "Reset zoom";
+            this.buttonUnZoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUnZoom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonUnZoom.UseVisualStyleBackColor = true;
+            this.buttonUnZoom.Visible = false;
+            this.buttonUnZoom.Click += new System.EventHandler(this.buttonUnZoom_Click);
+            // 
+            // buttonSaveSnapshot
+            // 
+            this.buttonSaveSnapshot.Location = new System.Drawing.Point(22, 795);
+            this.buttonSaveSnapshot.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonSaveSnapshot.Name = "buttonSaveSnapshot";
+            this.buttonSaveSnapshot.Size = new System.Drawing.Size(291, 50);
+            this.buttonSaveSnapshot.TabIndex = 1;
+            this.buttonSaveSnapshot.Text = "Save Snapshot";
+            this.buttonSaveSnapshot.UseVisualStyleBackColor = true;
+            this.buttonSaveSnapshot.Click += new System.EventHandler(this.buttonSaveSnapShot_Click);
+            // 
+            // sdf
+            // 
+            this.sdf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.sdf.AutoSize = true;
+            this.sdf.Location = new System.Drawing.Point(22, 702);
+            this.sdf.Margin = new System.Windows.Forms.Padding(6, 16, 6, 0);
+            this.sdf.Name = "sdf";
+            this.sdf.Size = new System.Drawing.Size(103, 25);
+            this.sdf.TabIndex = 5;
+            this.sdf.Text = "Snapshot";
+            this.sdf.Click += new System.EventHandler(this.sdf_Click);
+            // 
+            // pictureBoxScreenshot
+            // 
+            this.pictureBoxScreenshot.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxScreenshot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxScreenshot.Location = new System.Drawing.Point(24, 857);
+            this.pictureBoxScreenshot.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBoxScreenshot.Name = "pictureBoxScreenshot";
+            this.pictureBoxScreenshot.Size = new System.Drawing.Size(286, 110);
+            this.pictureBoxScreenshot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxScreenshot.TabIndex = 2;
+            this.pictureBoxScreenshot.TabStop = false;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(20, 21);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(292, 598);
+            this.treeView1.TabIndex = 6;
+            // 
+>>>>>>> d3131ad924ad5dfcf78a5c8483db4bd9d1094786
             // comboBoxDefaultPictureResolution
             // 
             this.comboBoxDefaultPictureResolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -99,8 +241,13 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+<<<<<<< HEAD
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(787, 24);
+=======
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(1684, 44);
+>>>>>>> d3131ad924ad5dfcf78a5c8483db4bd9d1094786
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -109,15 +256,22 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNewEnginePartToolStripMenuItem,
             this.toolStripSeparator4,
+            this.manageEnginesToolStripMenuItem,
+            this.viewEnginePartsToolStripMenuItem,
+            this.manageSectionsToolStripMenuItem,
+            this.toolStripSeparator5,
             this.newInspectionToolStripMenuItem,
             this.toolStripSeparator1,
             this.saveToolStripMenuItem,
             this.saveToolStripMenuItem1,
             this.toolStripSeparator2,
-            this.editInspectionsToolStripMenuItem,
-            this.viewEnginePartsToolStripMenuItem});
+            this.editInspectionsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+<<<<<<< HEAD
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+=======
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
+>>>>>>> d3131ad924ad5dfcf78a5c8483db4bd9d1094786
             this.fileToolStripMenuItem.Text = "File";
             // 
             // addNewEnginePartToolStripMenuItem
@@ -173,8 +327,13 @@
             // viewEnginePartsToolStripMenuItem
             // 
             this.viewEnginePartsToolStripMenuItem.Name = "viewEnginePartsToolStripMenuItem";
+<<<<<<< HEAD
             this.viewEnginePartsToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.viewEnginePartsToolStripMenuItem.Text = "Manage Engine Parts";
+=======
+            this.viewEnginePartsToolStripMenuItem.Size = new System.Drawing.Size(372, 38);
+            this.viewEnginePartsToolStripMenuItem.Text = "Manage Parts List";
+>>>>>>> d3131ad924ad5dfcf78a5c8483db4bd9d1094786
             this.viewEnginePartsToolStripMenuItem.Click += new System.EventHandler(this.viewEnginePartsToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
@@ -186,7 +345,11 @@
             this.cameraSettingsToolStripMenuItem,
             this.cameraOutputSettingsToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+<<<<<<< HEAD
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+=======
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(67, 38);
+>>>>>>> d3131ad924ad5dfcf78a5c8483db4bd9d1094786
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -228,12 +391,17 @@
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+<<<<<<< HEAD
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+=======
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(82, 38);
+>>>>>>> d3131ad924ad5dfcf78a5c8483db4bd9d1094786
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+<<<<<<< HEAD
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
@@ -327,6 +495,28 @@
             this.tableLayoutPanelForm.SetRowSpan(this.panelCamera, 16);
             this.panelCamera.Size = new System.Drawing.Size(613, 614);
             this.panelCamera.TabIndex = 1;
+=======
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(77, 38);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // manageSectionsToolStripMenuItem
+            // 
+            this.manageSectionsToolStripMenuItem.Name = "manageSectionsToolStripMenuItem";
+            this.manageSectionsToolStripMenuItem.Size = new System.Drawing.Size(372, 38);
+            this.manageSectionsToolStripMenuItem.Text = "Manage Sections List";
+            // 
+            // manageEnginesToolStripMenuItem
+            // 
+            this.manageEnginesToolStripMenuItem.Name = "manageEnginesToolStripMenuItem";
+            this.manageEnginesToolStripMenuItem.Size = new System.Drawing.Size(372, 38);
+            this.manageEnginesToolStripMenuItem.Text = "Manage Engines List";
+            this.manageEnginesToolStripMenuItem.Click += new System.EventHandler(this.manageEnginesToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(369, 6);
+>>>>>>> d3131ad924ad5dfcf78a5c8483db4bd9d1094786
             // 
             // cameraControl
             // 
@@ -335,8 +525,13 @@
             this.cameraControl.Location = new System.Drawing.Point(0, 0);
             this.cameraControl.Margin = new System.Windows.Forms.Padding(4);
             this.cameraControl.Name = "cameraControl";
+<<<<<<< HEAD
             this.cameraControl.Size = new System.Drawing.Size(613, 614);
+=======
+            this.cameraControl.Size = new System.Drawing.Size(1337, 1142);
+>>>>>>> d3131ad924ad5dfcf78a5c8483db4bd9d1094786
             this.cameraControl.TabIndex = 2;
+            this.cameraControl.Load += new System.EventHandler(this.cameraControl_Load);
             this.cameraControl.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseDoubleClick);
             this.cameraControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseDown);
             this.cameraControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseMove);
@@ -457,6 +652,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem viewEnginePartsToolStripMenuItem;
         private Camera_NET.CameraControl cameraControl1;
+<<<<<<< HEAD
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.PictureBox pictureBoxScreenshot;
@@ -469,6 +665,11 @@
         private System.Windows.Forms.Button buttonUnZoom;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelForm;
         private System.Windows.Forms.Button button2;
+=======
+        private System.Windows.Forms.ToolStripMenuItem manageEnginesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageSectionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+>>>>>>> d3131ad924ad5dfcf78a5c8483db4bd9d1094786
     }
 }
 

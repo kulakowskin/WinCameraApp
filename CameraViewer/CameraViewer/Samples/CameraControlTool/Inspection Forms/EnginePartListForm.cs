@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
+using SourceGrid;
 
 namespace CameraControlTool
 {
@@ -15,13 +16,8 @@ namespace CameraControlTool
         private System.Windows.Forms.Button brAddRow;
         private System.Windows.Forms.Button btRemoveRow;
 		private SourceGrid.Grid grid1;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button btExportHTML;
-		private System.Windows.Forms.CheckBox chkReadOnly;
-        private System.Windows.Forms.CheckBox chkEditOnDoubleClick;
-        private Button btExportCsv;
-        private Button btExportImage;
         private static EnginePartList enginePartList;
+        private static PartList partList;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -30,6 +26,7 @@ namespace CameraControlTool
 		public EnginePartForm()
 		{
             enginePartList = EnginePartList.getInstance();
+            partList = PartList.getInstance();
 			//
 			// Required for Windows Form Designer support
 			//
@@ -61,20 +58,14 @@ namespace CameraControlTool
             this.brAddRow = new System.Windows.Forms.Button();
             this.btRemoveRow = new System.Windows.Forms.Button();
             this.grid1 = new SourceGrid.Grid();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btExportHTML = new System.Windows.Forms.Button();
-            this.chkReadOnly = new System.Windows.Forms.CheckBox();
-            this.chkEditOnDoubleClick = new System.Windows.Forms.CheckBox();
-            this.btExportCsv = new System.Windows.Forms.Button();
-            this.btExportImage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // brAddRow
             // 
             this.brAddRow.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.brAddRow.Location = new System.Drawing.Point(10, 9);
+            this.brAddRow.Location = new System.Drawing.Point(17, 14);
             this.brAddRow.Name = "brAddRow";
-            this.brAddRow.Size = new System.Drawing.Size(100, 27);
+            this.brAddRow.Size = new System.Drawing.Size(166, 44);
             this.brAddRow.TabIndex = 1;
             this.brAddRow.Text = "Add Part";
             this.brAddRow.Click += new System.EventHandler(this.brAddRow_Click);
@@ -82,9 +73,9 @@ namespace CameraControlTool
             // btRemoveRow
             // 
             this.btRemoveRow.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btRemoveRow.Location = new System.Drawing.Point(115, 9);
+            this.btRemoveRow.Location = new System.Drawing.Point(192, 14);
             this.btRemoveRow.Name = "btRemoveRow";
-            this.btRemoveRow.Size = new System.Drawing.Size(101, 27);
+            this.btRemoveRow.Size = new System.Drawing.Size(168, 44);
             this.btRemoveRow.TabIndex = 2;
             this.btRemoveRow.Text = "Delete Part";
             this.btRemoveRow.Click += new System.EventHandler(this.btRemoveRow_Click);
@@ -97,102 +88,36 @@ namespace CameraControlTool
             this.grid1.BackColor = System.Drawing.Color.White;
             this.grid1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.grid1.EnableSort = true;
-            this.grid1.Location = new System.Drawing.Point(10, 43);
+            this.grid1.Location = new System.Drawing.Point(17, 69);
             this.grid1.Name = "grid1";
             this.grid1.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.grid1.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.grid1.Size = new System.Drawing.Size(748, 299);
+            this.grid1.Size = new System.Drawing.Size(435, 439);
             this.grid1.TabIndex = 1;
             this.grid1.TabStop = true;
             this.grid1.ToolTipText = "";
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.Location = new System.Drawing.Point(10, 364);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 26);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Click column header to sort the grid";
-            // 
-            // btExportHTML
-            // 
-            this.btExportHTML.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btExportHTML.Location = new System.Drawing.Point(445, 10);
-            this.btExportHTML.Name = "btExportHTML";
-            this.btExportHTML.Size = new System.Drawing.Size(101, 27);
-            this.btExportHTML.TabIndex = 7;
-            this.btExportHTML.Text = "&Export HTML";
-            this.btExportHTML.Click += new System.EventHandler(this.btExportHTML_Click);
-            // 
-            // chkReadOnly
-            // 
-            this.chkReadOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkReadOnly.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkReadOnly.Location = new System.Drawing.Point(596, 349);
-            this.chkReadOnly.Name = "chkReadOnly";
-            this.chkReadOnly.Size = new System.Drawing.Size(153, 23);
-            this.chkReadOnly.TabIndex = 8;
-            this.chkReadOnly.Text = "Read Only Cells";
-            this.chkReadOnly.CheckedChanged += new System.EventHandler(this.chkReadOnly_CheckedChanged);
-            // 
-            // chkEditOnDoubleClick
-            // 
-            this.chkEditOnDoubleClick.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkEditOnDoubleClick.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkEditOnDoubleClick.Location = new System.Drawing.Point(596, 367);
-            this.chkEditOnDoubleClick.Name = "chkEditOnDoubleClick";
-            this.chkEditOnDoubleClick.Size = new System.Drawing.Size(153, 23);
-            this.chkEditOnDoubleClick.TabIndex = 9;
-            this.chkEditOnDoubleClick.Text = "Edit On Double Click";
-            this.chkEditOnDoubleClick.CheckedChanged += new System.EventHandler(this.chkEditOnDoubleClick_CheckedChanged);
-            // 
-            // btExportCsv
-            // 
-            this.btExportCsv.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btExportCsv.Location = new System.Drawing.Point(552, 9);
-            this.btExportCsv.Name = "btExportCsv";
-            this.btExportCsv.Size = new System.Drawing.Size(101, 27);
-            this.btExportCsv.TabIndex = 13;
-            this.btExportCsv.Text = "Export CSV";
-            this.btExportCsv.Click += new System.EventHandler(this.btExportCsv_Click);
-            // 
-            // btExportImage
-            // 
-            this.btExportImage.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btExportImage.Location = new System.Drawing.Point(659, 9);
-            this.btExportImage.Name = "btExportImage";
-            this.btExportImage.Size = new System.Drawing.Size(101, 27);
-            this.btExportImage.TabIndex = 14;
-            this.btExportImage.Text = "Export Image";
-            this.btExportImage.Click += new System.EventHandler(this.btExportImage_Click);
-            // 
             // EnginePartForm
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
-            this.ClientSize = new System.Drawing.Size(764, 395);
+            this.AutoScaleBaseSize = new System.Drawing.Size(10, 24);
+            this.ClientSize = new System.Drawing.Size(462, 593);
             this.Controls.Add(this.grid1);
-            this.Controls.Add(this.btExportImage);
-            this.Controls.Add(this.chkEditOnDoubleClick);
-            this.Controls.Add(this.chkReadOnly);
-            this.Controls.Add(this.btExportCsv);
-            this.Controls.Add(this.btExportHTML);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btRemoveRow);
             this.Controls.Add(this.brAddRow);
             this.Name = "EnginePartForm";
-            this.Text = "Sample Grid 1";
-            this.Load += new System.EventHandler(this.frmSampleGrid1_Load);
+            this.Text = "Parts";
+            this.Load += new System.EventHandler(this.Parts_Load);
             this.ResumeLayout(false);
 
 		}
 		#endregion
 
 		//Editors
-		private SourceGrid.Cells.Editors.EditorBase mEditor_Id;
-		private SourceGrid.Cells.Editors.EditorBase mEditor_Name;
-        private SourceGrid.Cells.Editors.EditorBase mEditor_Description;
+		//private SourceGrid.Cells.Editors.EditorBase mEditor_Id;
+		private SourceGrid.Cells.Editors.EditorBase mEditorPartName;
+        //private SourceGrid.Cells.Editors.EditorBase mEditor_Description;
 
+        //engine section part description
         
 		//Views
         private SourceGrid.Cells.Views.Cell mView_Price;
@@ -200,12 +125,11 @@ namespace CameraControlTool
 		//Controllers
 		private SourceGrid.Cells.Controllers.Button mController_Link;
 
-		private void frmSampleGrid1_Load(object sender, System.EventArgs e)
+		private void Parts_Load(object sender, System.EventArgs e)
 		{
-			//string[] l_CountryList = new string[]{"Italy","France","Spain","UK","Argentina","Mexico", "Switzerland", "Brazil", "Germany","Portugal","Sweden","Austria"};
 
 			grid1.RowsCount = 1;
-			grid1.ColumnsCount = 4;
+			grid1.ColumnsCount = 2;
 			grid1.FixedRows = 1;
 			grid1.FixedColumns = 1;
 			grid1.SelectionMode = SourceGrid.GridSelectionMode.Row;
@@ -235,36 +159,48 @@ namespace CameraControlTool
 			SourceGrid.Cells.Header l_00Header = new SourceGrid.Cells.Header(null);
 			grid1[0,0] = l_00Header;
 
-            mEditor_Id = SourceGrid.Cells.Editors.Factory.Create(typeof(int));
-			mEditor_Id.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
-			grid1[0,1] = new SourceGrid.Cells.ColumnHeader("ID (int)");
+            mEditorPartName = SourceGrid.Cells.Editors.Factory.Create(typeof(string));
+            mEditorPartName.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+			grid1[0,1] = new SourceGrid.Cells.ColumnHeader("Part Name");
 
-            mEditor_Name = SourceGrid.Cells.Editors.Factory.Create(typeof(string));
-			mEditor_Name.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
-			grid1[0,2] = new SourceGrid.Cells.ColumnHeader("Part Name (string)");
+            //mEditorPartName = SourceGrid.Cells.Editors.Factory.Create(typeof(string));
+			//mEditorPartName.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
+			//grid1[0,2] = new SourceGrid.Cells.ColumnHeader("Part Name (string)");
 
-            mEditor_Description = SourceGrid.Cells.Editors.Factory.Create(typeof(string));
-            mEditor_Description.EditableMode = SourceGrid.EditableMode.Focus | SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.SingleClick;
-            grid1[0, 3] = new SourceGrid.Cells.ColumnHeader("Description (string)");
+            //mEditor_Description = SourceGrid.Cells.Editors.Factory.Create(typeof(string));
+            //mEditor_Description.EditableMode = SourceGrid.EditableMode.Focus | SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.SingleClick;
+            //grid1[0, 3] = new SourceGrid.Cells.ColumnHeader("Description (string)");
 
-            mEditor_Id.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
-            mEditor_Name.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
-            mEditor_Description.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+            //mEditor_Id.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+            //mEditorPartName.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+            //mEditor_Description.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
 
             #endregion
 
             //Read Data From EnginePartList
-            int rows = enginePartList.getSize() + 1;
+            //int rows = enginePartList.getSize() + 1;
+            //grid1.RowsCount = rows + 1;
+            //int rowsCount = 1;
+            //foreach (EnginePart part in enginePartList.getEngineParts()){
+              //  Console.WriteLine("part: " + part.getDescription());
+                //grid1[rowsCount, 0] = new SourceGrid.Cells.RowHeader(null);
+                //grid1[rowsCount, 1] = new SourceGrid.Cells.Cell("", mEditorPartName);
+                //grid1[rowsCount, 2] = new SourceGrid.Cells.Cell(part.getPartName(), mEditorPartName);
+                //grid1[rowsCount, 3] = new SourceGrid.Cells.Cell(part.getDescription(), mEditor_Description);
+                //rowsCount++;
+            //}
+
+            int rows = partList.getSize() + 1;
             grid1.RowsCount = rows + 1;
             int rowsCount = 1;
-            foreach (EnginePart part in enginePartList.getEngineParts()){
-                Console.WriteLine("part: " + part.getDescription());
+            foreach (Part part in partList.getParts())
+            {
+                Console.WriteLine("part :" + part.getDescription());
                 grid1[rowsCount, 0] = new SourceGrid.Cells.RowHeader(null);
-                grid1[rowsCount, 1] = new SourceGrid.Cells.Cell(rowsCount, mEditor_Name);
-                grid1[rowsCount, 2] = new SourceGrid.Cells.Cell(part.getPartName(), mEditor_Name);
-                grid1[rowsCount, 3] = new SourceGrid.Cells.Cell(part.getDescription(), mEditor_Description);
+                grid1[rowsCount, 1] = new SourceGrid.Cells.Cell(part.getDescription(), mEditorPartName);
                 rowsCount++;
             }
+
            
 
             grid1.AutoSizeCells();
@@ -276,17 +212,19 @@ namespace CameraControlTool
 			grid1.Rows.Insert(row);
 
             grid1[row, 0] = new SourceGrid.Cells.RowHeader(null);
-            grid1[row, 1] = new SourceGrid.Cells.Cell(grid1.RowsCount, mEditor_Id);
-			grid1[row, 2] = new SourceGrid.Cells.Cell(mEditor_Name.DefaultValue, mEditor_Name);
-            grid1[row, 3] = new SourceGrid.Cells.Cell(mEditor_Description.DefaultValue, mEditor_Description);
+            grid1[row, 1] = new SourceGrid.Cells.Cell("", mEditorPartName);
+			//grid1[row, 2] = new SourceGrid.Cells.Cell(mEditorPartName.DefaultValue, mEditorPartName);
+            //grid1[row, 3] = new SourceGrid.Cells.Cell(mEditor_Description.DefaultValue, mEditor_Description);
 
-            String name = (String)mEditor_Name.GetEditedValue();
+            String name = (String)mEditorPartName.GetEditedValue();
             Console.WriteLine("Edited value: " + name);
+            //Console.WriteLine("Description: " + mEditor_Description);
+            Console.WriteLine("Name: + " + mEditorPartName);
+
             // Add new engine part
-            Console.WriteLine("Description: " + mEditor_Description);
-            Console.WriteLine("Name: + " + mEditor_Name);
-            EnginePart part = new EnginePart(mEditor_Name.ToString(), mEditor_Name.ToString(), "", "");
-            enginePartList.addNewPart(part);
+            EnginePart part = new EnginePart();
+            //part.setPartName()
+            //enginePartList.addNewPart(part);
 
             grid1.Selection.FocusRow(row);
 		}
@@ -295,11 +233,15 @@ namespace CameraControlTool
 		{
 			int[] rowsIndex = grid1.Selection.GetSelectionRegion().GetRowsIndex();
 			SourceGrid.RowInfo[] rows = new SourceGrid.RowInfo[rowsIndex.Length];
-			for (int i = 0; i < rows.Length; i++)
-				rows[i] = grid1.Rows[rowsIndex[i]];
+            for (int i = 0; i < rows.Length; i++)
+            {
+                rows[i] = grid1.Rows[rowsIndex[i]];
+                partList.removePart(rowsIndex[i] - 1);
+                Console.WriteLine("index: " + rowsIndex[i]);
+            }
 
-			foreach (SourceGrid.RowInfo r in rows)
-				grid1.Rows.Remove(r.Index);
+            foreach (SourceGrid.RowInfo r in rows)
+                grid1.Rows.Remove(r.Index);
 
 			if (grid1.RowsCount > 1)
 				grid1.Selection.FocusRow(1);
@@ -339,15 +281,7 @@ namespace CameraControlTool
 			}
 		}
 
-		private void chkReadOnly_CheckedChanged(object sender, System.EventArgs e)
-		{
-			for (int r = 0; r < grid1.RowsCount; r++)
-				for (int c = 0; c < grid1.ColumnsCount; c++)
-				{
-					if (grid1[r,c].Editor != null)
-						grid1[r,c].Editor.EnableEdit = !chkReadOnly.Checked;
-				}
-		}
+	
 
 		private void mController_Link_Click(object sender, EventArgs e)
 		{
@@ -365,13 +299,13 @@ namespace CameraControlTool
 		{
 			//if (chkEditOnDoubleClick.Checked)
 			//{
-				mEditor_Id.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
-				mEditor_Name.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+				//mEditor_Id.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
+				mEditorPartName.EditableMode = SourceGrid.EditableMode.AnyKey | SourceGrid.EditableMode.DoubleClick | SourceGrid.EditableMode.F2Key;
 			//}
 			//else
 			//{
 				//mEditor_Id.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
-				//mEditor_Name.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
+				//mEditorPartName.EditableMode = SourceGrid.EditableMode.Focus|SourceGrid.EditableMode.AnyKey|SourceGrid.EditableMode.SingleClick;
 			//}
 		}
 
@@ -419,6 +353,22 @@ namespace CameraControlTool
 
         public class KeyDeleteController : SourceGrid.Cells.Controllers.ControllerBase
         {
+            public override void OnEditEnded(CellContext sender, EventArgs e)
+            {
+                base.OnEditEnded(sender, e);
+
+                int index = sender.Position.Row;
+                SourceGrid.Cells.Cell cell = (SourceGrid.Cells.Cell)sender.Cell;
+                string val = (string)cell.Value;
+
+                Part part = new Part(val);
+                partList.addNewPart(part);
+                Console.WriteLine("Index: " + index);
+                Console.WriteLine("Value: " + val);
+                
+            }
+
+
             public override void OnKeyDown(SourceGrid.CellContext sender, KeyEventArgs e)
             {
                 base.OnKeyDown(sender, e);

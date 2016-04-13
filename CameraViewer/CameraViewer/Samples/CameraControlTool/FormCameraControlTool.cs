@@ -28,6 +28,7 @@ namespace CameraControlTool
     using System.Drawing.Drawing2D;
     using System.Drawing.Text;
     using System.Runtime.InteropServices.ComTypes;
+    using System.IO;
     using System.Threading.Tasks;
 
     using Camera_NET;
@@ -59,6 +60,8 @@ namespace CameraControlTool
         // Video Resolution Choice
         private Resolution currentResolution;
 
+        private DirectoryInfo di;
+
         
         #endregion
 
@@ -67,19 +70,27 @@ namespace CameraControlTool
         // Constructor
         public FormCameraControlTool()
         {
+
             InitializeComponent();
 
-            //SetStyle(ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
         }
 
         // On load of Form
         private void FormCameraControlTool_Load(object sender, EventArgs e)
         {
+
+            //cameraControl.SetCamera(cameraControl.Moniker, null);
             //ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
             //SetCamera(cameraControl.Moniker, resolutions[0]);
             //SetCamera(CameraCon)
             // Fill camera list combobox with available cameras
-            FillCameraList();
+            //FillCameraList();
+            _CameraChoice.UpdateDeviceList();
+            SetCamera(_CameraChoice.Devices[0].Mon, null);
+            populateCameras();
+            populateResolutions();
+            di = new DirectoryInfo(@"C:\Users\" + Environment.UserName + @"\Desktop\Demo\");
 
             // Select the first one
             //if (comboBoxCameraList.Items.Count > 0)
@@ -186,15 +197,20 @@ namespace CameraControlTool
             }
             // TODO : change to be the same directory as Inspections *********************/
             //bitmap.Save("test", ImageFormat.Png);
-            using (SaveFileDialog sfd = new SaveFileDialog())
-            {
-                sfd.Filter = "*.png|*.png";
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
+
+            bitmap.Save(@"C: \Users\" + Environment.UserName + @"\Desktop\Demo\", ImageFormat.Png);
+            //using (SaveFileDialog sfd = new SaveFileDialog())
+            //{
+              //  sfd.Filter = "*.png|*.png";
+                //if (sfd.ShowDialog() == DialogResult.OK)
+                //{
                     //bitmap.Save("test",ImageFormat.Png);
-                    bitmap.Save(sfd.FileName);
-                }
-            }
+                  //  bitmap.Save(sfd.FileName);
+                    //bitmap.Save(@"C: \Users\" + Environment.UserName + @"\Desktop\Demo\", ImageFormat.Png);
+               // }
+            //}
+
+            
             //Set camera back to default video resolution
             //revertToCurrentResolution();
             Console.WriteLine("Setting resolution back to: " + currentResolution);
@@ -937,13 +953,7 @@ namespace CameraControlTool
             
             if (!cameraToolStripMenuItem.HasDropDownItems)
             {
-                foreach (var camera_device in _CameraChoice.Devices)
-                {
-                    ToolStripItem cameraItem = new ToolStripMenuItem();
-                    cameraItem.Text = camera_device.Name;
-                    cameraItem.Click += new EventHandler(cam_item_Click);
-                    cameraToolStripMenuItem.DropDownItems.Add(cameraItem);
-                }
+                populateCameras();
             }
 
             // Need to check for camera switch
@@ -951,17 +961,33 @@ namespace CameraControlTool
             {
                 if (!resolutionToolStripMenuItem.HasDropDownItems)
                 {
-                    ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
-
-                    for (int i = 0; i < resolutions.Count; i++)
-                    {
-                        ToolStripItem resItem = new ToolStripMenuItem();
-                        resItem.Text = resolutions[i].ToString();
-                        resItem.Name = resolutions[i].ToString();
-                        resItem.Click += new EventHandler(res_item_Click);
-                        resolutionToolStripMenuItem.DropDownItems.Add(resItem);
-                    }
+                    populateResolutions();
                 }
+            }
+        }
+
+        private void populateCameras()
+        {
+            foreach (var camera_device in _CameraChoice.Devices)
+            {
+                ToolStripItem cameraItem = new ToolStripMenuItem();
+                cameraItem.Text = camera_device.Name;
+                cameraItem.Click += new EventHandler(cam_item_Click);
+                cameraToolStripMenuItem.DropDownItems.Add(cameraItem);
+            }
+        }
+
+        private void populateResolutions()
+        {
+            ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
+
+            for (int i = 0; i < resolutions.Count; i++)
+            {
+                ToolStripItem resItem = new ToolStripMenuItem();
+                resItem.Text = resolutions[i].ToString();
+                resItem.Name = resolutions[i].ToString();
+                resItem.Click += new EventHandler(res_item_Click);
+                resolutionToolStripMenuItem.DropDownItems.Add(resItem);
             }
         }
 
@@ -1003,6 +1029,15 @@ namespace CameraControlTool
         {
             EnginePartForm form = new EnginePartForm();
             form.Show();
+        }
+
+        private void cameraControl_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void manageEnginesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
