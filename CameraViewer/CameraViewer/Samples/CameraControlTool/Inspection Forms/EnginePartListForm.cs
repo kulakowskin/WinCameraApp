@@ -18,15 +18,18 @@ namespace CameraControlTool
 		private SourceGrid.Grid grid1;
         private static EnginePartList enginePartList;
         private static PartList partList;
+
+        private FormCameraControlTool FCCT;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 
-		public EnginePartForm()
+		public EnginePartForm(FormCameraControlTool FCCT)
 		{
             enginePartList = EnginePartList.getInstance();
             partList = PartList.getInstance();
+            this.FCCT = FCCT;
 			//
 			// Required for Windows Form Designer support
 			//
@@ -63,9 +66,9 @@ namespace CameraControlTool
             // brAddRow
             // 
             this.brAddRow.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.brAddRow.Location = new System.Drawing.Point(17, 14);
+            this.brAddRow.Location = new System.Drawing.Point(8, 8);
             this.brAddRow.Name = "brAddRow";
-            this.brAddRow.Size = new System.Drawing.Size(166, 44);
+            this.brAddRow.Size = new System.Drawing.Size(84, 23);
             this.brAddRow.TabIndex = 1;
             this.brAddRow.Text = "Add Part";
             this.brAddRow.Click += new System.EventHandler(this.brAddRow_Click);
@@ -73,9 +76,9 @@ namespace CameraControlTool
             // btRemoveRow
             // 
             this.btRemoveRow.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btRemoveRow.Location = new System.Drawing.Point(192, 14);
+            this.btRemoveRow.Location = new System.Drawing.Point(96, 8);
             this.btRemoveRow.Name = "btRemoveRow";
-            this.btRemoveRow.Size = new System.Drawing.Size(168, 44);
+            this.btRemoveRow.Size = new System.Drawing.Size(84, 23);
             this.btRemoveRow.TabIndex = 2;
             this.btRemoveRow.Text = "Delete Part";
             this.btRemoveRow.Click += new System.EventHandler(this.btRemoveRow_Click);
@@ -88,18 +91,18 @@ namespace CameraControlTool
             this.grid1.BackColor = System.Drawing.Color.White;
             this.grid1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.grid1.EnableSort = true;
-            this.grid1.Location = new System.Drawing.Point(17, 69);
+            this.grid1.Location = new System.Drawing.Point(8, 37);
             this.grid1.Name = "grid1";
             this.grid1.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.grid1.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.grid1.Size = new System.Drawing.Size(435, 439);
+            this.grid1.Size = new System.Drawing.Size(449, 510);
             this.grid1.TabIndex = 1;
             this.grid1.TabStop = true;
             this.grid1.ToolTipText = "";
             // 
             // EnginePartForm
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(10, 24);
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.ClientSize = new System.Drawing.Size(462, 593);
             this.Controls.Add(this.grid1);
             this.Controls.Add(this.btRemoveRow);
@@ -108,6 +111,7 @@ namespace CameraControlTool
             this.Text = "Parts";
             this.Load += new System.EventHandler(this.Parts_Load);
             this.ResumeLayout(false);
+            this.Closed += new System.EventHandler(this.enginePartForm_Closing);
 
 		}
 		#endregion
@@ -350,6 +354,13 @@ namespace CameraControlTool
                 DevAge.Windows.Forms.ErrorDialog.Show(this, err, "BITMAP Export Error");
             }
         }
+
+        public void enginePartForm_Closing(object sender, EventArgs e)
+        {
+            FCCT.updateComboBoxes();
+        }
+
+
 
         public class KeyDeleteController : SourceGrid.Cells.Controllers.ControllerBase
         {

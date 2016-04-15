@@ -41,6 +41,34 @@ namespace CameraControlTool
             section.setDescription(description);
         }
 
+        public List<Sections> getSections()
+        {
+            return sections;
+        }
+
+        public List<String> getSectionNames()
+        {
+            List<String> nameList = new List<String>();
+            foreach (Sections s in sections)
+            {
+                nameList.Add(s.getDescription());
+            }
+
+            return nameList;
+        }
+
+        /*
+       For testing purposes: A hard-coded Section list
+       */
+        public void testSectionsList()
+        {
+            sections.Add(new Sections("compressor IGV"));
+            sections.Add(new Sections("compressor vane row 12"));
+            sections.Add(new Sections("compressor blade row 14"));
+            sections.Add(new Sections("combustor"));
+            sections.Add(new Sections("turbine vane row 01"));
+            sections.Add(new Sections("turbine blade row 04"));
+        }
 
     }
 }

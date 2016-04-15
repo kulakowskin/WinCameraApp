@@ -57,5 +57,31 @@ namespace CameraControlTool
             }
             return 0;
         }
+
+        public List<String> getPartNames()
+        {
+            List<String> nameList = new List<String>();
+            foreach (Part p in parts)
+            {
+                nameList.Add(p.getDescription());
+            }
+
+            return nameList;
+        }
+
+        /*
+       For testing purposes: A hard-coded Parts list
+       */
+        public void testPartList()
+        {
+            parts.Add(new Part("blade 3"));
+            parts.Add(new Part("support housing"));
+            parts.Add(new Part("vane 3"));
+            parts.Add(new Part("pilot nozzle 8"));
+            parts.Add(new Part("basket 2"));
+            parts.Add(new Part("transition 4"));
+            parts.Add(new Part("inner transition seal 1"));
+            parts.Add(new Part("outer transition seal 2"));
+        }
     }
 }

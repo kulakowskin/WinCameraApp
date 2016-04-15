@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCameraControlTool));
-            this.buttonSavePicture = new System.Windows.Forms.Button();
-            this.buttonSnapshotOutputFrame = new System.Windows.Forms.Button();
-            this.tableLayoutPanelForm = new System.Windows.Forms.TableLayoutPanel();
-            this.panelCamera = new System.Windows.Forms.Panel();
-            this.cameraControl = new Camera_NET.CameraControl();
-            this.buttonUnZoom = new System.Windows.Forms.Button();
-            this.buttonSaveSnapshot = new System.Windows.Forms.Button();
-            this.sdf = new System.Windows.Forms.Label();
-            this.pictureBoxScreenshot = new System.Windows.Forms.PictureBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.comboBoxDefaultPictureResolution = new System.Windows.Forms.ComboBox();
             this.labelDefaultPictureResolutionTitle = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -64,157 +54,25 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cameraControl1 = new Camera_NET.CameraControl();
+            this.sectionLabel = new System.Windows.Forms.TextBox();
+            this.engineLabel = new System.Windows.Forms.TextBox();
+            this.comboBoxEngine = new System.Windows.Forms.ComboBox();
+            this.comboBoxSection = new System.Windows.Forms.ComboBox();
+            this.comboBoxPart = new System.Windows.Forms.ComboBox();
+            this.buttonSavePicture = new System.Windows.Forms.Button();
             this.buttonNewInspection = new System.Windows.Forms.Button();
             this.buttonSaveInspection = new System.Windows.Forms.Button();
-            this.tableLayoutPanelForm.SuspendLayout();
-            this.panelCamera.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScreenshot)).BeginInit();
+            this.panelCamera = new System.Windows.Forms.Panel();
+            this.cameraControl = new Camera_NET.CameraControl();
+            this.buttonUnZoom = new System.Windows.Forms.Button();
+            this.tableLayoutPanelForm = new System.Windows.Forms.TableLayoutPanel();
+            this.partLabel = new System.Windows.Forms.TextBox();
+            this.textBoxNotes = new System.Windows.Forms.TextBox();
+            this.notesLabel = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
+            this.panelCamera.SuspendLayout();
+            this.tableLayoutPanelForm.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonSavePicture
-            // 
-            this.buttonSavePicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSavePicture.Location = new System.Drawing.Point(11, 229);
-            this.buttonSavePicture.Name = "buttonSavePicture";
-            this.buttonSavePicture.Size = new System.Drawing.Size(146, 26);
-            this.buttonSavePicture.TabIndex = 1;
-            this.buttonSavePicture.Text = "Capture Picture";
-            this.buttonSavePicture.UseVisualStyleBackColor = true;
-            this.buttonSavePicture.Click += new System.EventHandler(this.buttonSavePicture_Click);
-            // 
-            // buttonSnapshotOutputFrame
-            // 
-            this.buttonSnapshotOutputFrame.Location = new System.Drawing.Point(11, 282);
-            this.buttonSnapshotOutputFrame.Name = "buttonSnapshotOutputFrame";
-            this.buttonSnapshotOutputFrame.Size = new System.Drawing.Size(146, 26);
-            this.buttonSnapshotOutputFrame.TabIndex = 1;
-            this.buttonSnapshotOutputFrame.Text = "Preview";
-            this.buttonSnapshotOutputFrame.UseVisualStyleBackColor = true;
-            this.buttonSnapshotOutputFrame.Click += new System.EventHandler(this.buttonSnapshotOutputFrame_Click);
-            // 
-            // tableLayoutPanelForm
-            // 
-            this.tableLayoutPanelForm.ColumnCount = 2;
-            this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
-            this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelForm.Controls.Add(this.buttonSaveInspection, 0, 10);
-            this.tableLayoutPanelForm.Controls.Add(this.panelCamera, 1, 0);
-            this.tableLayoutPanelForm.Controls.Add(this.buttonSaveSnapshot, 0, 4);
-            this.tableLayoutPanelForm.Controls.Add(this.buttonSnapshotOutputFrame, 0, 3);
-            this.tableLayoutPanelForm.Controls.Add(this.sdf, 0, 2);
-            this.tableLayoutPanelForm.Controls.Add(this.buttonSavePicture, 0, 1);
-            this.tableLayoutPanelForm.Controls.Add(this.pictureBoxScreenshot, 0, 5);
-            this.tableLayoutPanelForm.Controls.Add(this.treeView1, 0, 0);
-            this.tableLayoutPanelForm.Controls.Add(this.buttonNewInspection, 0, 6);
-            this.tableLayoutPanelForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelForm.Location = new System.Drawing.Point(0, 24);
-            this.tableLayoutPanelForm.Name = "tableLayoutPanelForm";
-            this.tableLayoutPanelForm.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
-            this.tableLayoutPanelForm.RowCount = 7;
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanelForm.Size = new System.Drawing.Size(895, 592);
-            this.tableLayoutPanelForm.TabIndex = 0;
-            this.tableLayoutPanelForm.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelForm_Paint);
-            // 
-            // panelCamera
-            // 
-            this.panelCamera.Controls.Add(this.cameraControl);
-            this.panelCamera.Controls.Add(this.buttonUnZoom);
-            this.panelCamera.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCamera.Location = new System.Drawing.Point(163, 11);
-            this.panelCamera.Name = "panelCamera";
-            this.tableLayoutPanelForm.SetRowSpan(this.panelCamera, 16);
-            this.panelCamera.Size = new System.Drawing.Size(721, 594);
-            this.panelCamera.TabIndex = 1;
-            // 
-            // cameraControl
-            // 
-            this.cameraControl.DirectShowLogFilepath = "";
-            this.cameraControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cameraControl.Location = new System.Drawing.Point(0, 0);
-            this.cameraControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cameraControl.Name = "cameraControl";
-            this.cameraControl.Size = new System.Drawing.Size(721, 594);
-            this.cameraControl.TabIndex = 2;
-            this.cameraControl.Load += new System.EventHandler(this.cameraControl_Load);
-            this.cameraControl.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseDoubleClick);
-            this.cameraControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseDown);
-            this.cameraControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseMove);
-            this.cameraControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseUp);
-            // 
-            // buttonUnZoom
-            // 
-            this.buttonUnZoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUnZoom.Image = ((System.Drawing.Image)(resources.GetObject("buttonUnZoom.Image")));
-            this.buttonUnZoom.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonUnZoom.Location = new System.Drawing.Point(13, 10);
-            this.buttonUnZoom.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonUnZoom.Name = "buttonUnZoom";
-            this.buttonUnZoom.Size = new System.Drawing.Size(113, 26);
-            this.buttonUnZoom.TabIndex = 1;
-            this.buttonUnZoom.Text = "Reset zoom";
-            this.buttonUnZoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUnZoom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonUnZoom.UseVisualStyleBackColor = true;
-            this.buttonUnZoom.Visible = false;
-            this.buttonUnZoom.Click += new System.EventHandler(this.buttonUnZoom_Click);
-            // 
-            // buttonSaveSnapshot
-            // 
-            this.buttonSaveSnapshot.Location = new System.Drawing.Point(11, 314);
-            this.buttonSaveSnapshot.Name = "buttonSaveSnapshot";
-            this.buttonSaveSnapshot.Size = new System.Drawing.Size(146, 26);
-            this.buttonSaveSnapshot.TabIndex = 1;
-            this.buttonSaveSnapshot.Text = "Save Snapshot";
-            this.buttonSaveSnapshot.UseVisualStyleBackColor = true;
-            this.buttonSaveSnapshot.Click += new System.EventHandler(this.buttonSaveSnapShot_Click);
-            // 
-            // sdf
-            // 
-            this.sdf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sdf.AutoSize = true;
-            this.sdf.Location = new System.Drawing.Point(11, 266);
-            this.sdf.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
-            this.sdf.Name = "sdf";
-            this.sdf.Size = new System.Drawing.Size(52, 13);
-            this.sdf.TabIndex = 5;
-            this.sdf.Text = "Snapshot";
-            this.sdf.Click += new System.EventHandler(this.sdf_Click);
-            // 
-            // pictureBoxScreenshot
-            // 
-            this.pictureBoxScreenshot.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBoxScreenshot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxScreenshot.Location = new System.Drawing.Point(12, 397);
-            this.pictureBoxScreenshot.Name = "pictureBoxScreenshot";
-            this.pictureBoxScreenshot.Size = new System.Drawing.Size(144, 58);
-            this.pictureBoxScreenshot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxScreenshot.TabIndex = 2;
-            this.pictureBoxScreenshot.TabStop = false;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(10, 11);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(148, 212);
-            this.treeView1.TabIndex = 6;
             // 
             // comboBoxDefaultPictureResolution
             // 
@@ -247,7 +105,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(895, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(851, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -415,13 +273,86 @@
             this.cameraControl1.Size = new System.Drawing.Size(1337, 962);
             this.cameraControl1.TabIndex = 3;
             // 
+            // sectionLabel
+            // 
+            this.sectionLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.sectionLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sectionLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.sectionLabel.Enabled = false;
+            this.sectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sectionLabel.Location = new System.Drawing.Point(11, 63);
+            this.sectionLabel.Name = "sectionLabel";
+            this.sectionLabel.Size = new System.Drawing.Size(100, 16);
+            this.sectionLabel.TabIndex = 13;
+            this.sectionLabel.Text = "Section:";
+            // 
+            // engineLabel
+            // 
+            this.engineLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.engineLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.engineLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.engineLabel.Enabled = false;
+            this.engineLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.engineLabel.Location = new System.Drawing.Point(11, 11);
+            this.engineLabel.Name = "engineLabel";
+            this.engineLabel.Size = new System.Drawing.Size(100, 16);
+            this.engineLabel.TabIndex = 12;
+            this.engineLabel.Text = "Engine:";
+            // 
+            // comboBoxEngine
+            // 
+            this.comboBoxEngine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxEngine.FormattingEnabled = true;
+            this.comboBoxEngine.Location = new System.Drawing.Point(11, 33);
+            this.comboBoxEngine.MaxDropDownItems = 50;
+            this.comboBoxEngine.Name = "comboBoxEngine";
+            this.comboBoxEngine.Size = new System.Drawing.Size(161, 24);
+            this.comboBoxEngine.TabIndex = 9;
+            // 
+            // comboBoxSection
+            // 
+            this.comboBoxSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSection.FormattingEnabled = true;
+            this.comboBoxSection.Location = new System.Drawing.Point(11, 85);
+            this.comboBoxSection.MaxDropDownItems = 80;
+            this.comboBoxSection.Name = "comboBoxSection";
+            this.comboBoxSection.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxSection.TabIndex = 10;
+            // 
+            // comboBoxPart
+            // 
+            this.comboBoxPart.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxPart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxPart.FormattingEnabled = true;
+            this.comboBoxPart.ItemHeight = 16;
+            this.comboBoxPart.Location = new System.Drawing.Point(11, 134);
+            this.comboBoxPart.MaxDropDownItems = 100;
+            this.comboBoxPart.Name = "comboBoxPart";
+            this.comboBoxPart.Size = new System.Drawing.Size(161, 24);
+            this.comboBoxPart.TabIndex = 11;
+            // 
+            // buttonSavePicture
+            // 
+            this.buttonSavePicture.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSavePicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSavePicture.Location = new System.Drawing.Point(18, 398);
+            this.buttonSavePicture.Name = "buttonSavePicture";
+            this.buttonSavePicture.Size = new System.Drawing.Size(146, 36);
+            this.buttonSavePicture.TabIndex = 1;
+            this.buttonSavePicture.Text = "Capture Picture";
+            this.buttonSavePicture.UseVisualStyleBackColor = true;
+            this.buttonSavePicture.Click += new System.EventHandler(this.buttonSavePicture_Click);
+            // 
             // buttonNewInspection
             // 
+            this.buttonNewInspection.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonNewInspection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewInspection.Location = new System.Drawing.Point(11, 512);
+            this.buttonNewInspection.Location = new System.Drawing.Point(19, 300);
             this.buttonNewInspection.Name = "buttonNewInspection";
-            this.tableLayoutPanelForm.SetRowSpan(this.buttonNewInspection, 4);
-            this.buttonNewInspection.Size = new System.Drawing.Size(145, 31);
+            this.buttonNewInspection.Size = new System.Drawing.Size(145, 35);
             this.buttonNewInspection.TabIndex = 7;
             this.buttonNewInspection.Text = "New Inspection";
             this.buttonNewInspection.UseVisualStyleBackColor = true;
@@ -429,21 +360,144 @@
             // 
             // buttonSaveInspection
             // 
+            this.buttonSaveInspection.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonSaveInspection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSaveInspection.Location = new System.Drawing.Point(11, 551);
+            this.buttonSaveInspection.Location = new System.Drawing.Point(19, 263);
             this.buttonSaveInspection.Name = "buttonSaveInspection";
-            this.tableLayoutPanelForm.SetRowSpan(this.buttonSaveInspection, 4);
             this.buttonSaveInspection.Size = new System.Drawing.Size(145, 31);
             this.buttonSaveInspection.TabIndex = 8;
             this.buttonSaveInspection.Text = "Save Inspection";
             this.buttonSaveInspection.UseVisualStyleBackColor = true;
             this.buttonSaveInspection.Click += new System.EventHandler(this.buttonSaveInspection_Click);
             // 
+            // panelCamera
+            // 
+            this.panelCamera.Controls.Add(this.cameraControl);
+            this.panelCamera.Controls.Add(this.buttonUnZoom);
+            this.panelCamera.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCamera.Location = new System.Drawing.Point(178, 11);
+            this.panelCamera.Name = "panelCamera";
+            this.tableLayoutPanelForm.SetRowSpan(this.panelCamera, 16);
+            this.panelCamera.Size = new System.Drawing.Size(662, 594);
+            this.panelCamera.TabIndex = 1;
+            // 
+            // cameraControl
+            // 
+            this.cameraControl.DirectShowLogFilepath = "";
+            this.cameraControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cameraControl.Location = new System.Drawing.Point(0, 0);
+            this.cameraControl.Margin = new System.Windows.Forms.Padding(4);
+            this.cameraControl.Name = "cameraControl";
+            this.cameraControl.Size = new System.Drawing.Size(662, 594);
+            this.cameraControl.TabIndex = 2;
+            this.cameraControl.Load += new System.EventHandler(this.cameraControl_Load);
+            this.cameraControl.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseDoubleClick);
+            this.cameraControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseDown);
+            this.cameraControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseMove);
+            this.cameraControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseUp);
+            // 
+            // buttonUnZoom
+            // 
+            this.buttonUnZoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUnZoom.Image = ((System.Drawing.Image)(resources.GetObject("buttonUnZoom.Image")));
+            this.buttonUnZoom.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonUnZoom.Location = new System.Drawing.Point(13, 10);
+            this.buttonUnZoom.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonUnZoom.Name = "buttonUnZoom";
+            this.buttonUnZoom.Size = new System.Drawing.Size(113, 26);
+            this.buttonUnZoom.TabIndex = 1;
+            this.buttonUnZoom.Text = "Reset zoom";
+            this.buttonUnZoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUnZoom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonUnZoom.UseVisualStyleBackColor = true;
+            this.buttonUnZoom.Visible = false;
+            this.buttonUnZoom.Click += new System.EventHandler(this.buttonUnZoom_Click);
+            // 
+            // tableLayoutPanelForm
+            // 
+            this.tableLayoutPanelForm.ColumnCount = 2;
+            this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
+            this.tableLayoutPanelForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelForm.Controls.Add(this.notesLabel, 0, 6);
+            this.tableLayoutPanelForm.Controls.Add(this.panelCamera, 1, 0);
+            this.tableLayoutPanelForm.Controls.Add(this.comboBoxPart, 0, 5);
+            this.tableLayoutPanelForm.Controls.Add(this.comboBoxSection, 0, 3);
+            this.tableLayoutPanelForm.Controls.Add(this.comboBoxEngine, 0, 1);
+            this.tableLayoutPanelForm.Controls.Add(this.engineLabel, 0, 0);
+            this.tableLayoutPanelForm.Controls.Add(this.sectionLabel, 0, 2);
+            this.tableLayoutPanelForm.Controls.Add(this.partLabel, 0, 4);
+            this.tableLayoutPanelForm.Controls.Add(this.textBoxNotes, 0, 7);
+            this.tableLayoutPanelForm.Controls.Add(this.buttonSaveInspection, 0, 9);
+            this.tableLayoutPanelForm.Controls.Add(this.buttonSavePicture, 0, 12);
+            this.tableLayoutPanelForm.Controls.Add(this.buttonNewInspection, 0, 10);
+            this.tableLayoutPanelForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelForm.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanelForm.Name = "tableLayoutPanelForm";
+            this.tableLayoutPanelForm.Padding = new System.Windows.Forms.Padding(8);
+            this.tableLayoutPanelForm.RowCount = 16;
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelForm.Size = new System.Drawing.Size(851, 468);
+            this.tableLayoutPanelForm.TabIndex = 0;
+            this.tableLayoutPanelForm.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelForm_Paint);
+            // 
+            // partLabel
+            // 
+            this.partLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.partLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.partLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.partLabel.Enabled = false;
+            this.partLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.partLabel.Location = new System.Drawing.Point(11, 112);
+            this.partLabel.Name = "partLabel";
+            this.partLabel.Size = new System.Drawing.Size(100, 16);
+            this.partLabel.TabIndex = 14;
+            this.partLabel.Text = "Part:";
+            // 
+            // textBoxNotes
+            // 
+            this.textBoxNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNotes.Location = new System.Drawing.Point(11, 183);
+            this.textBoxNotes.Multiline = true;
+            this.textBoxNotes.Name = "textBoxNotes";
+            this.tableLayoutPanelForm.SetRowSpan(this.textBoxNotes, 2);
+            this.textBoxNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxNotes.Size = new System.Drawing.Size(160, 74);
+            this.textBoxNotes.TabIndex = 15;
+            // 
+            // notesLabel
+            // 
+            this.notesLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.notesLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.notesLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.notesLabel.Enabled = false;
+            this.notesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notesLabel.Location = new System.Drawing.Point(11, 161);
+            this.notesLabel.Name = "notesLabel";
+            this.notesLabel.Size = new System.Drawing.Size(100, 16);
+            this.notesLabel.TabIndex = 16;
+            this.notesLabel.Text = "Notes:";
+            // 
             // FormCameraControlTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 616);
+            this.ClientSize = new System.Drawing.Size(851, 492);
             this.Controls.Add(this.tableLayoutPanelForm);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -454,28 +508,19 @@
             this.Text = "Camera Viewer";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.Load += new System.EventHandler(this.FormCameraControlTool_Load);
-            this.tableLayoutPanelForm.ResumeLayout(false);
-            this.tableLayoutPanelForm.PerformLayout();
-            this.panelCamera.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScreenshot)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panelCamera.ResumeLayout(false);
+            this.tableLayoutPanelForm.ResumeLayout(false);
+            this.tableLayoutPanelForm.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonSavePicture;
-        private System.Windows.Forms.Button buttonSnapshotOutputFrame;
-        private System.Windows.Forms.PictureBox pictureBoxScreenshot;
-        private System.Windows.Forms.Button buttonSaveSnapshot;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelForm;
-        private System.Windows.Forms.Panel panelCamera;
-        private System.Windows.Forms.Label sdf;
         private System.Windows.Forms.ComboBox comboBoxDefaultPictureResolution;
         private System.Windows.Forms.Label labelDefaultPictureResolutionTitle;
-        private Camera_NET.CameraControl cameraControl;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
@@ -492,8 +537,6 @@
         private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem cameraOutputSettingsToolStripMenuItem;
-        private System.Windows.Forms.Button buttonUnZoom;
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ToolStripMenuItem addNewEnginePartToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem viewEnginePartsToolStripMenuItem;
@@ -501,8 +544,21 @@
         private System.Windows.Forms.ToolStripMenuItem manageEnginesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageSectionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.Button buttonSaveInspection;
+        private System.Windows.Forms.TextBox sectionLabel;
+        private System.Windows.Forms.TextBox engineLabel;
+        private System.Windows.Forms.ComboBox comboBoxEngine;
+        private System.Windows.Forms.ComboBox comboBoxSection;
+        private System.Windows.Forms.ComboBox comboBoxPart;
+        private System.Windows.Forms.Button buttonSavePicture;
         private System.Windows.Forms.Button buttonNewInspection;
+        private System.Windows.Forms.Button buttonSaveInspection;
+        private System.Windows.Forms.Panel panelCamera;
+        private Camera_NET.CameraControl cameraControl;
+        private System.Windows.Forms.Button buttonUnZoom;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelForm;
+        private System.Windows.Forms.TextBox partLabel;
+        private System.Windows.Forms.TextBox notesLabel;
+        private System.Windows.Forms.TextBox textBoxNotes;
     }
 }
 

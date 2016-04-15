@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CameraControlTool.Inspection_Classes
+namespace CameraControlTool
 {
     class EnginesList
     {
@@ -38,6 +38,32 @@ namespace CameraControlTool.Inspection_Classes
         {
             Engine engine = engines.ElementAt(index);
             engine.setDescription(description);
+        }
+
+        public List<Engine> getEngineList()
+        {
+            return engines;
+        }
+
+        public List<String> getEngineNames()
+        {
+            List<String> nameList = new List<String>();
+            foreach(Engine e in engines)
+            {
+               nameList.Add( e.getDescription() );
+            }
+
+            return nameList;
+        }
+
+        /*
+        For testing purposes: A hard-coded Engine list
+        */
+        public void testEngineList()
+        {
+            engines.Add(new Engine("SGT6-5000F"));
+            engines.Add(new Engine("SGT6-5000G"));
+            engines.Add(new Engine("SGT6-8000H"));
         }
     }
 }
