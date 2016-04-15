@@ -67,6 +67,10 @@ namespace CameraControlTool
         // singleton of InspectionList used for saving 
         private InspectionList inspectionList;
 
+        private static EnginesList enginesList;
+        private PartList partList;
+        private SectionsList sectionsList;
+
         
         #endregion
 
@@ -82,6 +86,22 @@ namespace CameraControlTool
 
             inspectionList = InspectionList.getInstance();
             SL = new SaveLoad();
+            enginesList = EnginesList.getInstance();
+            // inserts a hard-coded list for testing purposes
+            enginesList.testEngineList();
+            comboBoxEngine.DataSource = enginesList.getEngineNames();
+
+            sectionsList = SectionsList.getInstance();
+            // inserts a hard-coded list for testing purposes
+            sectionsList.testSectionsList();
+            comboBoxSection.DataSource = sectionsList.getSectionNames();
+
+            partList = PartList.getInstance();
+            // inserts a hard-coded list for testing purposes
+            partList.testPartList();
+            comboBoxPart.DataSource = partList.getPartNames();
+
+
         }
 
         // On load of Form
@@ -226,69 +246,9 @@ namespace CameraControlTool
             bitmap.Dispose();
         }
 
-        private void buttonSaveSnapShot_Click(object sender, EventArgs e)
-        {
-            if (pictureBoxScreenshot.Image != null)
-            {
-                Bitmap bitmap = (Bitmap)pictureBoxScreenshot.Image;
-                using (SaveFileDialog sfd = new SaveFileDialog())
-                {
-                    sfd.Filter = "*.png|*.png";
-                    if (sfd.ShowDialog() == DialogResult.OK)
-                    {
-                        //bitmap.Save("test",ImageFormat.Png);
-                        bitmap.Save(sfd.FileName);
-                    }
-                }
-            }
-        }
-
         private void buttonMixerOnOff_Click(object sender, EventArgs e)
         {
             cameraControl.MixerEnabled = !cameraControl.MixerEnabled;
-        }
-        
-        private void buttonSnapshotOutputFrame_Click(object sender, EventArgs e)
-        {
-            if (!cameraControl.CameraCreated)
-                return;
-
-            Bitmap bitmap = cameraControl.SnapshotOutputImage();
-            //Bitmap bitmap = cameraControl.SnapshotSourceImage();
-
-            if (bitmap == null)
-                return;
-
-            pictureBoxScreenshot.Image = bitmap;
-            pictureBoxScreenshot.Update();
-        }
-
-        private void buttonSnapshotNextSourceFrame_Click(object sender, EventArgs e)
-        {
-            if (!cameraControl.CameraCreated)
-                return;
-
-            Bitmap bitmap = null;
-            try
-            {
-                bitmap = cameraControl.SnapshotSourceImage();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, @"Error while getting a snapshot");
-            }
-
-            if (bitmap == null)
-                return;
-
-            pictureBoxScreenshot.Image = bitmap;
-            pictureBoxScreenshot.Update();
-        }
-
-        private void buttonClearSnapshotFrame_Click(object sender, EventArgs e)
-        {
-            pictureBoxScreenshot.Image = null;
-            pictureBoxScreenshot.Update();
         }
 
         // Example of crossbar usage
@@ -1060,7 +1020,7 @@ namespace CameraControlTool
 
         private void viewEnginePartsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EnginePartForm form = new EnginePartForm();
+            EnginePartForm form = new EnginePartForm(this);
             form.Show();
         }
 
@@ -1072,5 +1032,13 @@ namespace CameraControlTool
         {
 
         }
+
+        public void updateComboBoxes()
+        {
+            comboBoxPart.DataSource = partList.getPartNames();
+            comboBoxSection.DataSource = sectionsList.getSectionNames();
+            comboBoxEngine.DataSource = enginesList.getEngineNames();
+        }
+
     }
 }
