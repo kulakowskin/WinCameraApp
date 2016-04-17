@@ -212,36 +212,25 @@ namespace CameraControlTool
 
         private void buttonSavePicture_Click(object sender, EventArgs e)
         {
-            // Set camera to the default picture resolution
-            //setToPictureResolution();
 
-            //Console.WriteLine("Capturing picture with resolution of: " + pictureResolutionChoice);
-            //Bitmap bitmap = cameraControl.SnapshotOutputImage();
-            Bitmap bitmap = cameraControl.SnapshotSourceImage();
+            Console.WriteLine("Capturing picture with resolution of: " + pictureResolutionChoice);
+            Bitmap bitmap = cameraControl.SnapshotOutputImage();
 
             if (bitmap == null)
             {
                 return;
             }
-            // TODO : change to be the same directory as Inspections *********************/
-            //bitmap.Save("test", ImageFormat.Png);
 
-            bitmap.Save(@"C: \Users\" + Environment.UserName + @"\Desktop\Demo\", ImageFormat.Png);
-            //using (SaveFileDialog sfd = new SaveFileDialog())
-            //{
-              //  sfd.Filter = "*.png|*.png";
-                //if (sfd.ShowDialog() == DialogResult.OK)
-                //{
+            bitmap.Save("test", ImageFormat.Png);
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "*.png|*.png";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
                     //bitmap.Save("test",ImageFormat.Png);
-                  //  bitmap.Save(sfd.FileName);
-                    //bitmap.Save(@"C: \Users\" + Environment.UserName + @"\Desktop\Demo\", ImageFormat.Png);
-               // }
-            //}
-
-            
-            //Set camera back to default video resolution
-            //revertToCurrentResolution();
-            Console.WriteLine("Setting resolution back to: " + currentResolution);
+                    bitmap.Save(sfd.FileName);
+                }
+            }
 
             bitmap.Dispose();
         }
