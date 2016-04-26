@@ -2,7 +2,8 @@
 This C# application allows the use of external webcams.
 
 # Resources
-The full path for the project file is: WinCameraApp/CameraViewer/CameraViewer/Project/CameraSamples.sln.
+The full path for the project file is: WinCameraApp/CameraViewer/CameraViewer/Project/CameraSamples.sln
+
 The full path for the source code is: WinCameraApp/CameraViewer/CameraViewer/Project/CameraControlTool
 
 # Description
@@ -25,7 +26,9 @@ For example, the process to add the functionality of taking a picture:
 
 # Further Development
 The key classes for adding features are in CameraControlTool->Inspection Classes and CameraControlTool->Inspection Forms.
+
 Currently custom parts can be added. This is done using the EnginePartListForm and Part.cs and PartList.cs. 
+
 To expand this to have Sections and Engines follow the structure in EnginePartListForm. 
 1. Create a form such as SectionPartListForm, following the template of EnginePartListForm.
 2. Replace the PartList with SectionList
