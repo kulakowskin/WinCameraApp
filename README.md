@@ -1,12 +1,11 @@
 # WinCameraApp
+This C# application allows the use of external webcams.
 
 # Resources
 The full path for the project file is: WinCameraApp/CameraViewer/CameraViewer/Project/CameraSamples.sln.
 The full path for the source code is: WinCameraApp/CameraViewer/CameraViewer/Project/CameraControlTool
 
-# Description
-
-This C# application allows the use of external webcams.
+# Usage
 Through the use of the CNET_Library, settings such as brightness, hue, contrast can be manipulated.
 
 The key classes in working with this are:
@@ -23,3 +22,5 @@ For example, the process to add the functionality of taking a picture:
 2. Create function: private void buttonSavePicture_Click(object sender, EventArgs e){} in FormCameraControlTool.cs
 3. Map the button to the function
   - this.buttonSavePicture.Click += new System.EventHandler(this.buttonSavePicture_Click);
+
+# Further Development
